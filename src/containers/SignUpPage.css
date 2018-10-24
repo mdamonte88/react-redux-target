@@ -1,0 +1,84 @@
+#signup {
+    margin: auto;
+    width: 18%;
+}
+
+#signup p {
+    margin: auto;
+    text-align: center;
+}
+
+#signup label {
+    text-transform: uppercase;
+    height: 15px;
+    font-family: OpenSans;
+    font-size: 11px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.7px;
+    text-align: center;
+    /*color: var(--black);*/
+    color: #000000;
+}
+
+
+#signup #title {
+    width: 156px;
+    height: 27px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 3px;
+    color: var(--black);
+
+    /*To Review*/
+    margin-bottom: 38px;
+    font-family: OpenSans;
+}
+
+#signup button {
+    width: 100%;
+    height: 37px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+    font-family: OpenSans;
+    font-size: 11px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.7px;
+    text-align: center;
+
+    /*To Review*/
+    /*background-color: var(--black);*/
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+#signup hr{
+    width: 70%;
+    margin: 19px auto 10.5px auto;
+}
+
+#signup .SIGN-IN-Copy {
+    height: 15px;
+    font-family: OpenSans;
+    font-size: 11px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.7px;
+    text-align: center;
+    color: var(--black);  
+    text-transform: uppercase;
+
+    /*TO REVIEW*/
+    float: left;
+    width: 100%;
+}
+  

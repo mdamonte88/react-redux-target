@@ -2,6 +2,7 @@ export default {
   'login.title': 'INICIAR SESIÓN',
   'login.signup': 'Registrarse',
 
+  'login.form.name': 'Nombre',
   'login.form.email': 'Email',
   'login.form.password': 'Contraseña',
   'login.form.submit': 'Continuar',

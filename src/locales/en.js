@@ -2,15 +2,16 @@ export default {
   'login.title': 'LOGIN',
   'login.signup': 'Sign up',
 
+  'login.form.name': 'Name',
   'login.form.email': 'Email',
   'login.form.password': 'Password',
-  'login.form.submit': 'Submit',
+  'login.form.submit': 'SIGN UP',
 
   'login.forgot_password': 'Forgot your password?',
 
   'signup.title': 'SIGN UP',
   'signup.signin': 'Sign in',
-  'signup.form.passconfirmation': 'Password confirmation',
+  'signup.form.passconfirmation': 'Comfirm Password',
 
   'logout.button': 'LOGOUT',
 

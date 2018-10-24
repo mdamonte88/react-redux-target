@@ -8,6 +8,9 @@ import { signUp } from 'actions/userActions';
 import SignUpForm from 'components/user/SignUpForm';
 import routes from 'constants/routesPaths';
 
+// Styles<
+import './SignUpPage.css';
+
 class SignUpPage extends PureComponent {
   static propTypes = {
     signUp: func.isRequired,
@@ -22,10 +25,11 @@ class SignUpPage extends PureComponent {
     }
 
     return (
-      <div>
-        <p><FormattedMessage id="signup.title" /></p>
+      <div id="signup">
+        <p id="title"><FormattedMessage id="signup.title" /></p>
         <SignUpForm onSubmit={signUp} />
-        <Link to={routes.login}>
+        <hr/>
+        <Link className="SIGN-IN-Copy" to={routes.login}>
           <FormattedMessage id="signup.signin" />
         </Link>
       </div>
