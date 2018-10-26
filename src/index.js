@@ -38,7 +38,7 @@ if (!window.Intl) {
 
 addLocaleData([...en, ...es]);
 
-const paramLocale = new RegExp("(https)?://(\\S+)(locale=)(\\S{2})");
+const paramLocale = new RegExp('(https)?://(\\S+)(locale=)(\\S{2})');
 const usersLocale = (paramLocale && paramLocale.exec(window.location) && paramLocale.exec(window.location)[4]) || navigator.language.split('-')[0];
 const supportedUserLocale = includes(SUPPORTED_LANGUAGES, usersLocale);
 const locale = supportedUserLocale ? usersLocale : DEFAULT_LANGUAGE;

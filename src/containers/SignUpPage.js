@@ -8,8 +8,13 @@ import { signUp } from 'actions/userActions';
 import SignUpForm from 'components/user/SignUpForm';
 import routes from 'constants/routesPaths';
 
-// Styles<
+// Styles
 import './SignUpPage.css';
+
+// Imagenes
+import facebookIcon from './..//assets/socialNetworks/facebook@3x.png';
+import twitterIcon from './..//assets/socialNetworks/twitter@3x.png';
+import playVideoIcon from './..//assets/phone/play@3x.png';
 
 class SignUpPage extends PureComponent {
   static propTypes = {
@@ -26,12 +31,26 @@ class SignUpPage extends PureComponent {
 
     return (
       <div id="signup">
-        <p id="title"><FormattedMessage id="signup.title" /></p>
-        <SignUpForm onSubmit={signUp} />
-        <hr/>
-        <Link className="SIGN-IN-Copy" to={routes.login}>
-          <FormattedMessage id="signup.signin" />
-        </Link>
+        <div id="slideLeft" className="slide">
+          <div className="content">
+            <p id="title"><FormattedMessage id="signup.title" /></p>
+            <SignUpForm onSubmit={signUp} />
+            <hr />
+            <Link className="SIGN-IN-Copy" to={routes.login} >
+              <FormattedMessage id="signup.signin" />
+            </Link>
+          </div>
+        </div>
+        <div id="slideRight" className="slide">
+          <div id="phone">
+            <img id="playVideo" alt="playVideo" src={playVideoIcon} />
+          </div>  
+          <div id="appleStore" />
+          <div id="socialNetworks">
+            <img id="facebookIcon" className="icon" alt="Facebook" src={facebookIcon} />
+            <img id="twitterIcon" className="icon" alt="twitter" src={twitterIcon} />
+          </div>
+        </div>
       </div>
     );
   }

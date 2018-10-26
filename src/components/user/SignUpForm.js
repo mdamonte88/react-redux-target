@@ -16,7 +16,9 @@ const messages = defineMessages({
   name: { id: 'login.form.name' },
   email: { id: 'login.form.email' },
   password: { id: 'login.form.password' },
-  passConfirmation: { id: 'signup.form.passconfirmation' }
+  passwordPlaceHolder: { id: 'login.form.password.placeholder' },
+  passConfirmation: { id: 'signup.form.passconfirmation' },
+  gender: { id: 'signup.form.gender' }
 });
 
 class SignUpForm extends PureComponent {
@@ -53,6 +55,7 @@ class SignUpForm extends PureComponent {
             label={intl.formatMessage(messages.password)}
             component={Input}
             type="password"
+            placeholder={intl.formatMessage(messages.passwordPlaceHolder)}
           />
         </div>
         <div>
