@@ -9,7 +9,7 @@ import SignUpForm from 'components/user/SignUpForm';
 import routes from 'constants/routesPaths';
 
 // Styles
-import './SignUpPage.css';
+import './../styles/signUpPage.scss';
 
 // Imagenes
 import facebookIcon from './..//assets/socialNetworks/facebook@3x.png';
@@ -44,7 +44,7 @@ class SignUpPage extends PureComponent {
         <div id="slideRight" className="slide">
           <div id="phone">
             <img id="playVideo" alt="playVideo" src={playVideoIcon} />
-          </div>  
+          </div>
           <div id="appleStore" />
           <div id="socialNetworks">
             <img id="facebookIcon" className="icon" alt="Facebook" src={facebookIcon} />
