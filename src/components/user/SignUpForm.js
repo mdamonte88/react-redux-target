@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { func, bool } from 'prop-types';
 import { Field, reduxForm } from 'redux-form/immutable';
+
 import {
   injectIntl,
   intlShape,
@@ -10,6 +11,7 @@ import {
 
 import Loading from 'components/common/Loading';
 import Input from 'components/common/Input';
+import Select from 'components/common/Select';
 import { validations, signUp } from 'utils/constraints';
 
 const messages = defineMessages({
@@ -20,6 +22,8 @@ const messages = defineMessages({
   passConfirmation: { id: 'signup.form.passconfirmation' },
   gender: { id: 'signup.form.gender' }
 });
+
+const options = [{ value: 'female', label: 'Female' }, {value: 'male', label: 'Male'}, {value:'other', label: 'Other'}];
 
 class SignUpForm extends PureComponent {
   static propTypes = {
@@ -64,6 +68,15 @@ class SignUpForm extends PureComponent {
             label={intl.formatMessage(messages.passConfirmation)}
             component={Input}
             type="password"
+          />
+        </div>
+        <div>
+          <Field
+            name="gender"
+            label={intl.formatMessage(messages.gender)}
+            component={Select}
+            options={options}
+            type="select"
           />
         </div>
         <button type="submit">
