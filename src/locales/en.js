@@ -14,6 +14,10 @@ export default {
   'signup.signin': 'Sign in',
   'signup.form.passconfirmation': 'Comfirm Password',
   'signup.form.gender': 'gender',
+  'signup.form.selectgender': 'SELECT YOUR GENDER',
+  'signup.form.genders.female': 'Female',
+  'signup.form.genders.male': 'Male',
+  'signup.form.genders.other': 'Other',
 
   'logout.button': 'LOGOUT',
 

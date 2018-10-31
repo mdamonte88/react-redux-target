@@ -16,7 +16,12 @@ export default {
   'signup.title': 'REGISRARSE',
   'signup.signin': 'Iniciar Sesión',
   'signup.form.passconfirmation': 'Confirmación de Contraseña',
+
   'signup.form.gender': 'genero',
+  'signup.form.selectgender': 'SELECCIONE SU GENERO',
+  'signup.form.genders.female': 'Femenino',
+  'signup.form.genders.male': 'Masculino',
+  'signup.form.genders.other': 'Otro',
 
   'signup.form.confirmation.presence': 'Debe confirmar su contraseña para continuar',
   'signup.form.confirmation.equality': 'Su confirmación de contraseña debe ser igual a la contraseña',
@@ -26,7 +31,7 @@ export default {
   'home.welcome': 'Welcome to React Redux Base',
 
   // errors
-  'name.presence': 'You must enter an name to continue',
+  'name.presence': 'Debe ingresar un nombre para continuar',
   'email.presence': 'Debe ingresar un email para continuar',
   'email.invalid': 'Debe ingresar un email válido',
   'password.presence': 'Debe ingresar una contraseña para continuar',
