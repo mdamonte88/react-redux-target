@@ -9,12 +9,12 @@ import SignUpForm from 'components/user/SignUpForm';
 import routes from 'constants/routesPaths';
 
 // Styles
-import './../styles/signUpPage.scss';
+import './../styles/sign-up-page.scss';
 
 // Imagenes
-import facebookIcon from './..//assets/socialNetworks/facebook@3x.png';
-import twitterIcon from './..//assets/socialNetworks/twitter@3x.png';
-import playVideoIcon from './..//assets/phone/play@3x.png';
+import facebookIcon from './../assets/socialNetworks/facebook@3x.png';
+import twitterIcon from './../assets/socialNetworks/twitter@3x.png';
+import playVideoIcon from './../assets/phone/play@3x.png';
 
 class SignUpPage extends PureComponent {
   static propTypes = {
