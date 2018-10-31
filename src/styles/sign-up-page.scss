@@ -7,6 +7,27 @@ $bright-sky-blue: #2fbcf7;
 /**     FONT         **/
 $OpenSans: OpenSans;
 
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
 %input-placeholder-shared {
   color: $gray-color;
   font-family: $OpenSans;
@@ -19,13 +40,12 @@ $OpenSans: OpenSans;
   text-align: center;
 }
 
-#signup .slide {
+.slidesContainer .slide {
   float: left;
   height: 1000px;
-  width: 50%;
 }
 
-#signup #slideLeft {
+.slidesContainer .slide {
   p {
     margin: auto;
     text-align: center;
@@ -151,13 +171,7 @@ $OpenSans: OpenSans;
     width: 30%;
     padding-top: 100px;
   }
-}
 
-#signup .slide#slideRight {
-  background-color: $bright-sky-blue;
-}
-
-#signup #slideRight {
   #phone{
     background-image: url('./../assets/phone/i-6@3x.png');
     background-position: center;
@@ -206,4 +220,8 @@ $OpenSans: OpenSans;
   .icon#facebookIcon {
     margin-right: 22px;
   }
+}
+
+.slidesContainer .slide:nth-child(2) {
+  background-color: $bright-sky-blue;
 }

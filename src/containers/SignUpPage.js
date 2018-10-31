@@ -30,8 +30,8 @@ class SignUpPage extends PureComponent {
     }
 
     return (
-      <div id="signup">
-        <div id="slideLeft" className="slide">
+      <div id="signup" className="slidesContainer">
+        <div id="slideLeft" className="slide col-6">
           <div className="content">
             <p id="title"><FormattedMessage id="signup.title" /></p>
             <SignUpForm onSubmit={signUp} />
@@ -41,7 +41,7 @@ class SignUpPage extends PureComponent {
             </Link>
           </div>
         </div>
-        <div id="slideRight" className="slide">
+        <div id="slideRight" className="slide col-6">
           <div id="phone">
             <img id="playVideo" alt="playVideo" src={playVideoIcon} />
           </div>
