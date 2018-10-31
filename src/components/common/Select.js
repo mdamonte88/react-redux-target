@@ -12,8 +12,8 @@ export default class Select extends PureComponent {
     meta: object,
   };
 
-  OptionItem({ value, label }) {
-    return <option value={value}> {label} </option>;
+  optionItem({ value, label }) {
+    return <option key={value} value={value}> {label} </option>
   }
 
   render() {
@@ -32,7 +32,7 @@ export default class Select extends PureComponent {
         <div>
         
           <select {...input} {...{ placeholder, type }}>
-            {options.map(option => <option key={option.value} value={option.value}> {option.label} </option>)}
+            {options.map(option => this.optionItem(option))}
           </select>
 
           {touched && error &&

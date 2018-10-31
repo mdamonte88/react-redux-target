@@ -20,10 +20,12 @@ const messages = defineMessages({
   password: { id: 'login.form.password' },
   passwordPlaceHolder: { id: 'login.form.password.placeholder' },
   passConfirmation: { id: 'signup.form.passconfirmation' },
-  gender: { id: 'signup.form.gender' }
+  gender: { id: 'signup.form.gender' },
+  selectGender: { id: 'signup.form.selectgender' },
+  female: { id: 'signup.form.genders.female' },
+  male: { id: 'signup.form.genders.male' },
+  other: { id: 'signup.form.genders.other' }
 });
-
-const options = [{ value: 'female', label: 'Female' }, {value: 'male', label: 'Male'}, {value:'other', label: 'Other'}];
 
 class SignUpForm extends PureComponent {
   static propTypes = {
@@ -34,6 +36,7 @@ class SignUpForm extends PureComponent {
 
   render() {
     const { handleSubmit, submitting, intl } = this.props;
+    const genders = [{ value: '', label: intl.formatMessage(messages.selectGender) }, { value: 'female', label: intl.formatMessage(messages.female)}, { value: 'male', label: intl.formatMessage(messages.male) }, { value: 'other', label: intl.formatMessage(messages.other) }];
 
     return (
       <form onSubmit={handleSubmit}>
@@ -75,7 +78,7 @@ class SignUpForm extends PureComponent {
             name="gender"
             label={intl.formatMessage(messages.gender)}
             component={Select}
-            options={options}
+            options={genders}
             type="select"
           />
         </div>
