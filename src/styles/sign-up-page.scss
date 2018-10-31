@@ -1,0 +1,209 @@
+/**     Variables     **/
+$black-color: #000;
+$white-color: #fff;
+$gray-color: #a6a6a6;
+$bright-sky-blue: #2fbcf7;
+
+/**     FONT         **/
+$OpenSans: OpenSans;
+
+%input-placeholder-shared {
+  color: $gray-color;
+  font-family: $OpenSans;
+  font-size: 10px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: normal;
+  text-align: center;
+}
+
+#signup .slide {
+  float: left;
+  height: 1000px;
+  width: 50%;
+}
+
+#signup #slideLeft {
+  p {
+    margin: auto;
+    text-align: center;
+  }
+
+  label {
+    color: $black-color;
+    font-family: $OpenSans;
+    font-size: 11px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    height: 15px;
+    letter-spacing: 1.7px;
+    line-height: normal;
+    margin: 1rem 0 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  select {
+    font-family: $OpenSans;
+    font-size: 12px;
+    text-indent: calc(50% - 60px);
+  }
+
+  span {
+    font-family: $OpenSans;
+    font-size: 12px;
+  }
+
+  button {
+    background-color: $black-color;
+    font-size: 11px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    height: 37px;
+    text-align: center;
+    letter-spacing: 1.7px;
+    width: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+    line-height: normal;
+    color: $white-color;
+  }
+
+  hr{
+    width: 70%;
+    margin: 19px auto 10.5px auto;
+  }
+
+  input {
+    margin: 0 0 0 0;
+  }
+
+  input[name="password"]::placeholder{
+    @extend %input-placeholder-shared;
+  }
+
+  /*Internet Explorer 10-11*/
+  input[name="password"]:-ms-input-placeholder { 
+    text-align: center;
+    font-family: $OpenSans;
+    font-size: 10px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 1.5px;
+    line-height: normal;
+    color: $gray-color;
+  }
+
+  /* Microsoft Edge */
+  input[name="password"]::-ms-input-placeholder {
+    text-align: center;
+    font-family: $OpenSans;
+    font-size: 10px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 1.5px;
+    line-height: normal;
+    color: $gray-color;
+  }
+
+  #title{
+    height: 27px;
+    width: 156px;
+    margin-bottom: 38px;
+    font-family: OpenSans;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 3px;
+    line-height: normal;
+    color: $black-color;
+
+    span {
+        font-size: 20px;
+    }
+        
+  }
+
+  .SIGN-IN-Copy {
+    float: left;
+    height: 15px;
+    width: 100%;
+    font-family: $OpenSans;
+    font-size: 11px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1.7px;
+    line-height: normal;
+    color: $black-color;  
+    text-transform: uppercase;
+  }
+    
+  .content {
+    margin: auto;
+    width: 30%;
+    padding-top: 100px;
+  }
+}
+
+#signup .slide#slideRight {
+  background-color: $bright-sky-blue;
+}
+
+#signup #slideRight {
+  #phone{
+    background-image: url('./../assets/phone/i-6@3x.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 716.4px;
+    margin: auto;
+    position: relative;
+    object-fit: contain;
+    width: 550px;
+
+    #playVideo {
+      height: 80px;
+      left: calc(50% - 40px);
+      -o-object-fit: contain;
+      object-fit: contain;
+      position: absolute;
+      top: calc(50% - 40px + 20px);
+      width: 80px;
+    }
+  }
+
+  #appleStore {
+    background-image: url('./../assets/appstore/appstore-button@3x.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 37px;
+    margin: 0 auto 20px auto;
+    width: 120px;
+  }
+
+  #socialNetworks {
+    height: 37px;
+    margin: auto;
+    text-align: center;
+    width: 120px;
+  }
+
+  .icon {
+    height: 26px;
+    object-fit: contain;
+    width: 27px;
+  }
+
+  .icon#facebookIcon {
+    margin-right: 22px;
+  }
+}
