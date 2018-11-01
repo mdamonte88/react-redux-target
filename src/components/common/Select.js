@@ -13,7 +13,7 @@ export default class Select extends PureComponent {
   };
 
   optionItem({ value, label }) {
-    return <option key={value} value={value}> {label} </option>
+    return <option key={value} value={value}> {label} </option>;
   }
 
   render() {
@@ -30,7 +30,7 @@ export default class Select extends PureComponent {
       <div>
         {label && <label>{label}</label>}
         <div>
-        
+
           <select {...input} {...{ placeholder, type }}>
             {options.map(option => this.optionItem(option))}
           </select>

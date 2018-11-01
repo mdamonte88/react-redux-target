@@ -6,9 +6,11 @@ import { FormattedMessage } from 'react-intl';
 
 import { signUp } from 'actions/userActions';
 import SignUpForm from 'components/user/SignUpForm';
+import Menu from 'components/common/Menu';
 import routes from 'constants/routesPaths';
 
 // Styles
+import './../styles/responsive-styles.scss';
 import './../styles/sign-up-page.scss';
 
 // Imagenes
@@ -31,9 +33,10 @@ class SignUpPage extends PureComponent {
 
     return (
       <div id="signup" className="slidesContainer">
+        <Menu />
         <div id="slideLeft" className="slide col-6">
           <div className="content">
-            <p id="title"><FormattedMessage id="signup.title" /></p>
+            <p className="SIGN-UP"><FormattedMessage id="signup.title" /></p>
             <SignUpForm onSubmit={signUp} />
             <hr />
             <Link className="SIGN-IN-Copy" to={routes.login} >
@@ -42,7 +45,7 @@ class SignUpPage extends PureComponent {
           </div>
         </div>
         <div id="slideRight" className="slide col-6">
-          <div id="phone">
+          <div id="phone" className="phone">
             <img id="playVideo" alt="playVideo" src={playVideoIcon} />
           </div>
           <div id="appleStore" />
