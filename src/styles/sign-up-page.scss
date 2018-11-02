@@ -43,6 +43,7 @@ $bright-sky-blue: #2fbcf7;
     font-family: $body-font-family;
     font-size: 12px;
     text-indent: calc(50% - 60px);
+    margin: 0;
   }
 
   span {
@@ -63,6 +64,14 @@ $bright-sky-blue: #2fbcf7;
     width: 100%;
     background-color: $black;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  button.sign-up-button {
+    margin-top: 34px;
+  }
+
+  button.sign-in-button {
+    margin-top: 22px;
   }
 
   hr {

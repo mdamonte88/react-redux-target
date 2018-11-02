@@ -82,7 +82,7 @@ class SignUpForm extends PureComponent {
             type="select"
           />
         </div>
-        <button type="submit">
+        <button className="sign-up-button" type="submit">
           <FormattedMessage id="login.form.submit" />
         </button>
         {submitting && <Loading />}

@@ -7,16 +7,12 @@ import { FormattedMessage } from 'react-intl';
 import { signUp } from 'actions/userActions';
 import SignUpForm from 'components/user/SignUpForm';
 import Menu from 'components/common/Menu';
+import TargetPoint from 'components/common/TargetPoint';
 import routes from 'constants/routesPaths';
 
 // Styles
 import './../styles/responsive-styles.scss';
 import './../styles/sign-up-page.scss';
-
-// Imagenes
-import facebookIcon from './../assets/socialNetworks/facebook@3x.png';
-import twitterIcon from './../assets/socialNetworks/twitter@3x.png';
-import playVideoIcon from './../assets/phone/play@3x.png';
 
 class SignUpPage extends PureComponent {
   static propTypes = {
@@ -45,14 +41,7 @@ class SignUpPage extends PureComponent {
           </div>
         </div>
         <div id="slideRight" className="slide col-6">
-          <div id="phone" className="phone">
-            <img id="playVideo" alt="playVideo" src={playVideoIcon} />
-          </div>
-          <div id="appleStore" />
-          <div id="socialNetworks">
-            <img id="facebookIcon" className="icon" alt="Facebook" src={facebookIcon} />
-            <img id="twitterIcon" className="icon" alt="twitter" src={twitterIcon} />
-          </div>
+          <TargetPoint />
         </div>
       </div>
     );
