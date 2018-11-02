@@ -31,8 +31,10 @@ class SignUpPage extends PureComponent {
       <div id="signup" className="slidesContainer">
         <Menu />
         <div id="slideLeft" className="slide col-6">
+          <div className="topContent bigTopSeparator">
+            <p className="title"><FormattedMessage id="signup.title" /></p>
+          </div>
           <div className="content">
-            <p className="SIGN-UP"><FormattedMessage id="signup.title" /></p>
             <SignUpForm onSubmit={signUp} />
             <hr />
             <Link className="SIGN-IN-Copy" to={routes.login} >
