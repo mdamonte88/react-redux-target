@@ -42,8 +42,8 @@ $bright-sky-blue: #2fbcf7;
   select {
     font-family: $body-font-family;
     font-size: 12px;
-    text-indent: calc(50% - 60px);
     margin: 0;
+    text-indent: calc(50% - 60px);
   }
 
   span {
@@ -113,10 +113,8 @@ $bright-sky-blue: #2fbcf7;
     text-align: center;
   }
 
-  .SIGN-UP {
+  .title {
     height: 27px;
-    width: 156px;
-    margin-bottom: 38px;
 
     span {
       color: $black;
@@ -128,6 +126,50 @@ $bright-sky-blue: #2fbcf7;
       letter-spacing: 3px;
       line-height: normal;
     }
+  }
+
+  .subTitle {
+    span {
+      font-family: $body-font-family;
+      font-size: 18px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 32px;
+      letter-spacing: normal;
+      color: var(--black-two);
+    }
+  }
+
+  .heading {
+    text-align: start;
+
+    span {
+      font-family: OpenSans;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 26px;
+      letter-spacing: normal;
+      color: var(--black);
+    }
+
+  }
+
+  .Forgot-your-password {
+    color: $black;
+    display: inherit;
+    font-family: $body-font-family;
+    font-size: 11px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: normal;
+    margin-bottom: 82px;
+    margin-top: 15px;
+    text-align: center;
   }
 
   .SIGN-IN-Copy {
@@ -146,10 +188,52 @@ $bright-sky-blue: #2fbcf7;
     float: left;
   }
 
-  .content {
+  .containerContent {
+    width: 100%;
+    float: left;
+    margin-bottom: 82px;
+  }
+
+  .SIGN-IN-Facebook {
+    color: var(--black);
+    font-family: $body-font-family;
+    font-size: 12px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 2.4px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 613px;
+    margin-left: -20px;
+  }
+
+  .topContent {
     margin: auto;
+    width: 321px;
+  }
+
+  .smallTopSeparator  {
+    margin-top: 70px;
+  }
+
+  .bigTopSeparator  {
+    margin-top: 110px;
+  }
+
+
+  .topSeparator  {
+    margin-top: 110px;
+  }
+  
+  .content {
+    margin: 38px auto 0 auto;
     width: 180px;
-    padding-top: 100px;
+  }
+
+  #login .content {
+    width: 188px;
   }
 
   .phone {
@@ -196,6 +280,14 @@ $bright-sky-blue: #2fbcf7;
     object-fit: contain;
     width: 27px;
   }
+
+  .iconCenter {
+    width: 133px;
+    height: 79px;
+    margin: 0 auto 15px auto;
+    display: block;
+  }
+    
 
   .icon#facebookIcon {
     margin-right: 22px;
