@@ -47,8 +47,8 @@ export class LoginForm extends PureComponent {
             type="password"
           />
         </div>
-        <button type="submit">
-          <FormattedMessage id="login.form.submit" />
+        <button className="sign-in-button" type="submit">
+          <FormattedMessage id="login.form.submit.login" />
         </button>
         {submitting && <Loading />}
       </form>
