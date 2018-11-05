@@ -5,7 +5,7 @@ import LogoutButton from 'components/user/LogoutButton';
 import TargetPoint from 'components/common/TargetPoint';
 
 const HomePage = () => (
-  <div id="signup" className="slidesContainer">
+  <div className="slidesContainer homepage">
     <div className="slide col-6">
       <p className="title"><FormattedMessage id="home.welcome" /></p>
       <LogoutButton />
