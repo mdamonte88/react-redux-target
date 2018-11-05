@@ -1,20 +1,5 @@
 @import 'settings';
 
-/* Colors */
-$bright-sky-blue: #2fbcf7;
-
-%input-placeholder-shared {
-  color: $light-gray;
-  font-family: $body-font-family;
-  font-size: 10px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  line-height: normal;
-  text-align: center;
-}
-
 .slidesContainer .slide {
   height: 1000px;
   float: left;
@@ -84,11 +69,6 @@ $bright-sky-blue: #2fbcf7;
   }
 
   input[name="password"]::placeholder {
-    @extend %input-placeholder-shared;
-  }
-
-  /* Microsoft Edge */
-  input[name="password"]::-ms-input-placeholder {
     color: $light-gray;
     font-family: $body-font-family;
     font-size: 10px;
@@ -100,23 +80,8 @@ $bright-sky-blue: #2fbcf7;
     text-align: center;
   }
 
-  /* Internet Explorer 10-11 */
-  input[name="password"]:-ms-input-placeholder {
-    color: $light-gray;
-    font-family: $body-font-family;
-    font-size: 10px;
-    font-stretch: normal;
-    font-style: normal;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    line-height: normal;
-    text-align: center;
-  }
-
-  .SIGN-UP {
+  .title  {
     height: 27px;
-    width: 156px;
-    margin-bottom: 38px;
 
     span {
       color: $black;
@@ -130,7 +95,7 @@ $bright-sky-blue: #2fbcf7;
     }
   }
 
-  .SIGN-IN-Copy {
+  .signIn-link {
     color: $black;
     font-family: $body-font-family;
     font-size: 11px;
@@ -146,10 +111,28 @@ $bright-sky-blue: #2fbcf7;
     float: left;
   }
 
-  .content {
+  .containerContent {
+    width: 100%;
+    float: left;
+    margin-bottom: 82px;
+  }
+
+  .topContent {
     margin: auto;
+    width: 321px;
+  }
+  
+  .smallTopSeparator  {
+    margin-top: 70px;
+  }
+  
+  .bigTopSeparator  {
+    margin-top: 110px;
+  }
+  
+  .content {
+    margin: 38px auto 0 auto;
     width: 180px;
-    padding-top: 100px;
   }
 
   .phone {
@@ -163,7 +146,7 @@ $bright-sky-blue: #2fbcf7;
     position: relative;
     width: 325px;
 
-    #playVideo {
+    .playVideo {
       height: 68px;
       left: calc(50% - 34px);
       -o-object-fit: contain;
@@ -174,7 +157,7 @@ $bright-sky-blue: #2fbcf7;
     }
   }
 
-  #appleStore {
+  .appleStore {
     background-image: url('./../assets/appstore/appstore-button@3x.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -184,7 +167,7 @@ $bright-sky-blue: #2fbcf7;
     width: 120px;
   }
 
-  #socialNetworks {
+  .socialNetworks {
     height: 37px;
     margin: auto;
     text-align: center;
@@ -197,11 +180,11 @@ $bright-sky-blue: #2fbcf7;
     width: 27px;
   }
 
-  .icon#facebookIcon {
+  .icon:first-child {
     margin-right: 22px;
   }
 }
 
 .slidesContainer .slide:last-of-type {
-  background-color: $bright-sky-blue;
+  background-color: $primary-color;
 }

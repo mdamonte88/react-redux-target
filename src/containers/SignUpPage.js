@@ -30,19 +30,19 @@ class SignUpPage extends PureComponent {
     return (
       <div id="signup" className="slidesContainer">
         <Menu />
-        <div id="slideLeft" className="slide col-6">
+        <div className="slide col-6">
           <div className="topContent bigTopSeparator">
             <p className="title"><FormattedMessage id="signup.title" /></p>
           </div>
           <div className="content">
             <SignUpForm onSubmit={signUp} />
             <hr />
-            <Link className="SIGN-IN-Copy" to={routes.login} >
+            <Link className="signIn-link" to={routes.login} >
               <FormattedMessage id="signup.signin" />
             </Link>
           </div>
         </div>
-        <div id="slideRight" className="slide col-6">
+        <div className="slide col-6">
           <TargetPoint />
         </div>
       </div>
