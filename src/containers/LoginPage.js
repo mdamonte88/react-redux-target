@@ -34,15 +34,15 @@ class LoginPage extends PureComponent {
             <p className="heading" > <FormattedMessage id="login.createATarget" /></p>
           </div>
           <div className="content">
-
             <LoginForm onSubmit={login} />
             <div className="Forgot-your-password"> <FormattedMessage id="login.forgot_password" className="Forgot-your-password" /> </div>
-
-            <div className="SIGN-IN-Facebook">
+          </div>
+          <div className="footerContent">
+            <div className="signIn-Facebook">
               <FormattedMessage id="login.form.submit.connectFacebook" />
             </div>
             <hr />
-            <Link className="SIGN-IN-Copy" to={routes.signUp}>
+            <Link className="signIn-link" to={routes.signUp}>
               <FormattedMessage id="login.signup" />
             </Link>
           </div>

@@ -61,7 +61,7 @@
 
   hr {
     margin: 19px auto 10.5px auto;
-    width: 70%;
+    width: 120px;
   }
 
   input {
@@ -161,21 +161,6 @@
     margin-bottom: 82px;
   }
 
-  .SIGN-IN-Facebook {
-    color: var(--black);
-    font-family: $body-font-family;
-    font-size: 12px;
-    font-stretch: normal;
-    font-style: normal;
-    font-weight: bold;
-    letter-spacing: 2.4px;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 613px;
-    margin-left: -20px;
-  }
-
   .topContent {
     margin: auto;
     width: 321px;
@@ -196,6 +181,27 @@
 
   .login .content {
     width: 188px;
+  }
+
+  .footerContent {
+    position: relative;
+    margin: 38px auto 0 auto;
+    width: 216px;
+    
+    .signIn-Facebook {
+      color: $black;
+      font-family: "Open Sans", Helvetica, Roboto, Arial, sans-serif;
+      font-size: 12px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: bold;
+      letter-spacing: 2.4px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      margin-top: -25px;
+      width: 100%;
+    }
   }
 
   .phone {
