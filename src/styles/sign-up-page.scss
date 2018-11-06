@@ -2,7 +2,7 @@
 
 
 /*
-  The site has several pages with content split in two slide:
+  The site has several pages with content splited in two slides:
  
   1) Left slide with forms in Login, Register and Home pages
   2) Right slide with a blue background and a phone
@@ -146,13 +146,13 @@
 
 
   /* 
-    #Blocks to separate elements
+    #Div Blocks to separate elements
   */
-  .topSeparator--small {
+  div.topSeparator--small {
     margin-top: 70px;
   }
 
-  .topSeparator--big {
+  div.topSeparator--big {
     margin-top: 110px;
   }
 
