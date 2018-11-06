@@ -1,8 +1,24 @@
 @import 'settings';
 
+
+/*
+  The site have several pages with content split in two slide:
+ 
+  1) Left slide with forms in Login, Register and Home pages
+  2) Right slide with a blue background and a phone
+ */
+
 .slidesContainer .slide {
   height: 1000px;
   float: left;
+
+  /*
+    #Main elements
+  */
+  hr {
+    margin: 19px auto 10.5px auto;
+    width: 120px;
+  }
 
   p {
     margin: auto;
@@ -24,46 +40,6 @@
     min-height: 15px;
   }
 
-  select {
-    font-family: $body-font-family;
-    font-size: 12px;
-    margin: 0;
-    text-indent: calc(50% - 60px);
-  }
-
-  span {
-    font-family: $body-font-family;
-    font-size: 12px;
-  }
-
-  button {
-    color: $white;
-    font-size: 11px;
-    font-stretch: normal;
-    font-style: normal;
-    font-weight: 600;
-    height: 37px;
-    letter-spacing: 1.7px;
-    line-height: normal;
-    text-align: center;
-    width: 100%;
-    background-color: $black;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
-  }
-
-  button.sign-up-button {
-    margin-top: 34px;
-  }
-
-  button.sign-in-button {
-    margin-top: 22px;
-  }
-
-  hr {
-    margin: 19px auto 10.5px auto;
-    width: 120px;
-  }
-
   input {
     margin: 0 0 0 0;
   }
@@ -78,6 +54,18 @@
     letter-spacing: 1.5px;
     line-height: normal;
     text-align: center;
+  }
+
+  select {
+    font-family: $body-font-family;
+    font-size: 12px;
+    margin: 0;
+    text-indent: calc(50% - 60px);
+  }
+
+  span {
+    font-family: $body-font-family;
+    font-size: 12px;
   }
 
   .title {
@@ -155,6 +143,23 @@
     float: left;
   }
 
+
+
+  /* 
+    #Blocks to separate elements
+  */
+  .topSeparator--small {
+    margin-top: 70px;
+  }
+
+  .topSeparator--big {
+    margin-top: 110px;
+  }
+
+  /*
+    #Main sections of a slide container (.slide)
+  */
+
   .containerContent {
     width: 100%;
     float: left;
@@ -164,23 +169,36 @@
   .topContent {
     margin: auto;
     width: 321px;
-  }
-  
-  .smallTopSeparator  {
-    margin-top: 70px;
-  }
-  
-  .bigTopSeparator  {
-    margin-top: 110px;
+
+    p.bulletPoint {
+      background-image: url('./../assets/icons/oval-2-copy@3x.png');
+      background-repeat: no-repeat;
+      background-size: 11px;
+      background-position-y: 7px;
+      padding-left: 15px;
+      text-align: left;
+      font-family: OpenSans;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 26px;
+      letter-spacing: normal;
+      color: var(--black);
+      height: 104px;
+
+      span {
+        font-weight: bold;
+      }
+    }
+    p.bulletPoint:first-child {
+      margin-top: 58px;
+    }
   }
   
   .content {
     margin: 38px auto 0 auto;
     width: 180px;
-  }
-
-  .login .content {
-    width: 188px;
   }
 
   .footerContent {
@@ -241,7 +259,15 @@
     margin: auto;
     text-align: center;
     width: 120px;
+
+    .icon:first-child {
+      margin-right: 22px;
+    }
   }
+
+  /*
+    #Icons
+  */
 
   .icon {
     height: 26px;
@@ -255,12 +281,44 @@
     margin: 0 auto 15px auto;
     display: block;
   }
-  
-  .icon:first-child {
-    margin-right: 22px;
+
+  /*
+    #Buttons
+  */
+  button {
+    color: $white;
+    font-size: 11px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    height: 37px;
+    letter-spacing: 1.7px;
+    line-height: normal;
+    text-align: center;
+    width: 100%;
+    background-color: $black;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  button.sign-up-button {
+    margin-top: 34px;
+  }
+
+  button.sign-in-button {
+    margin-top: 22px;
   }
 }
 
 .slidesContainer .slide:last-of-type {
   background-color: $primary-color;
+}
+
+/*
+  Login-Page
+*/
+
+.login {
+  .slide .loginContent {
+    width: 188px;
+  }
 }

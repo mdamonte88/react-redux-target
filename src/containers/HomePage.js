@@ -1,14 +1,16 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import LogoutButton from 'components/user/LogoutButton';
-import TargetPoint from 'components/common/TargetPoint';
+import TargetPoint from 'components/user/TargetPoint';
+import Welcome from 'components/user/Welcome';
 
 const HomePage = () => (
   <div className="slidesContainer homepage">
     <div className="slide col-6">
-      <p className="title"><FormattedMessage id="home.welcome" /></p>
-      <LogoutButton />
+      <Welcome currentPage="Home" />
+      <div className="content">
+        <LogoutButton className="sign-in-button" />
+      </div>
     </div>
     <div className="slide col-6">
       <TargetPoint />

@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
-import TargetPoint from 'components/common/TargetPoint';
+import TargetPoint from 'components/user/TargetPoint';
+import Welcome from 'components/user/Welcome';
 import LoginForm from 'components/user/LoginForm';
 import { login } from 'actions/sessionActions';
 import routes from 'constants/routesPaths';
-
-import smileIcon from './../assets/smilies/smilies@3x.png';
 
 class LoginPage extends PureComponent {
   static propTypes = {
@@ -25,15 +24,10 @@ class LoginPage extends PureComponent {
     }
 
     return (
-      <div id="login" className="slidesContainer">
-        <div id="slideLeft" className="slide col-6">
-          <div className="topContent smallTopSeparator">
-            <img id="smilesIcon" className="iconCenter" alt="smiles" src={smileIcon} />
-            <p className="title" ><FormattedMessage id="login.targetMVD" /></p>
-            <p className="subTitle" > <FormattedMessage id="login.findPeople" /> </p>
-            <p className="heading" > <FormattedMessage id="login.createATarget" /></p>
-          </div>
-          <div className="content">
+      <div className="slidesContainer login">
+        <div className="slide col-6">
+          <Welcome currentPage="Login" />
+          <div className="content loginContent">
             <LoginForm onSubmit={login} />
             <div className="Forgot-your-password"> <FormattedMessage id="login.forgot_password" className="Forgot-your-password" /> </div>
           </div>
@@ -47,7 +41,7 @@ class LoginPage extends PureComponent {
             </Link>
           </div>
         </div>
-        <div id="slideRight" className="slide col-6">
+        <div className="slide col-6">
           <TargetPoint />
         </div>
       </div>

@@ -34,6 +34,8 @@ export default {
   'logout.button': 'LOGOUT',
 
   'home.welcome': 'Welcome to React Redux Base',
+  'home.welcome.createTarget': 'Create a target by clicking wherever on the map, specify the ratio and and a topic: Travel, Dating, Music, etc.',
+  'home.welcome.willStart': 'will start a chat whenever you/’ve a match. You can always dismiss a conversation if you /’re not interested.',
 
   // errors
   'name.presence': 'Debe ingresar un nombre para continuar',

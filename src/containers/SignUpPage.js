@@ -6,8 +6,8 @@ import { FormattedMessage } from 'react-intl';
 
 import { signUp } from 'actions/userActions';
 import SignUpForm from 'components/user/SignUpForm';
+import TargetPoint from 'components/user/TargetPoint';
 import Menu from 'components/common/Menu';
-import TargetPoint from 'components/common/TargetPoint';
 import routes from 'constants/routesPaths';
 
 // Styles
@@ -31,7 +31,7 @@ class SignUpPage extends PureComponent {
       <div className="slidesContainer signup">
         <Menu />
         <div className="slide col-6">
-          <div className="topContent bigTopSeparator">
+          <div className="topContent topSeparator--big">
             <p className="title"><FormattedMessage id="signup.title" /></p>
           </div>
           <div className="content">
