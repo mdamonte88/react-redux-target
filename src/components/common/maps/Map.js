@@ -9,7 +9,9 @@ const keys = [{ key: 'AIzaSyDLZWU3aS4i_1_mMMf3aNCExQ4YnTYOyKk', email: 'mdamonte
 class SimpleMap extends PureComponent {
   static propTypes = {
     center: PropTypes.object,
-    zoom: PropTypes.number
+    zoom: PropTypes.number,
+    markers: PropTypes.array,
+    topics: PropTypes.array
   };
 
   static defaultProps = {
@@ -20,22 +22,47 @@ class SimpleMap extends PureComponent {
     zoom: 15
   };
 
+  getTargets(markers) {
+    if (!markers) {
+      markers = this.getDefaultTargets();
+    }
+
+    return markers.map(marker => <CircleMarket key={marker.target.id} lat={marker.target.lat} lng={marker.target.lng} text="" optionsStyle={this.getMarkersOptions(marker.target)} />);
+  }
+
   getDefaultTargets() {
-    const markers = [{ id: 1, lat: -34.8794514, lng: -56.1779299, options: { width: '44px', height: '52px', class: 'markerPoint' } },
-      { id: 2, lat: -34.8798514, lng: -56.1854299, options: { width: '44px', height: '52px', class: 'markerPoint' } },
-      { id: 3, lat: -34.8768514, lng: -56.1840299, options: { width: '44px', height: '52px', class: 'markerPoint' } },
-      { id: 4, lat: -34.8748514, lng: -56.1839299, options: { width: '44px', height: '52px', class: 'markerPoint' } },
-      { id: 5, lat: -34.8738514, lng: -56.1891299, options: { width: '44px', height: '52px', class: 'markerPoint' } }
+    const markersDefaults = [{ target: { id: 1, lat: -34.8794514, lng: -56.1779299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
+      { target: { id: 2, lat: -34.8798514, lng: -56.1854299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
+      { target: { id: 3, lat: -34.8768514, lng: -56.1840299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
+      { target: { id: 4, lat: -34.8748514, lng: -56.1839299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
+      { target: { id: 5, lat: -34.8738514, lng: -56.1891299, options: { width: '44px', height: '52px', class: 'markerPoint' } } }
     ];
 
-    return markers.map(marker => <CircleMarket key={marker.id} lat={marker.lat} lng={marker.lng} text="" optionsStyle={marker.options} />);
+    return markersDefaults;
+  }
+
+  getMarkersOptions(target) {
+    const options = { width: '44px', height: '52px', class: 'markerPoint' };
+    this.topics.map((topic) => {
+      if (topic.topic.id === target.topicId) {
+        options.backgroundImage = `url(${topic.topic.icon})`;
+        options.backgroundRepeat = 'no-repeat';
+        options.backgroundSize = '50px';
+      }
+    });
+
+    return options;
   }
 
   render() {
     const {
       center,
-      zoom
+      zoom,
+      markers,
+      topics
     } = this.props;
+
+    this.topics = this.props.topics;
 
     return (
       // Important! Always set the container height explicitly
@@ -45,7 +72,7 @@ class SimpleMap extends PureComponent {
           defaultCenter={center}
           defaultZoom={zoom}
         >
-          {this.getDefaultTargets()}
+          {this.getTargets(markers, topics)}
         </GoogleMapReact>
       </div>
     );
