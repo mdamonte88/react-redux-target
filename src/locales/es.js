@@ -2,8 +2,8 @@ export default {
   'login.title': 'INICIAR SESIÓN',
   'login.signup': 'Registrarse',
   'login.targetMVD': 'TARGET MVD',
-  'login.findPeople': 'Find people near you & Connect',
-  'login.createATarget': 'Create a  target  wherever on the map, specify your interest: Travel, Dating, Music, etc and start conecting with others who share your interest.',
+  'login.findPeople': 'Encuentra gente cerca de ti y conéctate',
+  'login.createATarget': 'Cree un objetivo en cualquier parte del mapa, especifique su interés: viajes, citas, música, etc. y comience a conectarse con otras personas que compartan su interés.',
 
   'login.form.name': 'Nombre',
   'login.form.email': 'Email',
@@ -18,7 +18,10 @@ export default {
   'login.form.email.invalid': 'Debe ingresar un email válido',
   'login.form.password.presence': 'Debe ingresar una contraseña para continuar',
 
-  'signup.title': 'REGISRARSE',
+  'menu.about': 'ACERCA',
+  'menu.contact': 'CONTACTO',
+
+  'signup.title': 'REGISTRARSE',
   'signup.signin': 'Iniciar Sesión',
   'signup.form.passconfirmation': 'Confirmación de Contraseña',
 
@@ -34,8 +37,9 @@ export default {
   'logout.button': 'LOGOUT',
 
   'home.welcome': 'Welcome to React Redux Base',
-  'home.welcome.createTarget': 'Create a target by clicking wherever on the map, specify the ratio and and a topic: Travel, Dating, Music, etc.',
-  'home.welcome.willStart': 'will start a chat whenever you/’ve a match. You can always dismiss a conversation if you /’re not interested.',
+  'home.welcome.target': 'OBJETIVO',
+  'home.welcome.createTarget': 'Cree un objetivo haciendo clic en cualquier parte del mapa, especifique la proporción y un tema: Viajes, Citas, Música, etc.',
+  'home.welcome.willStart': 'iniciará un chat cada vez que tengas una coincidencia. Siempre puedes descartar una conversación si no estás interesado.',
 
   // errors
   'name.presence': 'Debe ingresar un nombre para continuar',

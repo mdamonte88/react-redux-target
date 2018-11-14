@@ -1,16 +1,14 @@
 @import 'settings';
 
-
 /*
   The site has several pages with content splited in two slides:
- 
   1) Left slide with forms in Login, Register and Home pages
   2) Right slide with a blue background and a phone
  */
 
 .slidesContainer .slide {
-  height: 1000px;
   float: left;
+  height: 1000px;
 
   /*
     #Main elements
@@ -35,9 +33,9 @@
     letter-spacing: 1.7px;
     line-height: normal;
     margin: 1rem 0 0;
+    min-height: 15px;
     text-align: center;
     text-transform: uppercase;
-    min-height: 15px;
   }
 
   input {
@@ -85,14 +83,14 @@
 
   .subTitle {
     span {
+      color: var(--black-two);
       font-family: $body-font-family;
       font-size: 18px;
-      font-weight: 600;
-      font-style: normal;
       font-stretch: normal;
-      line-height: 32px;
+      font-style: normal;
+      font-weight: 600;
       letter-spacing: normal;
-      color: var(--black-two);
+      line-height: 32px;
     }
   }
 
@@ -100,35 +98,20 @@
     text-align: start;
 
     span {
-      font-family: OpenSans;
-      font-size: 14px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 26px;
-      letter-spacing: normal;
       color: var(--black);
+      font-family: $body-font-family;
+      font-size: 14px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: normal;
+      letter-spacing: normal;
+      line-height: 26px;
     }
-
-  }
-
-  .Forgot-your-password {
-    color: $black;
-    display: inherit;
-    font-family: $body-font-family;
-    font-size: 11px;
-    font-stretch: normal;
-    font-style: normal;
-    font-weight: 600;
-    letter-spacing: normal;
-    line-height: normal;
-    margin-bottom: 82px;
-    margin-top: 15px;
-    text-align: center;
   }
 
   .signIn-link {
     color: $black;
+    float: left;
     font-family: $body-font-family;
     font-size: 11px;
     font-stretch: normal;
@@ -140,12 +123,9 @@
     text-align: center;
     text-transform: uppercase;
     width: 100%;
-    float: left;
   }
 
-
-
-  /* 
+  /*
     #Div Blocks to separate elements
   */
   div.topSeparator--small {
@@ -161,65 +141,70 @@
   */
 
   .containerContent {
-    width: 100%;
     float: left;
     margin-bottom: 82px;
+    width: 100%;
   }
 
   .topContent {
     margin: auto;
     width: 321px;
-
-    p.bulletPoint {
-      background-image: url('./../assets/icons/oval-2-copy@3x.png');
-      background-repeat: no-repeat;
-      background-size: 11px;
-      background-position-y: 7px;
-      padding-left: 15px;
-      text-align: left;
-      font-family: OpenSans;
-      font-size: 14px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 26px;
-      letter-spacing: normal;
-      color: var(--black);
-      height: 104px;
-
-      span {
-        font-weight: bold;
-      }
-    }
-    p.bulletPoint:first-child {
-      margin-top: 58px;
-    }
   }
-  
+
   .content {
     margin: 38px auto 0 auto;
     width: 180px;
   }
 
   .footerContent {
-    position: relative;
     margin: 38px auto 0 auto;
+    position: relative;
     width: 216px;
-    
+
     .signIn-Facebook {
       color: $black;
-      font-family: "Open Sans", Helvetica, Roboto, Arial, sans-serif;
+      font-family: $body-font-family;
       font-size: 12px;
       font-stretch: normal;
       font-style: normal;
       font-weight: bold;
       letter-spacing: 2.4px;
       line-height: normal;
+      margin-top: -25px;
       position: absolute;
       text-align: center;
-      margin-top: -25px;
       width: 100%;
     }
+  }
+
+  /*
+    PARAGRAPHS AND CUSTOMS ELEMENTS
+  */
+
+  p.bulletPoint {
+    background-image: url('./../assets/icons/oval-2-copy@3x.png');
+    background-position-y: 7px;
+    background-repeat: no-repeat;
+    background-size: 11px;
+    color: var(--black);
+    font-family: $body-font-family;
+    font-size: 14px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    height: 104px;
+    letter-spacing: normal;
+    line-height: 26px;
+    padding-left: 15px;
+    text-align: left;
+
+    .startTextBold {
+      font-weight: bold;
+    }
+  }
+
+  p.bulletPoint:first-child {
+    margin-top: 58px;
   }
 
   .phone {
@@ -239,8 +224,8 @@
       -o-object-fit: contain;
       object-fit: contain;
       position: absolute;
-      width: 68px;
       top: calc(50% - 34px + 16px);
+      width: 68px;
     }
   }
 
@@ -276,16 +261,18 @@
   }
 
   .iconCenter {
-    width: 133px;
+    display: block;
     height: 79px;
     margin: 0 auto 15px auto;
-    display: block;
+    width: 133px;
   }
 
   /*
     #Buttons
   */
   button {
+    background-color: $black;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
     color: $white;
     font-size: 11px;
     font-stretch: normal;
@@ -296,8 +283,6 @@
     line-height: normal;
     text-align: center;
     width: 100%;
-    background-color: $black;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   }
 
   button.sign-up-button {
@@ -314,11 +299,36 @@
 }
 
 /*
-  Login-Page
+  #Login-Page
 */
 
 .login {
   .slide .loginContent {
     width: 188px;
+  }
+
+  .Forgot-your-password span {
+    color: $black;
+    display: inherit;
+    font-family: $body-font-family;
+    font-size: 11px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: normal;
+    margin-bottom: 82px;
+    margin-top: 15px;
+    text-align: center;
+  }
+}
+
+/*
+ # GOOGLE MAP REACT
+*/
+
+.googleMapContainer {
+  .markerPoint {
+    background-image: url('./../assets/markers/markerPoint.png');
   }
 }

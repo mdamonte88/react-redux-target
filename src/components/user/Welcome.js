@@ -1,10 +1,15 @@
 import React, { PureComponent } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { string } from 'prop-types';
 
 // Imagenes
 import smileIcon from './../../assets/smilies/smilies@3x.png';
 
 export default class Welcome extends PureComponent {
+  static propTypes = {
+    currentPage: string
+  };
+
   Heading() {
     if (this.props.currentPage === 'Login') {
       return <p className="heading" > <FormattedMessage id="login.createATarget" /></p>;
@@ -16,7 +21,7 @@ export default class Welcome extends PureComponent {
             <FormattedMessage id="home.welcome.createTarget" />
           </p>
           <p className="bulletPoint">
-            <span>TARGET</span> <FormattedMessage id="home.welcome.willStart" />
+            <span className="startTextBold" > <FormattedMessage id="home.welcome.target" /> </span> <FormattedMessage id="home.welcome.willStart" />
           </p>
         </div>
       );

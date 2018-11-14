@@ -11,8 +11,8 @@ body {
   display: flex;
   height: 5rem;
   justify-content: center;
-  width: 5rem;
   margin: auto;
+  width: 5rem;
 
   // These two classes are required by react-loaders
   .loader-hidden { display: none; }
@@ -23,6 +23,21 @@ body {
   left: 25px;
   position: absolute;
   top: 14px;
+
+  @media only screen and (max-width: 768px) {
+    .hamburgerIcon {
+      background-image: url('./../assets/menu/menu-icon.png');
+      display: block;
+      height: 20px;
+      position: relative;
+      width: 20px;
+    }
+
+    .menuList,
+    .close {
+      display: none;
+    }
+  }
 
   .close {
     background-image: url('./../assets/menu/close@3x.png');
@@ -53,19 +68,5 @@ body {
 
   .hamburgerIcon {
     display: none;
-  }
-
-  @media only screen and (max-width: 768px) {
-    .hamburgerIcon {
-      background-image: url('./../assets/menu/menu-icon.png');
-      display: block;
-      height: 20px;
-      position: relative;
-      width: 20px;
-    }
-
-    .menuList, .close {
-      display: none;
-    }
   }
 }
