@@ -25,7 +25,7 @@ export default class Welcome extends PureComponent {
             <FormattedMessage id="home.welcome.createTarget" />
           </p>
           <p className="bulletPoint">
-            <span>TARGET</span> <FormattedMessage id="home.welcome.willStart" />
+            <span className="startTextBold" > <FormattedMessage id="home.welcome.target" /> </span> <FormattedMessage id="home.welcome.willStart" />
           </p>
         </div>
       );

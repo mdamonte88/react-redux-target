@@ -10,6 +10,7 @@ export default class Select extends PureComponent {
     type: string.isRequired,
     placeholder: string,
     meta: object,
+    options: Array
   };
 
   optionItem({ value, label }) {

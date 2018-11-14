@@ -15,6 +15,9 @@ export default {
 
   'login.forgot_password': 'Forgot your password?',
 
+  'menu.about': 'ABOUT',
+  'menu.contact': 'CONTACT',
+
   'signup.title': 'SIGN UP',
   'signup.signin': 'Sign in',
   'signup.form.passconfirmation': 'Comfirm Password',
@@ -27,6 +30,7 @@ export default {
   'logout.button': 'LOGOUT',
 
   'home.welcome': 'Welcome to React Redux Base',
+  'home.welcome.target': 'TARGET',
   'home.welcome.createTarget': 'Create a target by clicking wherever on the map, specify the ratio and and a topic: Travel, Dating, Music, etc.',
   'home.welcome.willStart': 'will start a chat whenever you/’ve a match. You can always dismiss a conversation if you /’re not interested.',
 
