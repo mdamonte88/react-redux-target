@@ -19,9 +19,23 @@ class SimpleMap extends PureComponent {
       lat: -34.8812514,
       lng: -56.1787937
     },
-    zoom: 15
+    zoom: 16
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      markers: [], //Not used yet
+      topics: [], //Not used yet
+      currentZoom: '',
+      currentCenter: ''
+    };
+  }
+
+  /*
+    Get the Targets from the user.
+    In the case that there aren´t markets It will show a few by default
+  */
   getTargets(markers) {
     if (!markers) {
       markers = this.getDefaultTargets();
@@ -30,6 +44,9 @@ class SimpleMap extends PureComponent {
     return markers.map(marker => <CircleMarket key={marker.target.id} lat={marker.target.lat} lng={marker.target.lng} text="" optionsStyle={this.getMarkersOptions(marker.target)} />);
   }
 
+  /*
+    Get the Targets Defaults
+  */
   getDefaultTargets() {
     const markersDefaults = [{ target: { id: 1, lat: -34.8794514, lng: -56.1779299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
       { target: { id: 2, lat: -34.8798514, lng: -56.1854299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
@@ -54,6 +71,29 @@ class SimpleMap extends PureComponent {
     return options;
   }
 
+  /*
+    EVENTS
+  */
+  _onClick = ({x, y, lat, lng, event}) => console.log(x, y, lat, lng, event)
+
+  _onBoundsChange = (center, zoom /* , bounds, marginBounds */) => {
+    this.setState({ currentCenter: center });
+    this.setState({ currentZoom: zoom });
+  }
+
+  _onChildClick = (key, childProps) => {
+    console.log('_onChildClick key:' + key);
+    console.log('childProps:' + childProps);
+  }
+
+  _onChildMouseEnter = (key /*, childProps */) => {
+    console.log('_onChildMouseEnter key:' + key);
+  }
+
+  _onChildMouseLeave = (key /*, childProps */) => {
+    console.log('_onChildMouseLeave:' + key);
+  }
+
   render() {
     const {
       center,
@@ -66,14 +106,24 @@ class SimpleMap extends PureComponent {
 
     return (
       // Important! Always set the container height explicitly
-      <div className="googleMapContainer" style={{ height: '100vh', width: '100%' }}>
+      <div className="googleMapContainer" style={{ height: '100vh', width: '100%' }} >
         <GoogleMapReact
           bootstrapURLKeys={{ key: keys[0].key }}
           defaultCenter={center}
           defaultZoom={zoom}
+          onClick={this._onClick}
+          onBoundsChange={this._onBoundsChange}
+          onChildClick={this._onChildClick}
+          onChildMouseEnter={this._onChildMouseEnter}
+          onChildMouseLeave={this._onChildMouseLeave}
         >
           {this.getTargets(markers, topics)}
         </GoogleMapReact>
+
+        <div>
+          <span> Zoom: {this.state.currentZoom} </span> <br />
+          <span> Center: {JSON.stringify(this.state.currentCenter)} </span> <br />
+        </div>
       </div>
     );
   }
