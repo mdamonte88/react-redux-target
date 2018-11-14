@@ -2,7 +2,7 @@ import api from 'api/apiService';
 
 class TargetApi {
   static getTargets() {
-    return api.get('/targets');
+    return api.get('targets');
   }
 
   static createTarget(target) {
