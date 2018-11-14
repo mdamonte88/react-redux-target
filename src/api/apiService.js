@@ -74,10 +74,21 @@ class Api {
       }).catch(() => requestData);
   }
 
+  /* ******************
+      REST METHODS
+  ******************* */
+
+  /*
+    REST
+    HTTP Verb: GET
+    CRUD: Read
+  */
+
   get(uri, apiUrl = process.env.API_URL) {
     const requestData = {
       method: 'get',
       headers: {
+        'Content-Type': 'application/json',
         Accept: 'application/json'
       }
     };
@@ -85,6 +96,11 @@ class Api {
       .then(data => this.performRequest(uri, apiUrl, data));
   }
 
+  /*
+    REST
+    HTTP Verb: POST
+    CRUD: Create
+  */
   post(uri, data, apiUrl = process.env.API_URL) {
     const decamelizeData = humps.decamelizeKeys(data);
     const requestData = {
@@ -99,6 +115,11 @@ class Api {
       .then(data => this.performRequest(uri, apiUrl, data));
   }
 
+  /*
+    REST
+    HTTP Verb: DELETE
+    CRUD: Delete
+  */
   delete(uri, data, apiUrl = process.env.API_URL) {
     const decamelizeData = humps.decamelizeKeys(data);
     const requestData = {
@@ -113,6 +134,11 @@ class Api {
       .then(data => this.performRequest(uri, apiUrl, data));
   }
 
+  /*
+    REST
+    HTTP Verb: PUT
+    CRUD: Update/Replace
+  */
   put(uri, data, apiUrl = process.env.API_URL) {
     const decamelizeData = humps.decamelizeKeys(data);
     const requestData = {
@@ -127,6 +153,11 @@ class Api {
       .then(data => this.performRequest(uri, apiUrl, data));
   }
 
+  /*
+    REST
+    HTTP Verb: PATCH
+    CRUD: Update/Modify
+  */
   patch(uri, data, apiUrl = process.env.API_URL) {
     const decamelizeData = humps.decamelizeKeys(data);
     const requestData = {
