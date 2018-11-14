@@ -1,25 +1,19 @@
 import { SubmissionError } from 'redux-form/immutable';
 
 import TargetApi from 'api/targetApi';
+import * as actions from './actionTypes';
+
+export const loadTargetsSuccess = targets => ({
+  type: actions.LOAD_TARGETS_SUCCESS, targets
+});
 
 export const loadTargets = () =>
-  async () => {
+  async (dispatch) => {
     try {
-      await TargetApi.getTargets();
+      await TargetApi.getTargets().then((data) => {
+        dispatch(loadTargetsSuccess(data.targets));
+      });
     } catch (err) {
       throw new SubmissionError(err.errors);
     }
   };
-
-/*
-  export const loadTargets =
-  () => (dispatch) => {
-    dispatch(getTargetsSent());
-    return targetApi.getTargets().then(({ targets }) => {
-      dispatch(getTargetsSuccess(targets));
-    }).catch((err) => {
-      dispatch(getTargetsFailure());
-      throw (err);
-    });
-  };
-  */
