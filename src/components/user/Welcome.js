@@ -8,7 +8,7 @@ import smileIcon from './../../assets/smilies/smilies@3x.png';
 export default class Welcome extends PureComponent {
   static propTypes = {
     currentPage: string
-  }
+  };
 
   Heading() {
     const {
