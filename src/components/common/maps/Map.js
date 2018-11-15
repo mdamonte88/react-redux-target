@@ -25,8 +25,6 @@ class SimpleMap extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      markers: [], //Not used yet
-      topics: [], //Not used yet
       currentZoom: '',
       currentCenter: ''
     };
@@ -74,7 +72,7 @@ class SimpleMap extends PureComponent {
   /*
     EVENTS
   */
-  _onClick = ({x, y, lat, lng, event}) => console.log(x, y, lat, lng, event)
+  _onClick = ({ x, y, lat, lng, event }) => console.log(x, y, lat, lng, event)
 
   _onBoundsChange = (center, zoom /* , bounds, marginBounds */) => {
     this.setState({ currentCenter: center });
@@ -82,16 +80,18 @@ class SimpleMap extends PureComponent {
   }
 
   _onChildClick = (key, childProps) => {
-    console.log('_onChildClick key:' + key);
-    console.log('childProps:' + childProps);
+    console.log(`_onChildClick key: ${key})`);
+    console.log(`childProps: ${childProps})`);
   }
 
-  _onChildMouseEnter = (key /*, childProps */) => {
-    console.log('_onChildMouseEnter key:' + key);
+  /* , childProps */
+  _onChildMouseEnter = (key) => {
+    console.log(`_onChildMouseEnter key: ${key})`);
   }
 
-  _onChildMouseLeave = (key /*, childProps */) => {
-    console.log('_onChildMouseLeave:' + key);
+  /* , childProps */
+  _onChildMouseLeave = (key) => {
+    console.log(`_onChildMouseLeave key: ${key})`);
   }
 
   render() {

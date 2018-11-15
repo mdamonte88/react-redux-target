@@ -1,15 +1,24 @@
 import React, { PureComponent } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { string } from 'prop-types';
 
 // Imagenes
 import smileIcon from './../../assets/smilies/smilies@3x.png';
 
 export default class Welcome extends PureComponent {
+  static propTypes = {
+    currentPage: string
+  }
+
   Heading() {
-    if (this.props.currentPage === 'Login') {
+    const {
+      currentPage
+    } = this.props;
+
+    if (currentPage === 'Login') {
       return <p className="heading" > <FormattedMessage id="login.createATarget" /></p>;
     }
-    if (this.props.currentPage === 'Home') {
+    if (currentPage === 'Home') {
       return (
         <div>
           <p className="bulletPoint">
