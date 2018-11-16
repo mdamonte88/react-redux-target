@@ -52,7 +52,7 @@ export default {
   // Common Buttons
   'logout.button': 'Desloguearse',
   'save.button': 'Guardar',
-
+  
   // errors
   'name.presence': 'Debe ingresar un nombre para continuar',
   'email.presence': 'Debe ingresar un email para continuar',

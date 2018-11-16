@@ -41,5 +41,18 @@ export const createTarget = {
   }
 };
 
+export const createTarget = {
+  area: {
+    presence: { message: 'area.presence' }
+  },
+  title: {
+    presence: { message: 'title.presence' }
+  },
+  topic: {
+    presence: { message: 'password.presence' }
+  }
+};
+
+
 export const validations = (constraints, props = {}) =>
   data => validate(data.toJS(), constraints, props) || {};

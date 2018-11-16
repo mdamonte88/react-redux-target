@@ -20,7 +20,11 @@ class SimpleMap extends PureComponent {
     zoom: PropTypes.number,
     markers: PropTypes.array,
     topics: PropTypes.array,
+<<<<<<< HEAD
     onClick: PropTypes.func.isRequired
+=======
+    onClick: PropTypes.func
+>>>>>>> Added the Target Form and the dispatchers in order to pass the values to the targetApi
   };
 
   static defaultProps = {
