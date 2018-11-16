@@ -53,6 +53,16 @@ export default {
   'logout.button': 'Desloguearse',
   'save.button': 'Guardar',
 
+  // Target FORM
+  'target.form.specifyArea': 'ESPECIFICAR LARGO DE AREA',
+  'target.form.targetTitle': 'TÍTULO DEL TARGET',
+  'target.form.selectTopic': 'SELECCIONE UN TOPICO',
+  'target.form.saveTarget': 'GUARDAR TARGET',
+
+  // Common Buttons
+  'logout.button': 'Desloguearse',
+  'save.button': 'Guardar',
+
   // errors
   'name.presence': 'Debe ingresar un nombre para continuar',
   'email.presence': 'Debe ingresar un email para continuar',
