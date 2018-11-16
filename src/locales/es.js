@@ -34,12 +34,20 @@ export default {
   'signup.form.confirmation.presence': 'Debe confirmar su contraseña para continuar',
   'signup.form.confirmation.equality': 'Su confirmación de contraseña debe ser igual a la contraseña',
 
-  'logout.button': 'LOGOUT',
-
   'home.welcome': 'Welcome to React Redux Base',
   'home.welcome.target': 'OBJETIVO',
   'home.welcome.createTarget': 'Cree un objetivo haciendo clic en cualquier parte del mapa, especifique la proporción y un tema: Viajes, Citas, Música, etc.',
   'home.welcome.willStart': 'iniciará un chat cada vez que tengas una coincidencia. Siempre puedes descartar una conversación si no estás interesado.',
+
+  // Target FORM
+  'target.form.specifyArea': 'ESPECIFICAR LARGO DE AREA',
+  'target.form.targetTitle': 'TÍTULO DEL TARGET',
+  'target.form.selectTopic': 'SELECCIONE UN TOPICO',
+  'target.form.saveTarget': 'GUARDAR TARGET',
+
+  // Common Buttons
+  'logout.button': 'Desloguearse',
+  'save.button': 'Guardar',
 
   // errors
   'name.presence': 'Debe ingresar un nombre para continuar',
@@ -47,5 +55,8 @@ export default {
   'email.invalid': 'Debe ingresar un email válido',
   'password.presence': 'Debe ingresar una contraseña para continuar',
   'passwordConfirmation.presence': 'Debe confirmar su contraseña para continuar',
-  'passwordConfirmation.equality': 'Su confirmación de contraseña debe ser igual a la contraseña'
+  'passwordConfirmation.equality': 'Su confirmación de contraseña debe ser igual a la contraseña',
+  'area.presence': 'Debe ingresar un area para continuar',
+  'title.presence': 'Debe ingresar un title para continuar',
+  'topic.presence': 'Debe ingresar un topic para continuar'
 };

@@ -6,7 +6,7 @@ class TargetApi {
   }
 
   static createTarget(target) {
-    return api.post('/targets', target);
+    return api.post('targets', target);
   }
 }
 

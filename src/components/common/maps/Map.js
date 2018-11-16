@@ -11,7 +11,8 @@ class SimpleMap extends PureComponent {
     center: PropTypes.object,
     zoom: PropTypes.number,
     markers: PropTypes.array,
-    topics: PropTypes.array
+    topics: PropTypes.array,
+    onClick: PropTypes.func
   };
 
   static defaultProps = {
@@ -84,12 +85,12 @@ class SimpleMap extends PureComponent {
     console.log(`childProps: ${childProps})`);
   }
 
-  /* , childProps */
+  /* childProps */
   _onChildMouseEnter = (key) => {
     console.log(`_onChildMouseEnter key: ${key})`);
   }
 
-  /* , childProps */
+  /* childProps */
   _onChildMouseLeave = (key) => {
     console.log(`_onChildMouseLeave key: ${key})`);
   }
@@ -99,7 +100,8 @@ class SimpleMap extends PureComponent {
       center,
       zoom,
       markers,
-      topics
+      topics,
+      onClick
     } = this.props;
 
     this.topics = this.props.topics;
@@ -111,7 +113,7 @@ class SimpleMap extends PureComponent {
           bootstrapURLKeys={{ key: keys[0].key }}
           defaultCenter={center}
           defaultZoom={zoom}
-          onClick={this._onClick}
+          onClick={onClick}
           onBoundsChange={this._onBoundsChange}
           onChildClick={this._onChildClick}
           onChildMouseEnter={this._onChildMouseEnter}

@@ -3,6 +3,7 @@ import * as actions from '../actions/actionTypes';
 
 const initialState = fromJS({
   targetList: [],
+  target: {}
 });
 
 export default function targetReducer(state = initialState, action) {
@@ -11,6 +12,10 @@ export default function targetReducer(state = initialState, action) {
       return state.setIn(['targetList'], action.targets);
     case actions.LOAD_TARGETS_FAILED:
       return [];
+    case actions.ADD_TARGET_SUCCESS:
+      return state.setIn(['target'], action.target);
+    case actions.ADD_TARGET_FAILED:
+      return {};
     default:
       return state;
   }
