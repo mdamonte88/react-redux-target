@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { func, string, bool } from 'prop-types';
+import { func, string, bool, array } from 'prop-types';
 import { Field, reduxForm } from 'redux-form/immutable';
 import {
   injectIntl,
@@ -10,6 +10,7 @@ import {
 
 import Loading from 'components/common/Loading';
 import Input from 'components/common/Input';
+import Select from 'components/common/Select';
 import { validations, createTarget } from 'utils/constraints';
 
 const messages = defineMessages({
@@ -20,21 +21,37 @@ const messages = defineMessages({
 
 export class CreateTargetForm extends PureComponent {
   static propTypes = {
+    topics: array,
     handleSubmit: func.isRequired,
     intl: intlShape.isRequired,
     submitting: bool.isRequired,
-    error: string
+    error: string,
+  }
+
+  mapTopicsToArray() {
+    const { topics } = this.props;
+    const result = [];
+    topics.forEach((item) => {
+      const topic = {
+        value: item.topic.id,
+        label: item.topic.label,
+        icon: item.topic.icon
+      };
+      result.push(topic);
+    });
+    return result;
   }
 
   render() {
     const { handleSubmit, error, submitting, intl } = this.props;
+    const topicsOptions = this.mapTopicsToArray();
 
     return (
       <form onSubmit={handleSubmit}>
         {error && <strong>{error}</strong>}
         <div>
           <Field
-            name="area"
+            name="radius"
             label={intl.formatMessage(messages.specifyArea)}
             component={Input}
             type="text"
@@ -50,10 +67,12 @@ export class CreateTargetForm extends PureComponent {
         </div>
         <div>
           <Field
-            name="topic"
+            name="topicId"
             label={intl.formatMessage(messages.selectTopic)}
-            component={Input}
-            type="text"
+            component={Select}
+            options={topicsOptions}
+            type="select"
+            placeholder="What do you want to talk about?"
           />
         </div>
         <div className="content">
@@ -71,3 +90,4 @@ export default reduxForm({
   form: 'target',
   validate: validations(createTarget, { fullMessages: false })
 })(injectIntl(CreateTargetForm));
+

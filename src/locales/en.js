@@ -51,5 +51,6 @@ export default {
   'passwordConfirmation.equality': 'Your password confirmation must be equal to the password',
   'area.presence': 'You must enter an area to continue',
   'title.presence': 'You must enter an title to continue',
-  'topic.presence': 'You must enter an topic to continue'
+  'topic.presence': 'You must enter an topic to continue',
+  'area.numeric': 'You must enter an only numeric character and greater than 0 on area field .',
 };

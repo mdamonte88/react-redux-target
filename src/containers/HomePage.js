@@ -15,7 +15,6 @@ class HomePage extends PureComponent {
     super();
     this.state = {
       targetPosition: {},
-      target: {},
       isCreatingNewTarget: false,
     };
     this.onClickMap = this.onClickMap.bind(this);
@@ -38,7 +37,7 @@ class HomePage extends PureComponent {
   }
 
   handleCreateTarget(data) {
-    const { title, radius, topic_id } = data.toJS();
+    const { title, radius, topicId } = data.toJS();
     const { lat, lng } = this.state.targetPosition;
     const targetCompleted = {
       target: {
@@ -46,19 +45,19 @@ class HomePage extends PureComponent {
         lng,
         title,
         radius,
-        topic_id
+        topic_id: topicId
       }
     };
     this.setState({ target: targetCompleted });
     this.props.addTarget(targetCompleted);
   }
 
-  MenuLeft() {
+  MenuLeft(topicList) {
     let menu;
     if (this.state.isCreatingNewTarget) {
       menu = (
         <div className="content">
-          <CreateTargetForm onSubmit={this.handleCreateTarget} />
+          <CreateTargetForm onSubmit={this.handleCreateTarget} topics={topicList} />
         </div>
       );
     } else {
@@ -81,7 +80,7 @@ class HomePage extends PureComponent {
       <div className="slidesContainer homepage">
         <Menu />
         <div className="slide col-6">
-          {this.MenuLeft()}
+          {this.MenuLeft(topicList)}
         </div>
         <div className="slide col-6">
           <SimpleMap markers={targetList} topics={topicList} onClick={this.onClickMap} />
