@@ -13,8 +13,9 @@ export default class Select extends PureComponent {
     options: array
   };
 
-  optionItem({ value, label }) {
-    return <option key={value} value={value}> {label} </option>;
+  optionItem({ value, label, icon }) {
+    const styles = { 'background-size': '20px;', 'background-repeat': 'no-repeat;', 'padding-left': '20px;', 'background-image': `url("${icon}")`};
+    return <option key={value} value={value} style={styles} > {label} </option>;
   }
 
   render() {
@@ -31,7 +32,6 @@ export default class Select extends PureComponent {
       <div>
         {label && <label>{label}</label>}
         <div>
-
           <select {...input} {...{ placeholder, type }}>
             {options.map(option => this.optionItem(option))}
           </select>
