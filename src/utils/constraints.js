@@ -28,13 +28,14 @@ export const signUp = {
 };
 
 export const createTarget = {
-  area: {
-    presence: { message: 'area.presence' }
+  radius: {
+    presence: { message: 'area.presence' },
+    numericality: { greaterThan: 0, message: 'area.numeric' }
   },
   title: {
     presence: { message: 'title.presence' }
   },
-  topic: {
+  topicId: {
     presence: { message: 'password.presence' }
   }
 };
