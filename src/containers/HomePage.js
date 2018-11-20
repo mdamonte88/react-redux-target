@@ -7,11 +7,6 @@ import LogoutButton from 'components/user/LogoutButton';
 import SimpleMap from 'components/common/maps/Map';
 import Welcome from 'components/user/Welcome';
 import CreateTargetForm from 'components/user/CreateTargetForm';
-<<<<<<< HEAD
-=======
-import { array, func } from 'prop-types';
-
->>>>>>> Added the Target Form and the dispatchers in order to pass the values to the targetApi
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
 import './../styles/responsive-styles.scss';
