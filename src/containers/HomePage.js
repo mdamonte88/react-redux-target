@@ -45,10 +45,9 @@ class HomePage extends PureComponent {
         lng,
         title,
         radius,
-        topic_id: topicId
+        topic_id: topicId[0]
       }
     };
-    this.setState({ target: targetCompleted });
     this.props.addTarget(targetCompleted);
   }
 
@@ -56,7 +55,7 @@ class HomePage extends PureComponent {
     let menu;
     if (this.state.isCreatingNewTarget) {
       menu = (
-        <div className="content">
+        <div className="content createTarget">
           <CreateTargetForm onSubmit={this.handleCreateTarget} topics={topicList} />
         </div>
       );
