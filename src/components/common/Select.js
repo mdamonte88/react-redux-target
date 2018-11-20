@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { string, object, array } from 'prop-types';
+import { string, object } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { parseInputErrors } from 'utils/helpers';
 
@@ -10,12 +10,11 @@ export default class Select extends PureComponent {
     type: string.isRequired,
     placeholder: string,
     meta: object,
-    options: array
+    options: Array
   };
 
-  optionItem({ value, label, icon }) {
-    const styles = { 'background-size': '20px;', 'background-repeat': 'no-repeat;', 'padding-left': '20px;', 'background-image': `url("${icon}")`};
-    return <option key={value} value={value} style={styles} > {label} </option>;
+  optionItem({ value, label }) {
+    return <option key={value} value={value}> {label} </option>;
   }
 
   render() {
@@ -32,6 +31,7 @@ export default class Select extends PureComponent {
       <div>
         {label && <label>{label}</label>}
         <div>
+
           <select {...input} {...{ placeholder, type }}>
             {options.map(option => this.optionItem(option))}
           </select>

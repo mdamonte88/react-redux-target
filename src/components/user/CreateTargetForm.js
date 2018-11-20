@@ -10,7 +10,7 @@ import {
 
 import Loading from 'components/common/Loading';
 import Input from 'components/common/Input';
-import Select from 'components/common/Select';
+import CustomSelect from 'components/common/CustomSelect';
 import { validations, createTarget } from 'utils/constraints';
 
 const messages = defineMessages({
@@ -69,7 +69,7 @@ export class CreateTargetForm extends PureComponent {
           <Field
             name="topicId"
             label={intl.formatMessage(messages.selectTopic)}
-            component={Select}
+            component={CustomSelect}
             options={topicsOptions}
             type="select"
             placeholder="What do you want to talk about?"
