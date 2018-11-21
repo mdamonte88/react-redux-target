@@ -90,6 +90,7 @@ class HomePage extends PureComponent {
 
   render() {
     const { targetList, topicList } = this.props;
+    const { isCreatingNewTarget } = this.state;
 
     return (
       <div className="slides-container homepage">

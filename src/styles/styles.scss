@@ -61,6 +61,12 @@ body {
     list-style-type: none;
     margin: 0;
 
+    li {
+      a {
+        color: $black;
+      }
+    }
+
     li.selected {
       font-weight: bold;
     }

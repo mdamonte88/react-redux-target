@@ -29,18 +29,16 @@ class LoginPage extends PureComponent {
           <Welcome currentPage="Login" />
           <div className="content loginContent">
             <LoginForm onSubmit={login} />
-            <div className="forgot-your-password">
-              <FormattedMessage
-                id="login.forgot_password"
-              />
-            </div>
+            <Link className="Forgot-your-password" to={routes.signUp}>
+              <FormattedMessage id="login.forgot_password" className="Forgot-your-password" />
+            </Link>
           </div>
           <div className="footerContent">
             <div className="signIn-Facebook">
               <FormattedMessage id="login.form.submit.connectFacebook" />
             </div>
             <hr />
-            <Link className="signIn-link" to={routes.signUp}>
+            <Link className="signIn-link" to={routes.forgotPassword}>
               <FormattedMessage id="login.signup" />
             </Link>
           </div>
