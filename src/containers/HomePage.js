@@ -9,6 +9,7 @@ import { array, func } from 'prop-types';
 
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
+import { FormattedMessage } from 'react-intl';
 
 class HomePage extends PureComponent {
   constructor() {
@@ -55,8 +56,13 @@ class HomePage extends PureComponent {
     let menu;
     if (this.state.isCreatingNewTarget) {
       menu = (
-        <div className="content createTarget">
-          <CreateTargetForm onSubmit={this.handleCreateTarget} topics={topicList} />
+        <div>
+          <div className="headerContent">
+            <FormattedMessage id="target.title.createTarget" />
+          </div>
+          <div className="content createTarget">
+            <CreateTargetForm onSubmit={this.handleCreateTarget} topics={topicList} />
+          </div>
         </div>
       );
     } else {
@@ -78,10 +84,10 @@ class HomePage extends PureComponent {
     return (
       <div className="slidesContainer homepage">
         <Menu />
-        <div className="slide col-6">
+        <div className="slide slideLeft col-6">
           {this.MenuLeft(topicList)}
         </div>
-        <div className="slide col-6">
+        <div className="slide slideCenter col-6">
           <SimpleMap markers={targetList} topics={topicList} onClick={this.onClickMap} />
         </div>
       </div>

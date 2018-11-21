@@ -39,7 +39,9 @@ export default {
   'home.welcome.createTarget': 'Cree un objetivo haciendo clic en cualquier parte del mapa, especifique la proporción y un tema: Viajes, Citas, Música, etc.',
   'home.welcome.willStart': 'iniciará un chat cada vez que tengas una coincidencia. Siempre puedes descartar una conversación si no estás interesado.',
 
-  // Target FORM
+  // Target
+  'target.title.createTarget': 'CREAR TARGET',
+  'target.title.createNewTarget': 'CREAR NUEVO TARGET',
   'target.form.specifyArea': 'ESPECIFICAR LARGO DE AREA',
   'target.form.targetTitle': 'TÍTULO DEL TARGET',
   'target.form.selectTopic': 'SELECCIONE UN TOPICO',

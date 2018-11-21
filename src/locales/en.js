@@ -32,13 +32,15 @@ export default {
   'home.welcome.createTarget': 'Create a target by clicking wherever on the map, specify the ratio and and a topic: Travel, Dating, Music, etc.',
   'home.welcome.willStart': 'will start a chat whenever you/’ve a match. You can always dismiss a conversation if you /’re not interested.',
 
-  // Target FORM
+  // Target
+  'target.title.createTarget': 'CREATE TARGET',
+  'target.title.createNewTarget': 'CREATE NEW TARGET',
   'target.form.specifyArea': 'SPECIFY AREA LENGHT',
   'target.form.targetTitle': 'TARGET TITLE',
   'target.form.selectTopic': 'SELECT A TOPIC',
   'target.form.saveTarget': 'SAVE TARGET',
 
-  // cleCommon Buttons
+  // Common Buttons
   'logout.button': 'LOGOUT',
   'save.button': 'SAVE',
 

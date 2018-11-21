@@ -12,6 +12,9 @@ import Loading from 'components/common/Loading';
 import Input from 'components/common/Input';
 import CustomSelect from 'components/common/CustomSelect';
 import { validations, createTarget } from 'utils/constraints';
+// Imagenes
+import createTargetIcon from './../../assets/targetGroup/group.png';
+
 
 const messages = defineMessages({
   specifyArea: { id: 'target.form.specifyArea' },
@@ -50,6 +53,11 @@ export class CreateTargetForm extends PureComponent {
       <form onSubmit={handleSubmit}>
         {error && <strong>{error}</strong>}
         <div>
+          <div className="targetGroupContainer">
+            <img src = {createTargetIcon} className="targetGroup" />
+            <FormattedMessage id="target.title.createTarget" />
+          </div>
+
           <Field
             name="radius"
             label={intl.formatMessage(messages.specifyArea)}

@@ -190,6 +190,18 @@
     margin: auto;
     width: 321px;
   }
+  
+  .headerContent {
+    background-color: $primary-color;
+    height: 59px;
+    padding-top: 17px;
+    color: white;
+    text-align: center;
+
+    span {
+      font-size: 20px;
+    }
+  }
 
   .content {
     margin: 38px auto 0 auto;
@@ -334,6 +346,14 @@
   }
 }
 
+.slideLeft {
+  width: 357px;
+}
+
+.slideCenter{
+  width: calc(100% - 357px);
+}
+
 .slidesContainer .slide:last-of-type {
   background-color: $primary-color;
 }
@@ -370,5 +390,24 @@
 .googleMapContainer {
   .markerPoint {
     background-image: url('./../assets/markers/markerPoint.png');
+  }
+
+  .targetGroupContainer {
+    .targetGroup {
+      margin: auto;
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+  
+    span {
+      text-align: center;
+      width: 100%;
+      float: left;
+      margin: 6px 0 26px 0;
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      font-weight: 600;
+    }
   }
 }
