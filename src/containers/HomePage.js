@@ -9,7 +9,11 @@ import Welcome from 'components/user/Welcome';
 import CreateTargetForm from 'components/user/CreateTargetForm';
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
+<<<<<<< HEAD
 import './../styles/responsive-styles.scss';
+=======
+import { FormattedMessage } from 'react-intl';
+>>>>>>> Changed some UI styles in order to better the appearence of menu left in HomePage.
 
 class HomePage extends PureComponent {
   static propTypes = {

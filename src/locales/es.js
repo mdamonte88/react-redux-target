@@ -53,7 +53,9 @@ export default {
   'logout.button': 'Desloguearse',
   'save.button': 'Guardar',
 
-  // Target FORM
+  // Target
+  'target.title.createTarget': 'CREAR TARGET',
+  'target.title.createNewTarget': 'CREAR NUEVO TARGET',
   'target.form.specifyArea': 'ESPECIFICAR LARGO DE AREA',
   'target.form.targetTitle': 'TÍTULO DEL TARGET',
   'target.form.selectTopic': 'SELECCIONE UN TOPICO',
