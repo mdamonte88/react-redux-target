@@ -21,28 +21,25 @@ export default class CustomSelect extends PureComponent {
       selectedOption: []
     };
     this.handleChange = this.handleChange.bind(this);
-    console.log('constructor');
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
     const { options, placeholder } = this.props;
     options.unshift({ value: '-1', label: placeholder });
-    this.setState({ options: options });
+    this.setState({ options });
   }
 
   optionItem({ value, label, icon }) {
-    const styles = {};
     const { selectedOption } = this.state;
+    const styles = {};
     let styleClass = 'customOption';
     
     if (value == '-1') {
       styleClass = 'placeHolder';
-    } else if (value == this.state.selectedOption) {
+    } else if (value == selectedOption) {
       styleClass = 'markedOption';
     }
 
-    console.log(selectedOption);
     if (icon) {
       styles.backgroundImage = `url(${icon})`;
     }
@@ -56,7 +53,7 @@ export default class CustomSelect extends PureComponent {
     if (value == -1) {
       return false;
     }
-    this.setState({ 'selectedOption': value });
+    this.setState({ selectedOption: value });
   }
 
   render() {
@@ -77,8 +74,7 @@ export default class CustomSelect extends PureComponent {
           <select className="customSelect" {...input} {...{ type }} onChange={this.handleChange} value={selectedOption} multiple >
             {options.map(option => this.optionItem(option))}
           </select>
-          
-          <p>{selectedOption}</p>
+
           {touched && error &&
             <span>
               <FormattedMessage
