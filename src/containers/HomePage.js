@@ -1,12 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { array, func } from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 import Menu from 'components/common/Menu';
-import LogoutButton from 'components/user/LogoutButton';
 import SimpleMap from 'components/common/maps/Map';
-import Welcome from 'components/user/Welcome';
-import CreateTargetForm from 'components/user/CreateTargetForm';
+import MenuLeft from 'components/user/MenuLeft';
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
 import './../styles/responsive-styles.scss';
@@ -60,45 +57,21 @@ class HomePage extends PureComponent {
     return this.props.addTarget(targetCompleted);
   }
 
-  MenuLeft() {
-    return this.state.isCreatingNewTarget ?
-      (
-        <div>
-          <div className="headerContent">
-            <FormattedMessage id="target.title.createTarget" />
-          </div>
-          <div className="content create-target">
-            <CreateTargetForm
-              onSubmit={this.handleCreateTarget}
-            />
-          </div>
-        </div>
-      ) :
-      (
-        <div>
-          <Welcome currentPage="Home" />
-          <div className="content">
-            <LogoutButton className="sign-in-button" />
-          </div>
-        </div>
-      );
-  }
-
   render() {
     const { targetList, topicList } = this.props;
+    const { isCreatingNewTarget } = this.state;
 
     return (
       <div className="slides-container homepage">
-        <Menu />
-        <div className="slide col-6 slideLeft">
-          {this.MenuLeft()}
-        </div>
-        <div className="slide col-6 slideCenter">
-          <SimpleMap
-            markers={targetList}
-            topics={topicList}
-            onClick={this.onClickMap}
-          />
+        <Menu show={!isCreatingNewTarget} />
+        <MenuLeft
+          topicList={topicList}
+          title="target.title.createTarget"
+          handleCreateTarget={this.handleCreateTarget}
+          section={isCreatingNewTarget ? 'newTarget' : 'welcome'}
+        />
+        <div className="slide slideCenter col-6">
+          <SimpleMap markers={targetList} topics={topicList} onClick={this.onClickMap} />
         </div>
       </div>
     );
