@@ -1,16 +1,26 @@
 import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import routes from 'constants/routesPaths';
+import {
+  injectIntl,
+  intlShape,
+  defineMessages
+} from 'react-intl';
 
-export default class Menu extends PureComponent {
+const messages = defineMessages({
+  about: { id: 'menu.about' },
+  contact: { id: 'menu.contact' },
+});
+
+class Menu extends PureComponent {
   static propTypes = {
-    show: PropTypes.bool
+    show: PropTypes.bool,
+    intl: intlShape.isRequired,
   };
 
   render() {
-    const { show } = this.props;
+    const { show, intl } = this.props;
 
     return (
       <div className="containerMenu" style={{ display: show ? 'block' : 'none' }} >
@@ -19,12 +29,12 @@ export default class Menu extends PureComponent {
         <ul className="menuList">
           <li className="selected">
             <Link className="Forgot-your-password" to={routes.about}>
-              <FormattedMessage id="menu.about" />
+              {intl.formatMessage(messages.about)}
             </Link>
           </li>
           <li>
             <Link className="Forgot-your-password" to={routes.contact}>
-              <FormattedMessage id="menu.contact" />
+              {intl.formatMessage(messages.contact)}
             </Link>
           </li>
         </ul>
@@ -32,3 +42,5 @@ export default class Menu extends PureComponent {
     );
   }
 }
+
+export default injectIntl(Menu);
