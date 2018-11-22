@@ -18,10 +18,12 @@ export default {
   'login.form.email.invalid': 'Debe ingresar un email válido',
   'login.form.password.presence': 'Debe ingresar una contraseña para continuar',
 
+  //Menu
   'menu.about': 'ACERCA',
   'menu.contact': 'CONTACTO',
 
-  'signup.title': 'REGISTRARSE',
+  // SignUp
+  'signup.title': 'REGISRARSE',
   'signup.signin': 'Iniciar Sesión',
   'signup.form.passconfirmation': 'Confirmación de Contraseña',
 
@@ -54,6 +56,7 @@ export default {
   'save.button': 'Guardar',
 
   // Target
+  'target.title.whatsTarget': 'QUÉ ES TARGET?',
   'target.title.createTarget': 'CREAR TARGET',
   'target.title.createNewTarget': 'CREAR NUEVO TARGET',
   'target.form.specifyArea': 'ESPECIFICAR LARGO DE AREA',
