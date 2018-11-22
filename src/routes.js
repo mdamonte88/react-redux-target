@@ -1,8 +1,9 @@
 import routesPaths from 'constants/routesPaths';
+import AboutPage from 'containers/AboutPage';
 import HomePage from 'containers/HomePage';
 import LoginPage from 'containers/LoginPage';
-import SignUpPage from 'containers/SignUpPage';
 import NotFoundPage from 'containers/NotFoundPage';
+import SignUpPage from 'containers/SignUpPage';
 
 const routes = [
   {
@@ -18,6 +19,10 @@ const routes = [
   {
     path: routesPaths.signUp,
     component: SignUpPage
+  },
+  {
+    path: routesPaths.about,
+    component: AboutPage
   },
   {
     component: NotFoundPage
