@@ -36,7 +36,12 @@ class SignUpForm extends PureComponent {
 
   render() {
     const { handleSubmit, submitting, intl } = this.props;
-    const genders = [{ value: '', label: intl.formatMessage(messages.selectGender) }, { value: 'female', label: intl.formatMessage(messages.female) }, { value: 'male', label: intl.formatMessage(messages.male) }, { value: 'other', label: intl.formatMessage(messages.other) }];
+    const genders = [
+      { value: '', label: intl.formatMessage(messages.selectGender) },
+      { value: 'female', label: intl.formatMessage(messages.female) },
+      { value: 'male', label: intl.formatMessage(messages.male) },
+      { value: 'other', label: intl.formatMessage(messages.other) }
+    ];
 
     return (
       <form onSubmit={handleSubmit}>

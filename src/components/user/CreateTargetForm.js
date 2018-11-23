@@ -54,7 +54,7 @@ export class CreateTargetForm extends PureComponent {
         {error && <strong>{error}</strong>}
         <div>
           <div className="targetGroupContainer">
-            <img src = {createTargetIcon} className="targetGroup" />
+            <img src={createTargetIcon} className="targetGroup" alt="" />
             <FormattedMessage id="target.title.createTarget" />
           </div>
 

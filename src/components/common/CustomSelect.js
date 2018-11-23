@@ -16,12 +16,13 @@ export default class CustomSelect extends PureComponent {
 
   constructor() {
     super();
-    this.state = {
-      options: [],
-      selectedOption: []
-    };
     this.handleChange = this.handleChange.bind(this);
   }
+
+  state = {
+    options: [],
+    selectedOption: ''
+  };
 
   componentDidMount() {
     const { options, placeholder } = this.props;
@@ -33,7 +34,7 @@ export default class CustomSelect extends PureComponent {
     const { selectedOption } = this.state;
     const styles = {};
     let styleClass = 'customOption';
-    
+
     if (value == '-1') {
       styleClass = 'placeHolder';
     } else if (value == selectedOption) {
@@ -44,13 +45,17 @@ export default class CustomSelect extends PureComponent {
       styles.backgroundImage = `url(${icon})`;
     }
 
-    return <option key={value} value={value} style={styles} className={styleClass}>{label}</option>;
+    return (
+      <option key={value} value={value} style={styles} className={styleClass}>
+        {label}
+      </option>
+    );
   }
 
   handleChange = (event) => {
     event.preventDefault();
     const value = [event.target.value];
-    if (value == -1) {
+    if (value === -1) {
       return false;
     }
     this.setState({ selectedOption: value });
@@ -71,7 +76,12 @@ export default class CustomSelect extends PureComponent {
         {label && <label>{label}</label>}
         <div>
 
-          <select className="customSelect" {...input} {...{ type }} onChange={this.handleChange} value={selectedOption} multiple >
+          <select
+            className="customSelect" {...input} {...{ type }}
+            onChange={this.handleChange}
+            value={selectedOption}
+            multiple
+          >
             {options.map(option => this.optionItem(option))}
           </select>
 

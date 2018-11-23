@@ -3,8 +3,16 @@ import GoogleMapReact from 'google-map-react';
 import PropTypes from 'prop-types';
 import CircleMarket from './markers/Circle';
 
-const keys = [{ key: 'AIzaSyDLZWU3aS4i_1_mMMf3aNCExQ4YnTYOyKk', email: 'mdamonte@rootstrap.com' },
-  { key: 'AIzaSyD-Mg4KaP7Z6BjBWzR1OCQZKoWHUqmIM8g', email: 'mdamonte@rootstrap.com' }];
+const keys = [
+  {
+    key: 'AIzaSyDLZWU3aS4i_1_mMMf3aNCExQ4YnTYOyKk',
+    email: 'mdamonte@rootstrap.com'
+  },
+  {
+    key: 'AIzaSyD-Mg4KaP7Z6BjBWzR1OCQZKoWHUqmIM8g',
+    email: 'mdamonte@rootstrap.com'
+  }
+];
 
 class SimpleMap extends PureComponent {
   static propTypes = {
@@ -40,18 +48,27 @@ class SimpleMap extends PureComponent {
       markers = this.getDefaultTargets();
     }
 
-    return markers.map(marker => <CircleMarket key={marker.target.id} lat={marker.target.lat} lng={marker.target.lng} text="" optionsStyle={this.getMarkersOptions(marker.target)} />);
+    return markers.map(marker =>
+      <CircleMarket
+        key={marker.target.id}
+        lat={marker.target.lat}
+        lng={marker.target.lng}
+        text=""
+        optionsStyle={this.getMarkersOptions(marker.target)}
+      />);
   }
 
   /*
     Get the Targets Defaults
   */
   getDefaultTargets() {
-    const markersDefaults = [{ target: { id: 1, lat: -34.8794514, lng: -56.1779299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
-      { target: { id: 2, lat: -34.8798514, lng: -56.1854299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
-      { target: { id: 3, lat: -34.8768514, lng: -56.1840299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
-      { target: { id: 4, lat: -34.8748514, lng: -56.1839299, options: { width: '44px', height: '52px', class: 'markerPoint' } } },
-      { target: { id: 5, lat: -34.8738514, lng: -56.1891299, options: { width: '44px', height: '52px', class: 'markerPoint' } } }
+    const options = { width: '44px', height: '52px', class: 'markerPoint' };
+    const markersDefaults = [
+      { target: { id: 1, lat: -34.8794514, lng: -56.1779299, options } },
+      { target: { id: 2, lat: -34.8798514, lng: -56.1854299, options } },
+      { target: { id: 3, lat: -34.8768514, lng: -56.1840299, options } },
+      { target: { id: 4, lat: -34.8748514, lng: -56.1839299, options } },
+      { target: { id: 5, lat: -34.8738514, lng: -56.1891299, options } }
     ];
 
     return markersDefaults;
@@ -73,27 +90,24 @@ class SimpleMap extends PureComponent {
   /*
     EVENTS
   */
-  _onClick = ({ x, y, lat, lng, event }) => console.log(x, y, lat, lng, event)
 
-  _onBoundsChange = (center, zoom /* , bounds, marginBounds */) => {
+  /* Parameters { x, y, lat, lng, event } */
+  _onClick = () => {}
+
+  /* Parameters center, zoom, bounds, marginBounds */
+  _onBoundsChange = (center, zoom) => {
     this.setState({ currentCenter: center });
     this.setState({ currentZoom: zoom });
   }
 
-  _onChildClick = (key, childProps) => {
-    console.log(`_onChildClick key: ${key})`);
-    console.log(`childProps: ${childProps})`);
-  }
+  /* Parameters { key, childProps } */
+  _onChildClick = () => {}
 
-  /* childProps */
-  _onChildMouseEnter = (key) => {
-    console.log(`_onChildMouseEnter key: ${key})`);
-  }
+  /* childProps key */
+  _onChildMouseEnter = () => {}
 
-  /* childProps */
-  _onChildMouseLeave = (key) => {
-    console.log(`_onChildMouseLeave key: ${key})`);
-  }
+  /* childProps key */
+  _onChildMouseLeave = () => {}
 
   render() {
     const {
@@ -123,8 +137,10 @@ class SimpleMap extends PureComponent {
         </GoogleMapReact>
 
         <div>
-          <span> Zoom: {this.state.currentZoom} </span> <br />
-          <span> Center: {JSON.stringify(this.state.currentCenter)} </span> <br />
+          <span> Zoom: {this.state.currentZoom} </span>
+          <br />
+          <span> Center: {JSON.stringify(this.state.currentCenter)} </span>
+          <br />
         </div>
       </div>
     );

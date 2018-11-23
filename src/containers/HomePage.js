@@ -1,34 +1,42 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { array, func } from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import Menu from 'components/common/Menu';
 import LogoutButton from 'components/user/LogoutButton';
 import SimpleMap from 'components/common/maps/Map';
 import Welcome from 'components/user/Welcome';
 import CreateTargetForm from 'components/user/CreateTargetForm';
-import { array, func } from 'prop-types';
-
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
-import { FormattedMessage } from 'react-intl';
 
 class HomePage extends PureComponent {
+  propTypes = {
+    targetList: array,
+    topicList: array,
+    loadTargets: func,
+    loadTopics: func,
+    addTarget: func.isRequired
+  };
+
   constructor() {
     super();
-    this.state = {
-      targetPosition: {},
-      isCreatingNewTarget: false,
-    };
     this.onClickMap = this.onClickMap.bind(this);
     this.handleCreateTarget = this.handleCreateTarget.bind(this);
   }
+
+  state = {
+    targetPosition: {},
+    isCreatingNewTarget: false,
+  };
 
   componentDidMount() {
     this.props.loadTargets();
     this.props.loadTopics();
   }
 
-  onClickMap = ({ x, y, lat, lng, event }) => {
-    console.log(x, y, lat, lng, event);
+  /* Parameters { x, y, lat, lng, event } */
+  onClickMap = ({ lat, lng }) => {
     const targetPosition = {
       lat,
       lng
@@ -53,20 +61,21 @@ class HomePage extends PureComponent {
   }
 
   MenuLeft(topicList) {
-    let menu;
-    if (this.state.isCreatingNewTarget) {
-      menu = (
+    return this.state.isCreatingNewTarget ?
+      (
         <div>
           <div className="headerContent">
             <FormattedMessage id="target.title.createTarget" />
           </div>
           <div className="content createTarget">
-            <CreateTargetForm onSubmit={this.handleCreateTarget} topics={topicList} />
+            <CreateTargetForm
+              onSubmit={this.handleCreateTarget}
+              topics={topicList}
+            />
           </div>
         </div>
-      );
-    } else {
-      menu = (
+      ) :
+      (
         <div>
           <Welcome currentPage="Home" />
           <div className="content">
@@ -74,8 +83,6 @@ class HomePage extends PureComponent {
           </div>
         </div>
       );
-    }
-    return menu;
   }
 
   render() {
@@ -88,20 +95,16 @@ class HomePage extends PureComponent {
           {this.MenuLeft(topicList)}
         </div>
         <div className="slide slideCenter col-6">
-          <SimpleMap markers={targetList} topics={topicList} onClick={this.onClickMap} />
+          <SimpleMap
+            markers={targetList}
+            topics={topicList}
+            onClick={this.onClickMap}
+          />
         </div>
       </div>
     );
   }
 }
-
-HomePage.propTypes = {
-  targetList: array,
-  topicList: array,
-  loadTargets: func,
-  loadTopics: func,
-  addTarget: func
-};
 
 const mapState = state => ({
   authenticated: state.getIn(['session', 'authenticated']),
