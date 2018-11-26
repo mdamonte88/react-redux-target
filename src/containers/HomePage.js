@@ -10,8 +10,11 @@ import CreateTargetForm from 'components/user/CreateTargetForm';
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
 
+// Styles
+import './../styles/responsive-styles.scss';
+
 class HomePage extends PureComponent {
-  propTypes = {
+  static propTypes = {
     targetList: array,
     topicList: array,
     loadTargets: func,
@@ -41,8 +44,7 @@ class HomePage extends PureComponent {
       lat,
       lng
     };
-    this.setState({ targetPosition });
-    this.setState({ isCreatingNewTarget: true });
+    this.setState({ targetPosition, isCreatingNewTarget: true });
   }
 
   handleCreateTarget(data) {
@@ -91,10 +93,10 @@ class HomePage extends PureComponent {
     return (
       <div className="slidesContainer homepage">
         <Menu />
-        <div className="slide slideLeft col-6">
+        <div className="slide col-6 slideLeft">
           {this.MenuLeft(topicList)}
         </div>
-        <div className="slide slideCenter col-6">
+        <div className="slide col-6 slideCenter">
           <SimpleMap
             markers={targetList}
             topics={topicList}

@@ -38,6 +38,7 @@ export default {
   'target.form.specifyArea': 'SPECIFY AREA LENGHT',
   'target.form.targetTitle': 'TARGET TITLE',
   'target.form.selectTopic': 'SELECT A TOPIC',
+  'target.form.placeHolderTopics': 'What do you want to talk about?',
   'target.form.saveTarget': 'SAVE TARGET',
 
   // Common Buttons
@@ -52,7 +53,7 @@ export default {
   'passwordConfirmation.presence': 'You must enter a password confirmation to continue',
   'passwordConfirmation.equality': 'Your password confirmation must be equal to the password',
   'area.presence': 'You must enter an area to continue',
-  'title.presence': 'You must enter an title to continue',
-  'topic.presence': 'You must enter an topic to continue',
-  'area.numeric': 'You must enter an only numeric character and greater than 0 on area field .',
+  'title.presence': 'You must enter a title to continue',
+  'topic.presence': 'You must enter a topic to continue',
+  'area.numeric': 'You must enter a greater than 0 numeric character on area field.',
 };

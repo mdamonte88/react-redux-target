@@ -1,11 +1,11 @@
 // action types
 
 // TARGETS
-export const LOAD_TARGETS_SUCCESS = 'load_targets_success';
-export const LOAD_TARGETS_FAILED = 'load_targets_failed';
-export const ADD_TARGET_SUCCESS = 'add_target_success';
-export const ADD_TARGET_FAILED = 'add_target_failed';
+export const LOAD_TARGETS_SUCCESS = 'LOAD_TARGETS_SUCCESS';
+export const LOAD_TARGETS_FAILED = 'LOAD_TARGETS_FAILED';
+export const ADD_TARGET_SUCCESS = 'ADD_TARGET_SUCCESS';
+export const ADD_TARGET_FAILED = 'ADD_TARGET_FAILED';
 
 // TOPICS
-export const LOAD_TOPICS_SUCCESS = 'load_topics_success';
-export const LOAD_TOPICS_FAILED = 'load_topics_failed';
+export const LOAD_TOPICS_SUCCESS = 'LOAD_TOPICS_SUCCESS';
+export const LOAD_TOPICS_FAILED = 'LOAD_TOPICS_FAILED';

@@ -10,7 +10,7 @@ export default function topicReducer(state = initialState, action) {
     case actions.LOAD_TOPICS_SUCCESS:
       return state.setIn(['topicList'], action.topics);
     case actions.LOAD_TOPICS_FAILED:
-      return [];
+      return state.setIn(['topicList'], []);
     default:
       return state;
   }

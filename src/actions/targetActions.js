@@ -19,13 +19,11 @@ export const addTargetFailed = errors => ({
 
 export const loadTargets = () =>
   async (dispatch) => {
-    try {
-      await TargetApi.getTargets().then((data) => {
-        dispatch(loadTargetsSuccess(data.targets));
-      });
-    } catch (error) {
-      dispatch(addTargetFailed(error));
-    }
+    await TargetApi.getTargets().then((data) => {
+      dispatch(loadTargetsSuccess(data.targets));
+    }).catch((error) => {
+      dispatch(loadTargetsFailed(error));
+    });
   };
 
 export const addTarget = target =>
@@ -36,3 +34,4 @@ export const addTarget = target =>
       dispatch(addTargetFailed(error));
     });
   };
+

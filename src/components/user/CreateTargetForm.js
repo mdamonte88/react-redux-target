@@ -12,14 +12,15 @@ import Loading from 'components/common/Loading';
 import Input from 'components/common/Input';
 import CustomSelect from 'components/common/CustomSelect';
 import { validations, createTarget } from 'utils/constraints';
-// Imagenes
-import createTargetIcon from './../../assets/targetGroup/group.png';
 
+// Images
+import createTargetIcon from './../../assets/targetGroup/group.png';
 
 const messages = defineMessages({
   specifyArea: { id: 'target.form.specifyArea' },
   targetTitle: { id: 'target.form.targetTitle' },
-  selectTopic: { id: 'target.form.selectTopic' }
+  selectTopic: { id: 'target.form.selectTopic' },
+  placeHolderTopics: { id: 'target.form.placeHolderTopics' }
 });
 
 export class CreateTargetForm extends PureComponent {
@@ -33,21 +34,19 @@ export class CreateTargetForm extends PureComponent {
 
   mapTopicsToArray() {
     const { topics } = this.props;
-    const result = [];
-    topics.forEach((item) => {
-      const topic = {
+    return topics.map((item) => {
+      // Removed the unnecesary topic level
+      return {
         value: item.topic.id,
         label: item.topic.label,
         icon: item.topic.icon
       };
-      result.push(topic);
     });
-    return result;
   }
 
   render() {
     const { handleSubmit, error, submitting, intl } = this.props;
-    const topicsOptions = this.mapTopicsToArray();
+    const topicsOptions = this.mapTopicsToArray()
 
     return (
       <form onSubmit={handleSubmit}>
@@ -80,7 +79,7 @@ export class CreateTargetForm extends PureComponent {
             component={CustomSelect}
             options={topicsOptions}
             type="select"
-            placeholder="What do you want to talk about?"
+            placeholder={intl.formatMessage(messages.placeHolderTopics)}
           />
         </div>
         <div className="content">

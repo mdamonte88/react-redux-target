@@ -11,11 +11,11 @@ export default function targetReducer(state = initialState, action) {
     case actions.LOAD_TARGETS_SUCCESS:
       return state.setIn(['targetList'], action.targets);
     case actions.LOAD_TARGETS_FAILED:
-      return [];
+      return state.setIn(['targetList'], []);
     case actions.ADD_TARGET_SUCCESS:
       return state.setIn(['target'], action.target);
     case actions.ADD_TARGET_FAILED:
-      return {};
+      return state.setIn(['target'], {});
     default:
       return state;
   }

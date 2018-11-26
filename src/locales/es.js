@@ -45,6 +45,7 @@ export default {
   'target.form.specifyArea': 'ESPECIFICAR LARGO DE AREA',
   'target.form.targetTitle': 'TÍTULO DEL TARGET',
   'target.form.selectTopic': 'SELECCIONE UN TOPICO',
+  'target.form.placeHolderTopics': '¿De que quieres hablar?',
   'target.form.saveTarget': 'GUARDAR TARGET',
 
   // Common Buttons
@@ -58,7 +59,8 @@ export default {
   'password.presence': 'Debe ingresar una contraseña para continuar',
   'passwordConfirmation.presence': 'Debe confirmar su contraseña para continuar',
   'passwordConfirmation.equality': 'Su confirmación de contraseña debe ser igual a la contraseña',
-  'area.presence': 'Debe ingresar un area para continuar',
-  'title.presence': 'Debe ingresar un title para continuar',
-  'topic.presence': 'Debe ingresar un topic para continuar'
+  'area.presence': 'Debe ingresar un área para continuar',
+  'title.presence': 'Debe ingresar un título para continuar',
+  'topic.presence': 'Debe ingresar un tópico para continuar',
+  'area.numeric': 'Debe un número mayor que cero para el área',
 };
