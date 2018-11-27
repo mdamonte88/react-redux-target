@@ -12,7 +12,6 @@ import Loading from 'components/common/Loading';
 import Input from 'components/common/Input';
 import CustomSelect from 'components/common/CustomSelect';
 import { validations, createTarget } from 'utils/constraints';
-
 // Images
 import createTargetIcon from './../../assets/targetGroup/group.png';
 
@@ -34,19 +33,18 @@ export class CreateTargetForm extends PureComponent {
 
   mapTopicsToArray() {
     const { topics } = this.props;
-    return topics.map((item) => {
+    return topics.map(item =>
       // Removed the unnecesary topic level
-      return {
+      ({
         value: item.topic.id,
         label: item.topic.label,
         icon: item.topic.icon
-      };
-    });
+      }));
   }
 
   render() {
     const { handleSubmit, error, submitting, intl } = this.props;
-    const topicsOptions = this.mapTopicsToArray()
+    const topicsOptions = this.mapTopicsToArray();
 
     return (
       <form onSubmit={handleSubmit}>

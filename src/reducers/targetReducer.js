@@ -9,11 +9,11 @@ const initialState = fromJS({
 export default function targetReducer(state = initialState, action) {
   switch (action.type) {
     case actions.LOAD_TARGETS_SUCCESS:
-      return state.setIn(['targetList'], action.targets);
+      return state.setIn(['targetList'], fromJS(action.targets));
     case actions.LOAD_TARGETS_FAILED:
       return state.setIn(['targetList'], []);
     case actions.ADD_TARGET_SUCCESS:
-      return state.setIn(['target'], action.target);
+      return state.setIn(['target'], fromJS(action.target));
     case actions.ADD_TARGET_FAILED:
       return state.setIn(['target'], {});
     default:

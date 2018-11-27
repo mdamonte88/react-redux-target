@@ -110,9 +110,9 @@ class HomePage extends PureComponent {
 
 const mapState = state => ({
   authenticated: state.getIn(['session', 'authenticated']),
-  topicList: state.getIn(['topic', 'topicList']),
-  targetList: state.getIn(['target', 'targetList']),
-  target: state.getIn(['target', 'target'])
+  topicList: state.getIn(['topic', 'topicList']).toJS(),
+  targetList: state.getIn(['target', 'targetList']).toJS(),
+  target: state.getIn(['target', 'target']).toJS()
 });
 
 const mapDispatch = dispatch => ({

@@ -1,5 +1,3 @@
-import { SubmissionError } from 'redux-form/immutable';
-
 import TopicApi from 'api/topicApi';
 import * as actions from './actionTypes';
 
