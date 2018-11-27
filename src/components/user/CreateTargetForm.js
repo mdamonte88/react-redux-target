@@ -55,8 +55,13 @@ export class CreateTargetForm extends PureComponent {
   }
 
   render() {
+<<<<<<< HEAD
     const { handleSubmit, error, submitting, intl } = this.props;
     const { topics } = this.state;
+=======
+    const { handleSubmit, error, submitting, intl, isDeletingTarget } = this.props;
+    const topicsOptions = this.mapTopicsToArray();
+>>>>>>> Delete target functionality was added
 
     return (
       <form onSubmit={handleSubmit}>
@@ -96,6 +101,9 @@ export class CreateTargetForm extends PureComponent {
         </div>
         {error && <strong>{error}</strong>}
         <div className="wrapper-button">
+          <button className="sign-in-button" type="submit" style={isDeletingTarget ? {} : {display: 'none'}} >
+            <FormattedMessage id="target.form.deleteTarget" />
+          </button>
           <button className="create-target__button" type="submit">
             <FormattedMessage id="target.form.saveTarget" />
           </button>
@@ -116,7 +124,11 @@ CreateTargetForm = reduxForm({
 })(injectIntl(CreateTargetForm));
 
 const mapState = state => ({
+<<<<<<< HEAD
   topicsList: state.getIn(['topic', 'topicList']).toJS()
+=======
+  initialValues: state.getIn(['target', 'targetSelected']).toJS()
+>>>>>>> Delete target functionality was added
 });
 
 const mapDispatch = () => ({});
