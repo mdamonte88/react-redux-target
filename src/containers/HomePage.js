@@ -47,7 +47,7 @@ class HomePage extends PureComponent {
     this.setState({ targetPosition, isCreatingNewTarget: true });
   }
 
-  handleCreateTarget(data) {
+  handleCreateTarget = (data) => {
     const { title, radius, topicId } = data.toJS();
     const { lat, lng } = this.state.targetPosition;
     const targetCompleted = {
