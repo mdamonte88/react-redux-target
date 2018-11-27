@@ -20,7 +20,7 @@ class SimpleMap extends PureComponent {
     zoom: PropTypes.number,
     markers: PropTypes.array,
     topics: PropTypes.array,
-    onClick: PropTypes.func
+    onClick: PropTypes.func.isRequired
   };
 
   static defaultProps = {
