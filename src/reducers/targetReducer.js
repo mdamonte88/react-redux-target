@@ -3,7 +3,8 @@ import * as actions from '../actions/actionTypes';
 
 const initialState = fromJS({
   targetList: [],
-  target: {}
+  target: {},
+  targetSelected: {}
 });
 
 export default function targetReducer(
@@ -19,6 +20,8 @@ export default function targetReducer(
       return state.set('targetList', state.get('targetList').push(fromJS(target)));
     case actions.ADD_TARGET_FAILED:
       return state.set(['target'], fromJS({}));
+    case actions.SELECT_TARGET_SUCCESS:
+      return state.setIn(['targetSelected'], fromJS(action.target));
     default:
       return state;
   }

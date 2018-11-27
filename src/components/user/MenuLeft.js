@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { array, func, object, string } from 'prop-types';
+import { array, bool, func, object, string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import LogoutButton from 'components/user/LogoutButton';
@@ -11,6 +11,7 @@ import { SECTION_TYPES as sections } from '../../constants/constants';
 
 export default class MenuLeft extends PureComponent {
   static propTypes = {
+    isDeletingTarget: bool,
     title: string,
     topicList: array,
     section: string,
@@ -19,7 +20,8 @@ export default class MenuLeft extends PureComponent {
   };
 
   render() {
-    const { topicList, section, title, handleCreateTarget, history } = this.props;
+    const enableReinitialize = true;
+    const { isDeletingTarget, topicList, section, title, handleCreateTarget, history } = this.props;
     const { location } = history;
     const pathname = location && location.pathname;
     const { aboutTarget, newTarget } = sections;
@@ -34,11 +36,18 @@ export default class MenuLeft extends PureComponent {
             </Link>
           </div>
           <div className="content create-target">
-            {section === newTarget ? (
-              <CreateTargetForm onSubmit={handleCreateTarget} topics={topicList} />
-            ) : (
-              <AboutTarget />
-            )}
+            {section === newTarget ?
+              (
+                <CreateTargetForm
+                  onSubmit={handleCreateTarget}
+                  topics={topicList}
+                  isDeletingTarget={isDeletingTarget}
+                  enableReinitialize={enableReinitialize}
+                />
+              ) :
+              (
+                <AboutTarget />
+              )}
           </div>
         </div>
       ) :

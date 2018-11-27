@@ -20,7 +20,8 @@ class SimpleMap extends PureComponent {
     zoom: PropTypes.number,
     markers: PropTypes.array,
     topics: PropTypes.array,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    onChildClick: PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -81,7 +82,8 @@ class SimpleMap extends PureComponent {
       zoom,
       markers,
       topics,
-      onClick
+      onClick,
+      onChildClick
     } = this.props;
 
     this.topics = this.props.topics;
@@ -95,6 +97,9 @@ class SimpleMap extends PureComponent {
           defaultZoom={zoom}
           onClick={onClick}
           onBoundsChange={this._onBoundsChange}
+          onChildClick={onChildClick}
+          onChildMouseEnter={this._onChildMouseEnter}
+          onChildMouseLeave={this._onChildMouseLeave}
         >
           {this.getTargets(markers, topics)}
         </GoogleMapReact>

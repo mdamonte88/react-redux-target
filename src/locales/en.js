@@ -44,6 +44,7 @@ export default {
   'target.form.placeHolderTitle': 'Choose a title for your target',
   'target.form.placeHolderTopics': 'What do you want to talk about?',
   'target.form.saveTarget': 'SAVE TARGET',
+  'target.form.deleteTarget': 'DELETE TARGET',
 
   // Common Buttons
   'logout.button': 'LOGOUT',

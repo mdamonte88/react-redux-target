@@ -18,6 +18,18 @@ export const addTargetFailed = errors => ({
   type: actions.ADD_TARGET_FAILED, errors
 });
 
+export const selectTargetSucess = target => ({
+  type: actions.SELECT_TARGET_SUCCESS, target
+});
+
+export const deleteTargetSuccess = target => ({
+  type: actions.REMOVE_TARGET_SUCCESS, target
+});
+
+export const deleteTargetFailed = errors => ({
+  type: actions.REMOVE_TARGET_FAILED, errors
+});
+
 export const loadTargets = () =>
   async (dispatch) => {
     try {
@@ -43,5 +55,19 @@ export const addTarget = target =>
         throw new SubmissionError({ _error: errorMessage });
       }
     }
+  };
+
+export const selectTarget = target =>
+  (dispatch) => {
+    dispatch(selectTargetSucess(target));
+  };
+
+export const removeTarget = targetId =>
+  async (dispatch) => {
+    await TargetApi.deleteTarget(targetId).then((data) => {
+      dispatch(deleteTargetSuccess(data.target));
+    }).catch((error) => {
+      dispatch(deleteTargetFailed(error));
+    });
   };
 
