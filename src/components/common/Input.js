@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { string, object } from 'prop-types';
+import { string, object, bool } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import { parseInputErrors } from 'utils/helpers';
@@ -7,20 +7,22 @@ import { parseInputErrors } from 'utils/helpers';
 export default class Input extends PureComponent {
   static propTypes = {
     className: string,
-    input: object.isRequired,
+    disabled: bool,
     label: string,
-    meta: object,
+    input: object.isRequired,
     placeholder: string,
     type: string.isRequired,
+    meta: object
   };
 
   render() {
     const {
       className,
-      input,
+      disabled,
       label,
-      type,
+      input,
       placeholder,
+      type,
       meta: { touched, error }
     } = this.props;
 
@@ -28,7 +30,7 @@ export default class Input extends PureComponent {
       <div>
         {label && <label>{label}</label>}
         <div>
-          <input {...input} {...{ className, placeholder, type }} />
+          <input {...input} {...{ className, placeholder, type, disabled }} />
           {touched && error &&
             <span>
               <FormattedMessage

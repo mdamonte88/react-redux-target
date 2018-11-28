@@ -46,7 +46,8 @@ class HomePage extends PureComponent {
       lat,
       lng
     };
-    this.setState({ targetPosition, isCreatingNewTarget: true });
+    this.props.selectTarget({});
+    this.setState({ targetPosition, isCreatingNewTarget: true, isDeletingTarget: false});
   }
 
   /* Parameters { childProps } */
@@ -55,7 +56,7 @@ class HomePage extends PureComponent {
     const targetToRem = targetList.find(item => ((item.target.id === parseInt(key, 10))));
 
     this.props.selectTarget(targetToRem ? targetToRem.target : {});
-    this.setState({ isDeletingTarget: true });
+    this.setState({ isDeletingTarget: true, isCreatingNewTarget: false });
   }
 
   handleCreateTarget = (data) => {
