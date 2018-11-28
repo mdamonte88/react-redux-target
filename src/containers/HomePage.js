@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { array, func, obj } from 'prop-types';
+import { array, func } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import Menu from 'components/common/Menu';
 import LogoutButton from 'components/user/LogoutButton';
@@ -46,16 +46,17 @@ class HomePage extends PureComponent {
       lat,
       lng
     };
-    this.setState({ targetPosition, isCreatingNewTarget: true });
+    this.props.selectTarget({});
+    this.setState({ targetPosition, isCreatingNewTarget: true, isDeletingTarget: false});
   }
 
   /* Parameters { childProps } */
-  onClickTarget = (key, childProps) => {
+  onClickTarget = (key) => {
     const { targetList } = this.props;
     const targetToRem = targetList.find(item => ((item.target.id === parseInt(key, 10))));
 
     this.props.selectTarget(targetToRem ? targetToRem.target : {});
-    this.setState({ isDeletingTarget: true });
+    this.setState({ isDeletingTarget: true, isCreatingNewTarget: false });
   }
 
   handleCreateTarget = (data) => {
@@ -80,7 +81,8 @@ class HomePage extends PureComponent {
 
   MenuLeft() {
     const { isDeletingTarget } = this.state;
-    return this.state.isCreatingNewTarget ?
+    const enableReinitialize = true;
+    return this.state.isCreatingNewTarget || this.state.isDeletingTarget ?
       (
         <div>
           <div className="headerContent">
@@ -90,6 +92,7 @@ class HomePage extends PureComponent {
             <CreateTargetForm
               onSubmit={isDeletingTarget ? this.handleDeleteTarget : this.handleCreateTarget}
               isDeletingTarget={isDeletingTarget}
+              enableReinitialize={enableReinitialize}
             />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { string, object } from 'prop-types';
+import { string, object, bool } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import { parseInputErrors } from 'utils/helpers';
@@ -10,6 +10,7 @@ export default class Input extends PureComponent {
     label: string,
     type: string.isRequired,
     placeholder: string,
+    disabled: bool,
     meta: object,
   };
 
@@ -20,6 +21,7 @@ export default class Input extends PureComponent {
       type,
       placeholder,
       className,
+      disabled,
       meta: { touched, error }
     } = this.props;
 
@@ -27,7 +29,7 @@ export default class Input extends PureComponent {
       <div>
         {label && <label>{label}</label>}
         <div>
-          <input {...input} {...{ className, placeholder, type }} />
+          <input {...input} {...{ className, placeholder, type, disabled }} />
           {touched && error &&
             <span>
               <FormattedMessage

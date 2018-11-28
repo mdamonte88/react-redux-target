@@ -10,6 +10,7 @@ export default class CustomSelect extends PureComponent {
     type: string.isRequired,
     placeholder: string,
     selectedOption: string,
+    initialOption: string,
     meta: object,
     options: array
   };
@@ -26,7 +27,7 @@ export default class CustomSelect extends PureComponent {
 
   optionItem({ id, label, icon }) {
     const { selectedOption } = this.state;
-    const styleClass = id == selectedOption ? 'marked-option' : 'custom-option';
+    const styleClass = (id == selectedOption) ? 'marked-option' : 'custom-option';
     const styles = {};
 
     if (icon) {

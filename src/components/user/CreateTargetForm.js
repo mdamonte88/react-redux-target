@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { func, string, bool, array } from 'prop-types';
+import { func, string, bool, array, obj } from 'prop-types';
 import { Field, reduxForm } from 'redux-form/immutable';
 import {
   injectIntl,
@@ -27,6 +27,8 @@ const messages = defineMessages({
 export class CreateTargetForm extends PureComponent {
   static propTypes = {
     topicsList: array,
+    isDeletingTarget: bool,
+    initialValues: obj,
     handleSubmit: func.isRequired,
     intl: intlShape.isRequired,
     submitting: bool.isRequired,
@@ -55,13 +57,10 @@ export class CreateTargetForm extends PureComponent {
   }
 
   render() {
-<<<<<<< HEAD
-    const { handleSubmit, error, submitting, intl } = this.props;
     const { topics } = this.state;
-=======
     const { handleSubmit, error, submitting, intl, isDeletingTarget } = this.props;
-    const topicsOptions = this.mapTopicsToArray();
->>>>>>> Delete target functionality was added
+    const target = this.props.initialValues.toJS();
+    const topicIdSelected = target ? target.topicId : '';
 
     return (
       <form onSubmit={handleSubmit}>
@@ -77,6 +76,7 @@ export class CreateTargetForm extends PureComponent {
             component={Input}
             type="text"
             className="text-center area"
+            disabled={isDeletingTarget}
           />
         </div>
         <div>
@@ -87,6 +87,7 @@ export class CreateTargetForm extends PureComponent {
             type="text"
             className="choose-title"
             placeholder={intl.formatMessage(messages.placeChooseTitle)}
+            disabled={isDeletingTarget}
           />
         </div>
         <div>
@@ -97,6 +98,8 @@ export class CreateTargetForm extends PureComponent {
             options={topics}
             type="select"
             placeholder={intl.formatMessage(messages.placeHolderTopics)}
+            selectedOption={topicIdSelected}
+            disabled={isDeletingTarget}
           />
         </div>
         {error && <strong>{error}</strong>}
@@ -124,11 +127,8 @@ CreateTargetForm = reduxForm({
 })(injectIntl(CreateTargetForm));
 
 const mapState = state => ({
-<<<<<<< HEAD
-  topicsList: state.getIn(['topic', 'topicList']).toJS()
-=======
+  topicsList: state.getIn(['topic', 'topicList']).toJS(),
   initialValues: state.getIn(['target', 'targetSelected']).toJS()
->>>>>>> Delete target functionality was added
 });
 
 const mapDispatch = () => ({});
