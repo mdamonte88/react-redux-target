@@ -54,7 +54,7 @@ class HomePage extends PureComponent {
         lng,
         title,
         radius,
-        topic_id: topicId[0]
+        topicId: topicId[0]
       }
     };
     this.props.addTarget(targetCompleted);
