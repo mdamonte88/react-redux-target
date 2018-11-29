@@ -69,7 +69,7 @@ class HomePage extends PureComponent {
           <div className="headerContent">
             <FormattedMessage id="target.title.createTarget" />
           </div>
-          <div className="content createTarget">
+          <div className="content create-target">
             <CreateTargetForm
               onSubmit={this.handleCreateTarget}
               topics={topicList}

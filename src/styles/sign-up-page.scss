@@ -42,6 +42,10 @@
     margin: 0 0 0 0;
   }
 
+  input.text-center {
+    text-align: center;
+  }
+  
   input[name="password"]::placeholder {
     color: $light-gray;
     font-family: $body-font-family;
@@ -69,6 +73,7 @@
     overflow: hidden;
 
     option.placeHolder {
+      font-family: OpenSans;
       background-position: 10px;
       background-size: 20px;
       background-repeat: no-repeat;
@@ -202,6 +207,8 @@
 
     span {
       font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 3px;
     }
   }
 
@@ -389,9 +396,90 @@
  # GOOGLE MAP REACT
 */
 
-.googleMapContainer {
-  .markerPoint {
-    background-image: url('./../assets/markers/markerPoint.png');
+.homepage {
+  .slide .create-target {
+    margin: 16px auto;
+    width: 257px;
+
+    label {
+      text-align: left;
+      padding-left: 3px;
+    }
+
+    input.area {
+      font-family: $body-font-family;
+      font-size: 13px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 1.9px;
+      color: $black;
+    }
+
+    input.choose-title {
+      font-family: $body-font-family;
+      font-size: 11px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.7px;
+      text-align: left;
+      color: $black;
+      padding: 11px 12px;
+    }
+    
+    input.choose-title::placeholder {
+      font-family: $body-font-family;
+      font-size: 11px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.7px;
+      text-align: left;
+      color: $black;
+      padding: 11px 0;
+    }
+
+    select.customSelect {
+      padding: 0;
+      font-size: 13px;
+      min-height: 365px;
+      overflow: hidden;
+  
+      option.placeHolder {
+        font-size: 11px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.7px;
+        text-align: left;
+        color: $black;
+        padding: 11px 28px;
+      }
+    }
+
+    .wrapper-button {
+      margin: 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .create-target__button {
+        padding: 12px 6px;
+        width: auto;
+      }
+    }
+
+    .iconSmile {
+      width: 48px;
+      height: 28px;
+      margin: 21px auto;
+      display: block;
+    }
   }
 
   .targetGroupContainer {

@@ -38,6 +38,7 @@ export default {
   'target.form.specifyArea': 'SPECIFY AREA LENGHT',
   'target.form.targetTitle': 'TARGET TITLE',
   'target.form.selectTopic': 'SELECT A TOPIC',
+  'target.form.placeHolderTitle': 'Choose a title for your target',
   'target.form.placeHolderTopics': 'What do you want to talk about?',
   'target.form.saveTarget': 'SAVE TARGET',
 
