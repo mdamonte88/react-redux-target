@@ -9,8 +9,6 @@ import Welcome from 'components/user/Welcome';
 import CreateTargetForm from 'components/user/CreateTargetForm';
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
-
-// Styles
 import './../styles/responsive-styles.scss';
 
 class HomePage extends PureComponent {
@@ -91,7 +89,7 @@ class HomePage extends PureComponent {
     const { targetList, topicList } = this.props;
 
     return (
-      <div className="slidesContainer homepage">
+      <div className="slides-container homepage">
         <Menu />
         <div className="slide col-6 slideLeft">
           {this.MenuLeft(topicList)}

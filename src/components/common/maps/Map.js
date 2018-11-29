@@ -44,10 +44,6 @@ class SimpleMap extends PureComponent {
     In the case that there aren´t markets It will show a few by default
   */
   getTargets(markers) {
-    if (!markers) {
-      markers = this.getDefaultTargets();
-    }
-
     return markers.map(marker =>
       <CircleMarket
         key={marker.target.id}
@@ -56,22 +52,6 @@ class SimpleMap extends PureComponent {
         text=""
         optionsStyle={this.getMarkersOptions(marker.target)}
       />);
-  }
-
-  /*
-    Get the Targets Defaults
-  */
-  getDefaultTargets() {
-    const options = { width: '44px', height: '52px', class: 'markerPoint' };
-    const markersDefaults = [
-      { target: { id: 1, lat: -34.8794514, lng: -56.1779299, options } },
-      { target: { id: 2, lat: -34.8798514, lng: -56.1854299, options } },
-      { target: { id: 3, lat: -34.8768514, lng: -56.1840299, options } },
-      { target: { id: 4, lat: -34.8748514, lng: -56.1839299, options } },
-      { target: { id: 5, lat: -34.8738514, lng: -56.1891299, options } }
-    ];
-
-    return markersDefaults;
   }
 
   getMarkersOptions(target) {

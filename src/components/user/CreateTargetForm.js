@@ -12,7 +12,6 @@ import Loading from 'components/common/Loading';
 import Input from 'components/common/Input';
 import CustomSelect from 'components/common/CustomSelect';
 import { validations, createTarget } from 'utils/constraints';
-// Images
 import createTargetIcon from './../../assets/targetGroup/group.png';
 import smileIcon from './../../assets/smilies/smilies@3x.png';
 

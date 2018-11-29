@@ -24,7 +24,7 @@ class LoginPage extends PureComponent {
     }
 
     return (
-      <div className="slidesContainer login">
+      <div className="slides-container login">
         <div className="slide col-6">
           <Welcome currentPage="Login" />
           <div className="content loginContent">

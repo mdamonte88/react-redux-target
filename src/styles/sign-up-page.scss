@@ -355,15 +355,15 @@
   }
 }
 
-.slideLeft {
+.slides-container .slide.slideLeft {
   width: 357px;
 }
 
-.slideCenter{
+.slides-container .slide.slideCenter{
   width: calc(100% - 357px);
 }
 
-.slidesContainer .slide:last-of-type {
+.slides-container .slide:last-of-type {
   background-color: $primary-color;
 }
 

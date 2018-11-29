@@ -2,7 +2,7 @@
 /* For desktop: */
 /* Resonsive Styles */
 
-.slidesContainer {
+.slides-container {
   .slide.col-1 { width: 8.33%; }
   .slide.col-2 { width: 16.66%; }
   .slide.col-3 { width: 25%; }
@@ -18,7 +18,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .slidesContainer {
+  .slides-container {
     /* For mobile phones: */
     .slide[class*="col-"] {
       width: 100%;
