@@ -65,6 +65,8 @@
   select.customSelect {
     padding: 0;
     font-size: 13px;
+    min-height: 360px;
+    overflow: hidden;
 
     option.placeHolder {
       background-position: 10px;
