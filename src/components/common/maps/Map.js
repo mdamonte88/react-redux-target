@@ -44,7 +44,7 @@ class SimpleMap extends PureComponent {
     In the case that there aren´t markets It will show a few by default
   */
   getTargets(markers) {
-    return markers.map(({ target: { id, lat, lng }, target }) =>
+    return markers.map(({ target: { id, lat, lng } = {}, target }) =>
       <CircleMarket
         key={id}
         lat={lat}
