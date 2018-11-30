@@ -10,8 +10,8 @@ export const loadTopicsFailed = errors => ({
 });
 
 export const loadTopics = () =>
-  async (dispatch) => {
-    await TopicApi.getTopics().then((data) => {
+  (dispatch) => {
+    TopicApi.getTopics().then((data) => {
       dispatch(loadTopicsSuccess(data.topics));
     }).catch((error) => {
       dispatch(loadTopicsFailed(error));

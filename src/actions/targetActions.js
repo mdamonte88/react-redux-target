@@ -18,8 +18,8 @@ export const addTargetFailed = errors => ({
 });
 
 export const loadTargets = () =>
-  async (dispatch) => {
-    await TargetApi.getTargets().then((data) => {
+  (dispatch) => {
+    TargetApi.getTargets().then((data) => {
       dispatch(loadTargetsSuccess(data.targets));
     }).catch((error) => {
       dispatch(loadTargetsFailed(error));
@@ -27,8 +27,8 @@ export const loadTargets = () =>
   };
 
 export const addTarget = target =>
-  async (dispatch) => {
-    await TargetApi.createTarget(target).then((data) => {
+  (dispatch) => {
+    TargetApi.createTarget(target).then((data) => {
       dispatch(addTargetSuccess(data.target));
     }).catch((error) => {
       dispatch(addTargetFailed(error));

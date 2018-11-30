@@ -60,7 +60,7 @@ class HomePage extends PureComponent {
     this.props.addTarget(targetCompleted);
   }
 
-  MenuLeft(topicList) {
+  MenuLeft() {
     return this.state.isCreatingNewTarget ?
       (
         <div>
@@ -70,7 +70,6 @@ class HomePage extends PureComponent {
           <div className="content create-target">
             <CreateTargetForm
               onSubmit={this.handleCreateTarget}
-              topics={topicList}
             />
           </div>
         </div>
@@ -92,7 +91,7 @@ class HomePage extends PureComponent {
       <div className="slides-container homepage">
         <Menu />
         <div className="slide col-6 slideLeft">
-          {this.MenuLeft(topicList)}
+          {this.MenuLeft()}
         </div>
         <div className="slide col-6 slideCenter">
           <SimpleMap

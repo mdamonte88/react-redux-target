@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import { func, string, bool, array } from 'prop-types';
 import { Field, reduxForm } from 'redux-form/immutable';
 import {
@@ -25,27 +26,37 @@ const messages = defineMessages({
 
 export class CreateTargetForm extends PureComponent {
   static propTypes = {
-    topics: array,
+    topicsList: array,
     handleSubmit: func.isRequired,
     intl: intlShape.isRequired,
     submitting: bool.isRequired,
     error: string,
   }
 
+  state = {
+    topics: []
+  };
+
+  componentDidMount() {
+    this.mapTopicsToArray();
+  }
+
   mapTopicsToArray() {
-    const { topics } = this.props;
-    return topics.map(item =>
+    const { topicsList = [] } = this.props;
+    const topics = topicsList.map(item =>
       // Removed the unnecesary topic level
       ({
         value: item.topic.id,
         label: item.topic.label,
         icon: item.topic.icon
       }));
+
+    this.setState({ topics });
   }
 
   render() {
     const { handleSubmit, error, submitting, intl } = this.props;
-    const topicsOptions = this.mapTopicsToArray();
+    const { topics } = this.state;
 
     return (
       <form onSubmit={handleSubmit}>
@@ -79,7 +90,7 @@ export class CreateTargetForm extends PureComponent {
             name="topicId"
             label={intl.formatMessage(messages.selectTopic)}
             component={CustomSelect}
-            options={topicsOptions}
+            options={topics}
             type="select"
             placeholder={intl.formatMessage(messages.placeHolderTopics)}
           />
@@ -99,8 +110,15 @@ export class CreateTargetForm extends PureComponent {
   }
 }
 
-export default reduxForm({
+CreateTargetForm = reduxForm({
   form: 'target',
   validate: validations(createTarget, { fullMessages: false })
 })(injectIntl(CreateTargetForm));
 
+const mapState = state => ({
+  topicsList: state.getIn(['topic', 'topicList']).toJS()
+});
+
+const mapDispatch = () => ({});
+
+export default connect(mapState, mapDispatch)(CreateTargetForm);

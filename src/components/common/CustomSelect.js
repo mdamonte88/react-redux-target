@@ -19,22 +19,15 @@ export default class CustomSelect extends PureComponent {
     selectedOption: ''
   };
 
-  componentDidMount() {
-    const { options, placeholder } = this.props;
-    options.unshift({ value: '-1', label: placeholder });
+  componentDidUpdate() {
+    const { options = [] } = this.props;
     this.setState({ options });
   }
 
   optionItem({ value, label, icon }) {
     const { selectedOption } = this.state;
+    const styleClass = value == selectedOption ? 'markedOption' : 'customOption';
     const styles = {};
-    let styleClass = 'customOption';
-
-    if (value === '-1') {
-      styleClass = 'placeHolder';
-    } else if (value == selectedOption) {
-      styleClass = 'markedOption';
-    }
 
     if (icon) {
       styles.backgroundImage = `url(${icon})`;
@@ -62,6 +55,7 @@ export default class CustomSelect extends PureComponent {
       input,
       label,
       type,
+      placeholder,
       meta: { touched, error }
     } = this.props;
 
@@ -78,6 +72,7 @@ export default class CustomSelect extends PureComponent {
             value={[selectedOption]}
             multiple
           >
+            <option key="-1" value="-1" className="placeHolder"> {placeholder} </option>
             {options.map(option => this.optionItem(option))}
           </select>
 
