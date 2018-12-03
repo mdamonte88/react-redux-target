@@ -35,9 +35,9 @@ export const addTarget = target =>
       if (err.error) {
         throw new SubmissionError({ _error: err.error });
       } else if (err.errors) {
-        const { targetsLimit } = err.errors;
-        const [limitMessage = ''] = targetsLimit;
-        throw new SubmissionError({ _error: limitMessage });
+        const { targetsLimit, user } = err.errors;
+        const [errorMessage = ''] = user || targetsLimit;
+        throw new SubmissionError({ _error: errorMessage });
       }
     }
   };

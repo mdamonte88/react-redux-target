@@ -154,6 +154,22 @@
       letter-spacing: normal;
       line-height: 26px;
     }
+
+  }
+
+  .forgot-your-password {
+    color: $black;
+    display: inherit;
+    font-family: $body-font-family;
+    font-size: 11px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: normal;
+    margin-bottom: 82px;
+    margin-top: 15px;
+    text-align: center;
   }
 
   .signIn-link {

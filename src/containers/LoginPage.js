@@ -29,10 +29,9 @@ class LoginPage extends PureComponent {
           <Welcome currentPage="Login" />
           <div className="content loginContent">
             <LoginForm onSubmit={login} />
-            <div className="Forgot-your-password">
+            <div className="forgot-your-password">
               <FormattedMessage
                 id="login.forgot_password"
-                className="Forgot-your-password"
               />
             </div>
           </div>

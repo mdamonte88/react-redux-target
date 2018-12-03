@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { string, object } from 'prop-types';
+import { arrayOf, string, object } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { parseInputErrors } from 'utils/helpers';
 
@@ -10,7 +10,7 @@ export default class Select extends PureComponent {
     type: string.isRequired,
     placeholder: string,
     meta: object,
-    options: Array
+    options: arrayOf(object)
   };
 
   optionItem({ value, label }) {
