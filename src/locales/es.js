@@ -63,5 +63,5 @@ export default {
   'area.presence': 'Debe ingresar un área para continuar',
   'title.presence': 'Debe ingresar un título para continuar',
   'topic.presence': 'Debe ingresar un tópico para continuar',
-  'area.numeric': 'Debe un número mayor que cero para el área',
+  'area.numeric': 'Debe ingresar un número mayor que cero para el área',
 };

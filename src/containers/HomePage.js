@@ -57,7 +57,7 @@ class HomePage extends PureComponent {
         topicId: topicId[0]
       }
     };
-    this.props.addTarget(targetCompleted);
+    return this.props.addTarget(targetCompleted);
   }
 
   MenuLeft() {

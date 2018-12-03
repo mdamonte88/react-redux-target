@@ -1,5 +1,6 @@
 import TargetApi from 'api/targetApi';
 import * as actions from './actionTypes';
+import { SubmissionError } from 'redux-form/immutable';
 
 export const loadTargetsSuccess = targets => ({
   type: actions.LOAD_TARGETS_SUCCESS, targets
@@ -27,11 +28,17 @@ export const loadTargets = () =>
   };
 
 export const addTarget = target =>
-  (dispatch) => {
-    TargetApi.createTarget(target).then((data) => {
-      dispatch(addTargetSuccess(data.target));
-    }).catch((error) => {
-      dispatch(addTargetFailed(error));
-    });
+  async () => {
+    try {
+      await TargetApi.createTarget(target);
+    } catch (err) {
+      if (err.error) {
+        throw new SubmissionError({ _error: err.error });
+      } else if (err.errors) {
+        const { targetsLimit } = err.errors;
+        const [limitMessage = ''] = targetsLimit;
+        throw new SubmissionError({ _error: limitMessage });
+      }
+    }
   };
 

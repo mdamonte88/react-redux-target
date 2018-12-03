@@ -60,7 +60,6 @@ export class CreateTargetForm extends PureComponent {
 
     return (
       <form onSubmit={handleSubmit}>
-        {error && <strong>{error}</strong>}
         <div>
           <div className="targetGroupContainer">
             <img src={createTargetIcon} className="targetGroup" alt="" />
@@ -95,6 +94,7 @@ export class CreateTargetForm extends PureComponent {
             placeholder={intl.formatMessage(messages.placeHolderTopics)}
           />
         </div>
+        {error && <strong>{error}</strong>}
         <div className="wrapper-button">
           <button className="create-target__button" type="submit">
             <FormattedMessage id="target.form.saveTarget" />
