@@ -28,9 +28,10 @@ export const loadTargets = () =>
   };
 
 export const addTarget = target =>
-  async () => {
+  async (dispatch) => {
     try {
-      await TargetApi.createTarget(target);
+      const targetResponse = await TargetApi.createTarget(target);
+      dispatch(addTargetSuccess(targetResponse));
     } catch (err) {
       if (err.error) {
         throw new SubmissionError({ _error: err.error });
