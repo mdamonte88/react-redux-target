@@ -26,7 +26,7 @@ export default class CustomSelect extends PureComponent {
 
   optionItem({ value, label, icon }) {
     const { selectedOption } = this.state;
-    const styleClass = value == selectedOption ? 'markedOption' : 'customOption';
+    const styleClass = value == selectedOption ? 'marked-option' : 'custom-option';
     const styles = {};
 
     if (icon) {
@@ -67,12 +67,12 @@ export default class CustomSelect extends PureComponent {
         <div>
 
           <select
-            className="customSelect" {...input} {...{ type }}
+            className="custom-select" {...input} {...{ type }}
             onChange={this.handleChange}
             value={[selectedOption]}
             multiple
           >
-            <option key="-1" value="-1" className="placeHolder"> {placeholder} </option>
+            <option key="-1" value="-1" className="place-holder"> {placeholder} </option>
             {options.map(option => this.optionItem(option))}
           </select>
 

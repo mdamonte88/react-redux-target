@@ -66,13 +66,13 @@
     overflow-y: auto;
   }
 
-  select.customSelect {
+  select.custom-select {
     padding: 0;
     font-size: 13px;
     min-height: 360px;
     overflow: hidden;
 
-    option.placeHolder {
+    option.place-holder {
       font-family: OpenSans;
       background-position: 10px;
       background-size: 20px;
@@ -84,7 +84,7 @@
       text-indent: 5px;
     }
 
-    option.customOption {
+    option.custom-option {
       background-position: 10px;
       background-size: 20px;
       background-repeat: no-repeat;
@@ -95,7 +95,7 @@
       text-indent: 31px;
     }
   
-    option.markedOption {
+    option.marked-option {
       background-position: 10px;
       background-color: #f4f4f4;
       background-size: 20px;
@@ -458,14 +458,14 @@
       color: $black;
       padding: 11px 0;
     }
-
-    select.customSelect {
+    
+    select.custom-select {
       padding: 0;
       font-size: 13px;
       min-height: 365px;
       overflow: hidden;
   
-      option.placeHolder {
+      option.place-holder {
         font-size: 11px;
         font-weight: 600;
         font-style: normal;
