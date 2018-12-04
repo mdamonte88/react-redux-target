@@ -24,12 +24,16 @@ class LoginPage extends PureComponent {
     }
 
     return (
-      <div className="slidesContainer login">
+      <div className="slides-container login">
         <div className="slide col-6">
           <Welcome currentPage="Login" />
           <div className="content loginContent">
             <LoginForm onSubmit={login} />
-            <div className="Forgot-your-password"> <FormattedMessage id="login.forgot_password" className="Forgot-your-password" /> </div>
+            <div className="forgot-your-password">
+              <FormattedMessage
+                id="login.forgot_password"
+              />
+            </div>
           </div>
           <div className="footerContent">
             <div className="signIn-Facebook">

@@ -23,7 +23,21 @@ export const signUp = {
   },
   passwordConfirmation: {
     presence: { message: 'passwordConfirmation.presence' },
-    equality: { attribute: 'password', message: 'passwordConfirmation.equality' }
+    equality: { attribute: 'password',
+      message: 'passwordConfirmation.equality' }
+  }
+};
+
+export const createTarget = {
+  radius: {
+    presence: { message: 'area.presence' },
+    numericality: { greaterThan: 0, message: 'area.numeric' }
+  },
+  title: {
+    presence: { message: 'title.presence' }
+  },
+  topicId: {
+    presence: { message: 'password.presence' }
   }
 };
 

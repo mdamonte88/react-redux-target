@@ -16,7 +16,11 @@ export default class Welcome extends PureComponent {
     } = this.props;
 
     if (currentPage === 'Login') {
-      return <p className="heading" > <FormattedMessage id="login.createATarget" /></p>;
+      return (
+        <p className="heading" >
+          <FormattedMessage id="login.createATarget" />
+        </p>
+      );
     }
     if (currentPage === 'Home') {
       return (
@@ -35,9 +39,18 @@ export default class Welcome extends PureComponent {
   render() {
     return (
       <div className="topContent topSeparator--small">
-        <img id="smilesIcon" className="iconCenter" alt="smiles" src={smileIcon} />
-        <p className="title" ><FormattedMessage id="login.targetMVD" /></p>
-        <p className="subTitle" > <FormattedMessage id="login.findPeople" /> </p>
+        <img
+          id="smilesIcon"
+          className="iconCenter"
+          alt=""
+          src={smileIcon}
+        />
+        <p className="title" >
+          <FormattedMessage id="login.targetMVD" />
+        </p>
+        <p className="subTitle" >
+          <FormattedMessage id="login.findPeople" />
+        </p>
         {this.Heading()}
       </div>
     );

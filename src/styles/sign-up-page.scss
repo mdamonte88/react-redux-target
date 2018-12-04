@@ -42,6 +42,10 @@
     margin: 0 0 0 0;
   }
 
+  input.text-center {
+    text-align: center;
+  }
+  
   input[name="password"]::placeholder {
     color: $light-gray;
     font-family: $body-font-family;
@@ -59,6 +63,49 @@
     font-size: 12px;
     margin: 0;
     text-indent: calc(50% - 60px);
+    overflow-y: auto;
+  }
+
+  select.custom-select {
+    padding: 0;
+    font-size: 13px;
+    min-height: 360px;
+    overflow: hidden;
+
+    option.place-holder {
+      font-family: OpenSans;
+      background-position: 10px;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid;
+      height: 14px;
+      padding: 8px 0 8px 1.5px;
+      letter-spacing: 1.9px;
+      text-indent: 5px;
+    }
+
+    option.custom-option {
+      background-position: 10px;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid;
+      height: 14px;
+      padding: 8px 0 8px 1.5px;
+      letter-spacing: 1.9px;
+      text-indent: 31px;
+    }
+  
+    option.marked-option {
+      background-position: 10px;
+      background-color: #f4f4f4;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid;
+      height: 14px;
+      padding: 8px 0 8px 1.5px;
+      letter-spacing: 1.9px;
+      text-indent: 31px;
+    }
   }
 
   span {
@@ -107,6 +154,22 @@
       letter-spacing: normal;
       line-height: 26px;
     }
+
+  }
+
+  .forgot-your-password {
+    color: $black;
+    display: inherit;
+    font-family: $body-font-family;
+    font-size: 11px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: normal;
+    margin-bottom: 82px;
+    margin-top: 15px;
+    text-align: center;
   }
 
   .signIn-link {
@@ -149,6 +212,20 @@
   .topContent {
     margin: auto;
     width: 321px;
+  }
+  
+  .headerContent {
+    background-color: $primary-color;
+    height: 59px;
+    padding-top: 17px;
+    color: white;
+    text-align: center;
+
+    span {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
   }
 
   .content {
@@ -294,7 +371,15 @@
   }
 }
 
-.slidesContainer .slide:last-of-type {
+.slides-container .slide.slideLeft {
+  width: 357px;
+}
+
+.slides-container .slide.slideCenter{
+  width: calc(100% - 357px);
+}
+
+.slides-container .slide:last-of-type {
   background-color: $primary-color;
 }
 
@@ -327,8 +412,108 @@
  # GOOGLE MAP REACT
 */
 
-.googleMapContainer {
-  .markerPoint {
-    background-image: url('./../assets/markers/markerPoint.png');
+.homepage {
+  .slide .create-target {
+    margin: 16px auto;
+    width: 257px;
+
+    label {
+      text-align: left;
+      padding-left: 3px;
+    }
+
+    input.area {
+      font-family: $body-font-family;
+      font-size: 13px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 1.9px;
+      color: $black;
+    }
+
+    input.choose-title {
+      font-family: $body-font-family;
+      font-size: 11px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.7px;
+      text-align: left;
+      color: $black;
+      padding: 11px 12px;
+    }
+    
+    input.choose-title::placeholder {
+      font-family: $body-font-family;
+      font-size: 11px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.7px;
+      text-align: left;
+      color: $black;
+      padding: 11px 0;
+    }
+    
+    select.custom-select {
+      padding: 0;
+      font-size: 13px;
+      min-height: 365px;
+      overflow: hidden;
+  
+      option.place-holder {
+        font-size: 11px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.7px;
+        text-align: left;
+        color: $black;
+        padding: 11px 28px;
+      }
+    }
+
+    .wrapper-button {
+      margin: 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .create-target__button {
+        padding: 12px 6px;
+        width: auto;
+      }
+    }
+
+    .iconSmile {
+      width: 48px;
+      height: 28px;
+      margin: 21px auto;
+      display: block;
+    }
+  }
+
+  .targetGroupContainer {
+    .targetGroup {
+      margin: auto;
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+  
+    span {
+      text-align: center;
+      width: 100%;
+      float: left;
+      margin: 6px 0 26px 0;
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      font-weight: 600;
+    }
   }
 }

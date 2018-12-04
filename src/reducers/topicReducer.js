@@ -5,12 +5,12 @@ const initialState = fromJS({
   topicList: [],
 });
 
-export default function topicReducer(state = initialState, action) {
-  switch (action.type) {
+export default function topicReducer(state = initialState, { type, topics }) {
+  switch (type) {
     case actions.LOAD_TOPICS_SUCCESS:
-      return state.setIn(['topicList'], action.topics);
+      return state.setIn(['topicList'], fromJS(topics));
     case actions.LOAD_TOPICS_FAILED:
-      return [];
+      return state.setIn(['topicList'], fromJS([]));
     default:
       return state;
   }

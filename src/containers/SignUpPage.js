@@ -28,7 +28,7 @@ class SignUpPage extends PureComponent {
     }
 
     return (
-      <div className="slidesContainer signup">
+      <div className="slides-container signup">
         <Menu />
         <div className="slide col-6">
           <div className="topContent topSeparator--big">

@@ -19,6 +19,7 @@ export default class Input extends PureComponent {
       label,
       type,
       placeholder,
+      className,
       meta: { touched, error }
     } = this.props;
 
@@ -26,7 +27,7 @@ export default class Input extends PureComponent {
       <div>
         {label && <label>{label}</label>}
         <div>
-          <input {...input} {...{ placeholder, type }} />
+          <input {...input} {...{ className, placeholder, type }} />
           {touched && error &&
             <span>
               <FormattedMessage

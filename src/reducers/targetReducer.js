@@ -3,14 +3,19 @@ import * as actions from '../actions/actionTypes';
 
 const initialState = fromJS({
   targetList: [],
+  target: {}
 });
 
-export default function targetReducer(state = initialState, action) {
-  switch (action.type) {
+export default function targetReducer(state = initialState, { type, targets, target }) {
+  switch (type) {
     case actions.LOAD_TARGETS_SUCCESS:
-      return state.setIn(['targetList'], action.targets);
+      return state.setIn(['targetList'], fromJS(targets));
     case actions.LOAD_TARGETS_FAILED:
-      return [];
+      return state.setIn(['targetList'], fromJS([]));
+    case actions.ADD_TARGET_SUCCESS:
+      return state.set('targetList', state.get('targetList').push(fromJS(target)));
+    case actions.ADD_TARGET_FAILED:
+      return state.set(['target'], fromJS({}));
     default:
       return state;
   }

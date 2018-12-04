@@ -27,12 +27,24 @@ export default {
   'signup.form.genders.male': 'Male',
   'signup.form.genders.other': 'Other',
 
-  'logout.button': 'LOGOUT',
-
   'home.welcome': 'Welcome to React Redux Base',
   'home.welcome.target': 'TARGET',
   'home.welcome.createTarget': 'Create a target by clicking wherever on the map, specify the ratio and and a topic: Travel, Dating, Music, etc.',
   'home.welcome.willStart': 'will start a chat whenever you/’ve a match. You can always dismiss a conversation if you /’re not interested.',
+
+  // Target
+  'target.title.createTarget': 'CREATE TARGET',
+  'target.title.createNewTarget': 'CREATE NEW TARGET',
+  'target.form.specifyArea': 'SPECIFY AREA LENGHT',
+  'target.form.targetTitle': 'TARGET TITLE',
+  'target.form.selectTopic': 'SELECT A TOPIC',
+  'target.form.placeHolderTitle': 'Choose a title for your target',
+  'target.form.placeHolderTopics': 'What do you want to talk about?',
+  'target.form.saveTarget': 'SAVE TARGET',
+
+  // Common Buttons
+  'logout.button': 'LOGOUT',
+  'save.button': 'SAVE',
 
   // errors
   'name.presence': 'You must enter an name to continue',
@@ -41,4 +53,8 @@ export default {
   'password.presence': 'You must enter a password to continue',
   'passwordConfirmation.presence': 'You must enter a password confirmation to continue',
   'passwordConfirmation.equality': 'Your password confirmation must be equal to the password',
+  'area.presence': 'You must enter an area to continue',
+  'title.presence': 'You must enter a title to continue',
+  'topic.presence': 'You must enter a topic to continue',
+  'area.numeric': 'You must enter a greater than 0 numeric character on area field.',
 };
