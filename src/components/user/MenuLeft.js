@@ -26,7 +26,7 @@ export default class MenuLeft extends PureComponent {
           <div className="headerContent">
             <FormattedMessage id={title} /> <Link to={routes.index} > <div className="closeIcon" /> </Link>
           </div>
-          <div className="content createTarget">
+          <div className="content create-target">
             {section === 'newTarget' ? <CreateTargetForm onSubmit={handleCreateTarget} topics={topicList} /> : <AboutTarget /> }
           </div>
         </div>

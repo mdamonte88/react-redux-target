@@ -59,7 +59,7 @@ class AboutPage extends PureComponent {
     const { targetList, topicList } = this.props;
 
     return (
-      <div className="slidesContainer aboutpage">
+      <div className="slides-container aboutpage">
         <Menu topicList={topicList} title="target.title.whatsTarget" section="aboutTarget" />
         <div className="slide slideCenter col-6">
           <SimpleMap markers={targetList} topics={topicList} onClick={this.onClickMap} />
@@ -71,9 +71,9 @@ class AboutPage extends PureComponent {
 
 const mapState = state => ({
   authenticated: state.getIn(['session', 'authenticated']),
-  topicList: state.getIn(['topic', 'topicList']),
-  targetList: state.getIn(['target', 'targetList']),
-  target: state.getIn(['target', 'target'])
+  topicList: state.getIn(['topic', 'topicList']).toJS(),
+  targetList: state.getIn(['target', 'targetList']).toJS(),
+  target: state.getIn(['target', 'target']).toJS()
 });
 
 const mapDispatch = dispatch => ({
