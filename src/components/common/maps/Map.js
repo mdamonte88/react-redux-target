@@ -70,23 +70,10 @@ class SimpleMap extends PureComponent {
     EVENTS
   */
 
-  /* Parameters { x, y, lat, lng, event } */
-  _onClick = () => {}
-
   /* Parameters center, zoom, bounds, marginBounds */
   _onBoundsChange = (center, zoom) => {
-    this.setState({ currentCenter: center });
-    this.setState({ currentZoom: zoom });
+    this.setState({ currentCenter: center, currentZoom: zoom });
   }
-
-  /* Parameters { key, childProps } */
-  _onChildClick = () => {}
-
-  /* childProps key */
-  _onChildMouseEnter = () => {}
-
-  /* childProps key */
-  _onChildMouseLeave = () => {}
 
   render() {
     const {
@@ -108,9 +95,6 @@ class SimpleMap extends PureComponent {
           defaultZoom={zoom}
           onClick={onClick}
           onBoundsChange={this._onBoundsChange}
-          onChildClick={this._onChildClick}
-          onChildMouseEnter={this._onChildMouseEnter}
-          onChildMouseLeave={this._onChildMouseLeave}
         >
           {this.getTargets(markers, topics)}
         </GoogleMapReact>

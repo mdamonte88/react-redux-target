@@ -43,12 +43,12 @@ export class CreateTargetForm extends PureComponent {
 
   mapTopicsToArray() {
     const { topicsList = [] } = this.props;
-    const topics = topicsList.map(item =>
+    const topics = topicsList.map(({ topic: { id, label, icon } }) =>
       // Removed the unnecesary topic level
       ({
-        value: item.topic.id,
-        label: item.topic.label,
-        icon: item.topic.icon
+        id,
+        label,
+        icon
       }));
 
     this.setState({ topics });

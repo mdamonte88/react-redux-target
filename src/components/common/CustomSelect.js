@@ -24,9 +24,9 @@ export default class CustomSelect extends PureComponent {
     this.setState({ options });
   }
 
-  optionItem({ value, label, icon }) {
+  optionItem({ id, label, icon }) {
     const { selectedOption } = this.state;
-    const styleClass = value == selectedOption ? 'marked-option' : 'custom-option';
+    const styleClass = id == selectedOption ? 'marked-option' : 'custom-option';
     const styles = {};
 
     if (icon) {
@@ -34,7 +34,7 @@ export default class CustomSelect extends PureComponent {
     }
 
     return (
-      <option key={value} value={value} style={styles} className={styleClass}>
+      <option key={id} value={id} style={styles} className={styleClass}>
         {label}
       </option>
     );

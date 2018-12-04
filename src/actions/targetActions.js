@@ -1,6 +1,6 @@
+import { SubmissionError } from 'redux-form/immutable';
 import TargetApi from 'api/targetApi';
 import * as actions from './actionTypes';
-import { SubmissionError } from 'redux-form/immutable';
 
 export const loadTargetsSuccess = targets => ({
   type: actions.LOAD_TARGETS_SUCCESS, targets
@@ -19,12 +19,13 @@ export const addTargetFailed = errors => ({
 });
 
 export const loadTargets = () =>
-  (dispatch) => {
-    TargetApi.getTargets().then((data) => {
-      dispatch(loadTargetsSuccess(data.targets));
-    }).catch((error) => {
-      dispatch(loadTargetsFailed(error));
-    });
+  async (dispatch) => {
+    try {
+      const responseTargets = await TargetApi.getTargets();
+      dispatch(loadTargetsSuccess(responseTargets.targets));
+    } catch (err) {
+      dispatch(loadTargetsFailed(err));
+    }
   };
 
 export const addTarget = target =>
@@ -38,6 +39,7 @@ export const addTarget = target =>
       } else if (err.errors) {
         const { targetsLimit, user } = err.errors;
         const [errorMessage = ''] = user || targetsLimit;
+        dispatch(addTargetFailed(err.errors));
         throw new SubmissionError({ _error: errorMessage });
       }
     }
