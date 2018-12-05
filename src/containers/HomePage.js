@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { array, func } from 'prop-types';
+import { array, func, object } from 'prop-types';
 import Menu from 'components/common/Menu';
 import SimpleMap from 'components/common/maps/Map';
 import MenuLeft from 'components/user/MenuLeft';
@@ -14,7 +14,8 @@ class HomePage extends PureComponent {
     topicList: array,
     loadTargets: func,
     loadTopics: func,
-    addTarget: func.isRequired
+    addTarget: func.isRequired,
+    history: object.isRequired
   };
 
   constructor() {
@@ -58,8 +59,11 @@ class HomePage extends PureComponent {
   }
 
   render() {
-    const { targetList, topicList } = this.props;
+    const { targetList, topicList, history } = this.props;
     const { isCreatingNewTarget } = this.state;
+    const { location } = history;
+    let section = isCreatingNewTarget ? 'newTarget' : 'welcome';
+    section = location.pathname === '/about' ? 'aboutTarget' : section;
 
     return (
       <div className="slides-container homepage">
@@ -68,7 +72,8 @@ class HomePage extends PureComponent {
           topicList={topicList}
           title="target.title.createTarget"
           handleCreateTarget={this.handleCreateTarget}
-          section={isCreatingNewTarget ? 'newTarget' : 'welcome'}
+          section={section}
+          history={history}
         />
         <div className="slide slideCenter col-6">
           <SimpleMap markers={targetList} topics={topicList} onClick={this.onClickMap} />

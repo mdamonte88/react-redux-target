@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import { array, func, object, string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import LogoutButton from 'components/user/LogoutButton';
@@ -10,29 +10,29 @@ import routes from 'constants/routesPaths';
 
 export default class MenuLeft extends PureComponent {
   static propTypes = {
-    title: PropTypes.string,
-    topicList: PropTypes.array,
-    section: PropTypes.string,
-    handleCreateTarget: PropTypes.func,
+    title: string,
+    topicList: array,
+    section: string,
+    handleCreateTarget: func,
+    history: object.isRequired
   };
 
   render() {
-    const { topicList, section, title, handleCreateTarget } = this.props;
-    let menu;
+    const { topicList, section, title, handleCreateTarget, history } = this.props;
+    const { location } = history;
 
-    if (section === 'newTarget' || section === 'aboutTarget') {
-      menu = (
+    return section === 'newTarget' || section === 'aboutTarget' ?
+      (
         <div className="slide slideLeft col-6">
           <div className="headerContent">
-            <FormattedMessage id={title} /> <Link to={routes.index} > <div className="closeIcon" /> </Link>
+            <FormattedMessage id={title} /> <Link to={location && location.pathname === '/home' ? routes.index : routes.home} > <div className="closeIcon" /> </Link>
           </div>
           <div className="content create-target">
             {section === 'newTarget' ? <CreateTargetForm onSubmit={handleCreateTarget} topics={topicList} /> : <AboutTarget /> }
           </div>
         </div>
-      );
-    } else {
-      menu = (
+      ) :
+      (
         <div className="slide slideLeft col-6">
           <Welcome currentPage="Home" />
           <div className="content">
@@ -40,7 +40,5 @@ export default class MenuLeft extends PureComponent {
           </div>
         </div>
       );
-    }
-    return menu;
   }
 }

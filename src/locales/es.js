@@ -18,7 +18,7 @@ export default {
   'login.form.email.invalid': 'Debe ingresar un email válido',
   'login.form.password.presence': 'Debe ingresar una contraseña para continuar',
 
-  //Menu
+  // Menu
   'menu.about': 'ACERCA',
   'menu.contact': 'CONTACTO',
 
@@ -42,6 +42,7 @@ export default {
   'home.welcome.willStart': 'iniciará un chat cada vez que tengas una coincidencia. Siempre puedes descartar una conversación si no estás interesado.',
 
   // Target
+  'target.title.whatsTarget': 'QUÉ ES TARGET?',
   'target.title.createTarget': 'CREAR TARGET',
   'target.title.createNewTarget': 'CREAR NUEVO TARGET',
   'target.form.specifyArea': 'ESPECIFICAR LARGO DE AREA',
@@ -49,19 +50,6 @@ export default {
   'target.form.selectTopic': 'SELECCIONE UN TOPICO',
   'target.form.placeHolderTitle': 'Elegir un título para tu target',
   'target.form.placeHolderTopics': '¿De que quieres hablar?',
-  'target.form.saveTarget': 'GUARDAR TARGET',
-
-  // Common Buttons
-  'logout.button': 'Desloguearse',
-  'save.button': 'Guardar',
-
-  // Target
-  'target.title.whatsTarget': 'QUÉ ES TARGET?',
-  'target.title.createTarget': 'CREAR TARGET',
-  'target.title.createNewTarget': 'CREAR NUEVO TARGET',
-  'target.form.specifyArea': 'ESPECIFICAR LARGO DE AREA',
-  'target.form.targetTitle': 'TÍTULO DEL TARGET',
-  'target.form.selectTopic': 'SELECCIONE UN TOPICO',
   'target.form.saveTarget': 'GUARDAR TARGET',
 
   // Common Buttons

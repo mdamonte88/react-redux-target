@@ -15,7 +15,7 @@ export default {
 
   'login.forgot_password': 'Forgot your password?',
 
-  //Menu
+  // Menu
   'menu.about': 'ABOUT',
   'menu.contact': 'CONTACT',
 
