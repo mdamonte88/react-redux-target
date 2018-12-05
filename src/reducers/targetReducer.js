@@ -18,7 +18,7 @@ export default function targetReducer(state = initialState, { type, targets, tar
     case actions.ADD_TARGET_FAILED:
       return state.set(['target'], fromJS({}));
     case actions.SELECT_TARGET_SUCCESS:
-      return state.setIn(['targetSelected'], fromJS(action.target));
+      return state.setIn(['targetSelected'], fromJS(target));
     default:
       return state;
   }
