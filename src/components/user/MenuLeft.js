@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { array, func, object, string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
+import * as sections from '../../actions/actionTypes';
 import LogoutButton from 'components/user/LogoutButton';
 import Welcome from 'components/user/Welcome';
 import CreateTargetForm from 'components/user/CreateTargetForm';
@@ -17,21 +18,23 @@ export default class MenuLeft extends PureComponent {
     history: object.isRequired
   };
 
+
   render() {
     const { topicList, section, title, handleCreateTarget, history } = this.props;
     const { location } = history;
+    const pathname = location && location.pathname;
 
-    return section === 'newTarget' || section === 'aboutTarget' ?
+    return section === sections.NEW_TARGET || section === sections.ABOUT_TARGET ?
       (
         <div className="slide slideLeft col-6">
           <div className="header-content">
             <FormattedMessage id={title} />
-            <Link to={location && location.pathname === '/home' ? routes.index : routes.home} >
+            <Link to={pathname === routes.home ? routes.index : routes.home} >
               <div className="close-icon" />
             </Link>
           </div>
           <div className="content create-target">
-            {section === 'newTarget' ? (
+            {section === sections.NEW_TARGET ? (
               <CreateTargetForm onSubmit={handleCreateTarget} topics={topicList} />
             ) : (
               <AboutTarget />

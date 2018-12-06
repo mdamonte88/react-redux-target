@@ -65,10 +65,10 @@ body {
       a {
         color: $black;
       }
-    }
-
-    li.selected {
-      font-weight: bold;
+      
+      &.selected {
+        font-weight: bold;
+      }
     }
   }
 

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
+import * as sections from '../actions/actionTypes';
 import Menu from 'components/common/Menu';
 import SimpleMap from 'components/common/maps/Map';
 import MenuLeft from 'components/user/MenuLeft';
@@ -62,9 +63,9 @@ class HomePage extends PureComponent {
     const { targetList, topicList, history } = this.props;
     const { isCreatingNewTarget } = this.state;
     const { location } = history;
-    let section = isCreatingNewTarget ? 'newTarget' : 'welcome';
-    section = location.pathname === '/about' ? 'aboutTarget' : section;
-    const showMenu = section !== 'aboutTarget' && !isCreatingNewTarget;
+    const showMenu = location.pathname === '/about' && !isCreatingNewTarget;
+    let section = isCreatingNewTarget ? sections.NEW_TARGET : sections.WELCOME;
+    section = location.pathname === '/about' ? sections.ABOUT_TARGET : section;
 
     return (
       <div className="slides-container homepage">

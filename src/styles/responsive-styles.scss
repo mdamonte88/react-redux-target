@@ -3,31 +3,35 @@
  Resonsive Styles */
 
 .slides-container {
-  .slide.col-1 { width: 8.33%; }
-  .slide.col-2 { width: 16.66%; }
-  .slide.col-3 { width: 25%; }
-  .slide.col-4 { width: 33.33%; }
-  .slide.col-5 { width: 41.66%; }
-  .slide.col-6 { width: 50%; }
-  .slide.col-7 { width: 58.33%; }
-  .slide.col-8 { width: 66.66%; }
-  .slide.col-9 { width: 75%; }
-  .slide.col-10 { width: 83.33%; }
-  .slide.col-11 { width: 91.66%; }
-  .slide.col-12 { width: 100%; }
+  .slide {
+    &.col-1 { width: 8.33%; }
+    &.col-2 { width: 16.66%; }
+    &.col-3 { width: 25%; }
+    &.col-4 { width: 33.33%; }
+    &.col-5 { width: 41.66%; }
+    &.col-6 { width: 50%; }
+    &.col-7 { width: 58.33%; }
+    &.col-8 { width: 66.66%; }
+    &.col-9 { width: 75%; }
+    &.col-10 { width: 83.33%; }
+    &.col-11 { width: 91.66%; }
+    &.col-12 { width: 100%; }
+  } 
 }
 
 @media only screen and (max-width: 768px) {
   .slides-container {
     /* For mobile phones: */
-    .slide[class*="col-"] {
-      width: 100%;
-    }
-    .slide.slideLeft[class*="col-"] {
-      width: 100%;
-    }
-    .slide.slideCenter[class*="col-"] {
-      width: 100%;
+    .slide {
+      &[class*="col-"] {
+        width: 100%;
+      }
+      &.slideLeft[class*="col-"] {
+        width: 100%;
+      }
+      &.slideCenter[class*="col-"] {
+        width: 100%;
+      }
     }
   }
 }
