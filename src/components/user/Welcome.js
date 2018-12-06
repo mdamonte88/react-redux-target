@@ -38,10 +38,10 @@ export default class Welcome extends PureComponent {
 
   render() {
     return (
-      <div className="topContent topSeparator--small">
+      <div className="top-content top-separator--small">
         <img
-          id="smilesIcon"
-          className="iconCenter"
+          id="smiles-icon"
+          className="icon smile-icon--big"
           alt=""
           src={smileIcon}
         />

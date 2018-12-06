@@ -22,18 +22,18 @@ class Menu extends PureComponent {
   render() {
     const { show, intl } = this.props;
 
-    return (
-      <div className="containerMenu" style={{ display: show ? 'block' : 'none' }} >
+    return !show ? null : (
+      <div className="containerMenu" >
         <div className="hamburgerIcon" />
         <div className="close" />
         <ul className="menuList">
           <li className="selected">
-            <Link className="Forgot-your-password" to={routes.about}>
+            <Link className="forgot-your-password" to={routes.about}>
               {intl.formatMessage(messages.about)}
             </Link>
           </li>
           <li>
-            <Link className="Forgot-your-password" to={routes.contact}>
+            <Link className="forgot-your-password" to={routes.contact}>
               {intl.formatMessage(messages.contact)}
             </Link>
           </li>

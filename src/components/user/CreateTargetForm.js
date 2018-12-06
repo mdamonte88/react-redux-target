@@ -61,8 +61,8 @@ export class CreateTargetForm extends PureComponent {
     return (
       <form onSubmit={handleSubmit}>
         <div>
-          <div className="targetGroupContainer">
-            <img src={createTargetIcon} className="targetGroup" alt="" />
+          <div className="target-group-container">
+            <img src={createTargetIcon} className="target-group" alt="" />
             <FormattedMessage id="target.title.createTarget" />
           </div>
 
@@ -102,7 +102,7 @@ export class CreateTargetForm extends PureComponent {
         </div>
 
         <div>
-          <img id="smilesIcon" className="iconSmile" alt="smiles" src={smileIcon} />
+          <img id="smiles-icon" className="icon smile-icon--small" alt="smiles" src={smileIcon} />
         </div>
         {submitting && <Loading />}
       </form>

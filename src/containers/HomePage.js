@@ -64,10 +64,11 @@ class HomePage extends PureComponent {
     const { location } = history;
     let section = isCreatingNewTarget ? 'newTarget' : 'welcome';
     section = location.pathname === '/about' ? 'aboutTarget' : section;
+    const showMenu = section !== 'aboutTarget' && !isCreatingNewTarget;
 
     return (
       <div className="slides-container homepage">
-        <Menu show={!isCreatingNewTarget} />
+        <Menu show={showMenu} />
         <MenuLeft
           topicList={topicList}
           title="target.title.createTarget"

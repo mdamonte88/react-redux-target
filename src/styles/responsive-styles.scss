@@ -1,6 +1,6 @@
 
-/* For desktop: */
-/* Resonsive Styles */
+/* For desktop:
+ Resonsive Styles */
 
 .slides-container {
   .slide.col-1 { width: 8.33%; }
@@ -23,6 +23,11 @@
     .slide[class*="col-"] {
       width: 100%;
     }
+    .slide.slideLeft[class*="col-"] {
+      width: 100%;
+    }
+    .slide.slideCenter[class*="col-"] {
+      width: 100%;
+    }
   }
-
 }
