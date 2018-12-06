@@ -25,7 +25,10 @@ export default class MenuLeft extends PureComponent {
       (
         <div className="slide slideLeft col-6">
           <div className="header-content">
-            <FormattedMessage id={title} /> <Link to={location && location.pathname === '/home' ? routes.index : routes.home} > <div className="close-icon" /> </Link>
+            <FormattedMessage id={title} />
+            <Link to={location && location.pathname === '/home' ? routes.index : routes.home} >
+              <div className="close-icon" />
+            </Link>
           </div>
           <div className="content create-target">
             {section === 'newTarget' ? <CreateTargetForm onSubmit={handleCreateTarget} topics={topicList} /> : <AboutTarget /> }

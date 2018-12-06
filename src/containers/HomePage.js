@@ -77,7 +77,11 @@ class HomePage extends PureComponent {
           history={history}
         />
         <div className="slide slideCenter col-6">
-          <SimpleMap markers={targetList} topics={topicList} onClick={this.onClickMap} />
+          <SimpleMap
+            markers={targetList}
+            topics={topicList}
+            onClick={this.onClickMap}
+          />
         </div>
       </div>
     );
