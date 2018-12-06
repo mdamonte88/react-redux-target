@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
-import * as sections from '../actions/actionTypes';
+import { SECTION_TYPES as sections } from '../constants/constants';
 import Menu from 'components/common/Menu';
 import SimpleMap from 'components/common/maps/Map';
 import MenuLeft from 'components/user/MenuLeft';
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
 import './../styles/responsive-styles.scss';
+import routes from 'constants/routesPaths';
 
 class HomePage extends PureComponent {
   static propTypes = {
@@ -63,9 +64,11 @@ class HomePage extends PureComponent {
     const { targetList, topicList, history } = this.props;
     const { isCreatingNewTarget } = this.state;
     const { location } = history;
-    const showMenu = location.pathname === '/about' && !isCreatingNewTarget;
-    let section = isCreatingNewTarget ? sections.NEW_TARGET : sections.WELCOME;
-    section = location.pathname === '/about' ? sections.ABOUT_TARGET : section;
+    const isAboutPage = location.pathname === routes.about;
+    const showMenu = !isAboutPage && !isCreatingNewTarget;
+    const { aboutTarget, newTarget, welcome } = sections;
+    let section = isCreatingNewTarget ? newTarget : welcome;
+    section = isAboutPage ? aboutTarget : section;
 
     return (
       <div className="slides-container homepage">

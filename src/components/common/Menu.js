@@ -28,12 +28,12 @@ class Menu extends PureComponent {
         <div className="close" />
         <ul className="menuList">
           <li className="selected">
-            <Link className="forgot-your-password" to={routes.about}>
+            <Link to={routes.about}>
               {intl.formatMessage(messages.about)}
             </Link>
           </li>
           <li>
-            <Link className="forgot-your-password" to={routes.contact}>
+            <Link to={routes.contact}>
               {intl.formatMessage(messages.contact)}
             </Link>
           </li>

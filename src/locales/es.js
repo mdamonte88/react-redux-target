@@ -23,7 +23,7 @@ export default {
   'menu.contact': 'CONTACTO',
 
   // SignUp
-  'signup.title': 'REGISRARSE',
+  'signup.title': 'REGISTRARSE',
   'signup.signin': 'Iniciar Sesión',
   'signup.form.passconfirmation': 'Confirmación de Contraseña',
 
