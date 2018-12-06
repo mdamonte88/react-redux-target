@@ -31,7 +31,11 @@ export default class MenuLeft extends PureComponent {
             </Link>
           </div>
           <div className="content create-target">
-            {section === 'newTarget' ? <CreateTargetForm onSubmit={handleCreateTarget} topics={topicList} /> : <AboutTarget /> }
+            {section === 'newTarget' ? (
+              <CreateTargetForm onSubmit={handleCreateTarget} topics={topicList} />
+            ) : (
+              <AboutTarget />
+            )}
           </div>
         </div>
       ) :
