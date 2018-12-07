@@ -2,12 +2,12 @@ import React, { PureComponent } from 'react';
 import { array, func, object, string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
-import { SECTION_TYPES as sections } from '../../constants/constants';
 import LogoutButton from 'components/user/LogoutButton';
 import Welcome from 'components/user/Welcome';
 import CreateTargetForm from 'components/user/CreateTargetForm';
 import AboutTarget from 'components/user/AboutTarget';
 import routes from 'constants/routesPaths';
+import { SECTION_TYPES as sections } from '../../constants/constants';
 
 export default class MenuLeft extends PureComponent {
   static propTypes = {

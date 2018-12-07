@@ -23,14 +23,12 @@
   .slides-container {
     /* For mobile phones: */
     .slide {
-      &[class*="col-"] {
-        width: 100%;
-      }
-      &.slideLeft[class*="col-"] {
-        width: 100%;
-      }
-      &.slideCenter[class*="col-"] {
-        width: 100%;
+      &,
+      &.slideLeft,
+      &.slideCenter {
+        &[class*="col-"] {
+          width: 100%;
+        }
       }
     }
   }

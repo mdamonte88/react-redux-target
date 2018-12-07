@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
-import { SECTION_TYPES as sections } from '../constants/constants';
 import Menu from 'components/common/Menu';
 import SimpleMap from 'components/common/maps/Map';
 import MenuLeft from 'components/user/MenuLeft';
+import routes from 'constants/routesPaths';
+import { SECTION_TYPES as sections } from '../constants/constants';
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
 import './../styles/responsive-styles.scss';
-import routes from 'constants/routesPaths';
 
 class HomePage extends PureComponent {
   static propTypes = {
