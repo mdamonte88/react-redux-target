@@ -31,7 +31,7 @@ class SignUpPage extends PureComponent {
       <div className="slides-container signup">
         <Menu />
         <div className="slide col-6">
-          <div className="topContent topSeparator--big">
+          <div className="top-content topSeparator--big">
             <p className="title"><FormattedMessage id="signup.title" /></p>
           </div>
           <div className="content">

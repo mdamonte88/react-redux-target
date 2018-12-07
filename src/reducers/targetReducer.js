@@ -6,7 +6,10 @@ const initialState = fromJS({
   target: {}
 });
 
-export default function targetReducer(state = initialState, { type, targets, target }) {
+export default function targetReducer(
+  state = initialState,
+  { type, targets, target }
+) {
   switch (type) {
     case actions.LOAD_TARGETS_SUCCESS:
       return state.setIn(['targetList'], fromJS(targets));

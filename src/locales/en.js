@@ -15,9 +15,11 @@ export default {
 
   'login.forgot_password': 'Forgot your password?',
 
+  // Menu
   'menu.about': 'ABOUT',
   'menu.contact': 'CONTACT',
 
+  // SignUp
   'signup.title': 'SIGN UP',
   'signup.signin': 'Sign in',
   'signup.form.passconfirmation': 'Comfirm Password',
@@ -32,7 +34,8 @@ export default {
   'home.welcome.createTarget': 'Create a target by clicking wherever on the map, specify the ratio and and a topic: Travel, Dating, Music, etc.',
   'home.welcome.willStart': 'will start a chat whenever you/’ve a match. You can always dismiss a conversation if you /’re not interested.',
 
-  // Target
+  // Target Page
+  'target.title.whatsTarget': 'WHAT’S TARGET?',
   'target.title.createTarget': 'CREATE TARGET',
   'target.title.createNewTarget': 'CREATE NEW TARGET',
   'target.form.specifyArea': 'SPECIFY AREA LENGHT',

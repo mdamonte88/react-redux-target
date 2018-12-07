@@ -6,20 +6,21 @@ import { parseInputErrors } from 'utils/helpers';
 
 export default class Input extends PureComponent {
   static propTypes = {
+    className: string,
     input: object.isRequired,
     label: string,
-    type: string.isRequired,
-    placeholder: string,
     meta: object,
+    placeholder: string,
+    type: string.isRequired,
   };
 
   render() {
     const {
+      className,
       input,
       label,
       type,
       placeholder,
-      className,
       meta: { touched, error }
     } = this.props;
 

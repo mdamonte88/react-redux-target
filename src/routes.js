@@ -1,8 +1,8 @@
 import routesPaths from 'constants/routesPaths';
 import HomePage from 'containers/HomePage';
 import LoginPage from 'containers/LoginPage';
-import SignUpPage from 'containers/SignUpPage';
 import NotFoundPage from 'containers/NotFoundPage';
+import SignUpPage from 'containers/SignUpPage';
 
 const routes = [
   {
@@ -12,12 +12,20 @@ const routes = [
     private: true
   },
   {
+    path: routesPaths.home,
+    component: HomePage,
+  },
+  {
     path: routesPaths.login,
     component: LoginPage
   },
   {
     path: routesPaths.signUp,
     component: SignUpPage
+  },
+  {
+    path: routesPaths.about,
+    component: HomePage
   },
   {
     component: NotFoundPage

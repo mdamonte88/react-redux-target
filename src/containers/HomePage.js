@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { array, func } from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { array, func, object } from 'prop-types';
 import Menu from 'components/common/Menu';
-import LogoutButton from 'components/user/LogoutButton';
 import SimpleMap from 'components/common/maps/Map';
-import Welcome from 'components/user/Welcome';
-import CreateTargetForm from 'components/user/CreateTargetForm';
+import MenuLeft from 'components/user/MenuLeft';
+import routes from 'constants/routesPaths';
+import { SECTION_TYPES as sections } from '../constants/constants';
 import { loadTargets, addTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
 import './../styles/responsive-styles.scss';
@@ -17,7 +16,8 @@ class HomePage extends PureComponent {
     topicList: array,
     loadTargets: func,
     loadTopics: func,
-    addTarget: func.isRequired
+    addTarget: func.isRequired,
+    history: object.isRequired
   };
 
   constructor() {
@@ -60,40 +60,27 @@ class HomePage extends PureComponent {
     return this.props.addTarget(targetCompleted);
   }
 
-  MenuLeft() {
-    return this.state.isCreatingNewTarget ?
-      (
-        <div>
-          <div className="headerContent">
-            <FormattedMessage id="target.title.createTarget" />
-          </div>
-          <div className="content create-target">
-            <CreateTargetForm
-              onSubmit={this.handleCreateTarget}
-            />
-          </div>
-        </div>
-      ) :
-      (
-        <div>
-          <Welcome currentPage="Home" />
-          <div className="content">
-            <LogoutButton className="sign-in-button" />
-          </div>
-        </div>
-      );
-  }
-
   render() {
-    const { targetList, topicList } = this.props;
+    const { targetList, topicList, history } = this.props;
+    const { isCreatingNewTarget } = this.state;
+    const { location } = history;
+    const isAboutPage = location.pathname === routes.about;
+    const showMenu = !isAboutPage && !isCreatingNewTarget;
+    const { aboutTarget, newTarget, welcome } = sections;
+    let section = isCreatingNewTarget ? newTarget : welcome;
+    section = isAboutPage ? aboutTarget : section;
 
     return (
       <div className="slides-container homepage">
-        <Menu />
-        <div className="slide col-6 slideLeft">
-          {this.MenuLeft()}
-        </div>
-        <div className="slide col-6 slideCenter">
+        <Menu show={showMenu} />
+        <MenuLeft
+          topicList={topicList}
+          title="target.title.createTarget"
+          handleCreateTarget={this.handleCreateTarget}
+          section={section}
+          history={history}
+        />
+        <div className="slide slideCenter col-6">
           <SimpleMap
             markers={targetList}
             topics={topicList}

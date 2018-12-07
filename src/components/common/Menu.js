@@ -1,16 +1,46 @@
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import routes from 'constants/routesPaths';
+import {
+  injectIntl,
+  intlShape,
+  defineMessages
+} from 'react-intl';
 
-const Menu = () => (
-  <div className="containerMenu">
-    <div className="hamburgerIcon" />
-    <div className="close" />
-    <ul className="menuList">
-      <li className="selected"> <FormattedMessage id="menu.about" /> </li>
-      <li> <FormattedMessage id="menu.contact" /> </li>
-    </ul>
-  </div>
-);
+const messages = defineMessages({
+  about: { id: 'menu.about' },
+  contact: { id: 'menu.contact' },
+});
 
-export default Menu;
+class Menu extends PureComponent {
+  static propTypes = {
+    show: PropTypes.bool,
+    intl: intlShape.isRequired,
+  };
 
+  render() {
+    const { show, intl } = this.props;
+
+    return !show ? null : (
+      <div className="containerMenu" >
+        <div className="hamburgerIcon" />
+        <div className="close" />
+        <ul className="menuList">
+          <li className="selected">
+            <Link to={routes.about}>
+              {intl.formatMessage(messages.about)}
+            </Link>
+          </li>
+          <li>
+            <Link to={routes.contact}>
+              {intl.formatMessage(messages.contact)}
+            </Link>
+          </li>
+        </ul>
+      </div>
+    );
+  }
+}
+
+export default injectIntl(Menu);
