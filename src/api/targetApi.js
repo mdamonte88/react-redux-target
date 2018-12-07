@@ -9,8 +9,8 @@ class TargetApi {
     return api.post('targets', target);
   }
 
-  static deleteTarget(targetId) {
-    return api.delete(`targets/${targetId}`);
+  static deleteTarget(target) {
+    return api.delete(`targets/${target.id}`, target);
   }
 }
 

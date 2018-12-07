@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { func, string, bool, array, obj } from 'prop-types';
+import { func, string, bool, array, object } from 'prop-types';
 import { Field, reduxForm } from 'redux-form/immutable';
 import {
   injectIntl,
@@ -28,7 +28,7 @@ export class CreateTargetForm extends PureComponent {
   static propTypes = {
     topicsList: array,
     isDeletingTarget: bool,
-    initialValues: obj,
+    initialValues: object,
     handleSubmit: func.isRequired,
     intl: intlShape.isRequired,
     submitting: bool.isRequired,
@@ -60,7 +60,7 @@ export class CreateTargetForm extends PureComponent {
     const { topics } = this.state;
     const { handleSubmit, error, submitting, intl, isDeletingTarget } = this.props;
     const target = this.props.initialValues.toJS();
-    const topicIdSelected = target ? target.topicId : '';
+    const topicIdSelected = target ? String(target.topicId) : '';
 
     return (
       <form onSubmit={handleSubmit}>

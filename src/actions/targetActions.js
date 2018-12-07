@@ -18,12 +18,16 @@ export const addTargetFailed = errors => ({
   type: actions.ADD_TARGET_FAILED, errors
 });
 
-export const selectTargetSucess = target => ({
+export const selectTargetSuccess = target => ({
   type: actions.SELECT_TARGET_SUCCESS, target
 });
 
-export const deleteTargetSuccess = target => ({
-  type: actions.REMOVE_TARGET_SUCCESS, target
+export const unSelectTargetSuccess = target => ({
+  type: actions.UNSELECT_TARGET_SUCCESS, target
+});
+
+export const deleteTargetSuccess = (target, index) => ({
+  type: actions.REMOVE_TARGET_SUCCESS, target, index
 });
 
 export const deleteTargetFailed = errors => ({
@@ -59,15 +63,29 @@ export const addTarget = target =>
 
 export const selectTarget = target =>
   (dispatch) => {
-    dispatch(selectTargetSucess(target));
+    target.id ? 
+      (
+        dispatch(selectTargetSuccess(target))
+      ) :
+      (
+        dispatch(unSelectTargetSuccess(target))
+      );
   };
 
-export const removeTarget = targetId =>
+export const removeTarget = (target, index) =>
   async (dispatch) => {
-    await TargetApi.deleteTarget(targetId).then((data) => {
-      dispatch(deleteTargetSuccess(data.target));
-    }).catch((error) => {
-      dispatch(deleteTargetFailed(error));
-    });
+    try {
+      const targetResponse = await TargetApi.deleteTarget(target);
+      dispatch(deleteTargetSuccess(targetResponse, index));
+    } catch (err) {
+      if (err.error) {
+        throw new SubmissionError({ _error: err.error });
+      } else if (err.errors) {
+        const { targetsLimit, user } = err.errors;
+        const [errorMessage = ''] = user || targetsLimit;
+        dispatch(deleteTargetFailed(err.errors));
+        throw new SubmissionError({ _error: errorMessage });
+      }
+    }
   };
 

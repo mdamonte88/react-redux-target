@@ -75,8 +75,10 @@ class HomePage extends PureComponent {
   }
 
   handleDeleteTarget = (data) => {
-    const { id } = data.toJS();
-    this.props.deleteTarget(id);
+    const target = data.toJS();
+    const { targetList } = this.props;
+    const index = targetList.findIndex(item => ((item.target.id === parseInt(target.id, 10))));
+    this.props.deleteTarget(target, index);
   }
 
   render() {
