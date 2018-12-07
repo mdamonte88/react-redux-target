@@ -24,7 +24,7 @@ export default function targetReducer(
     case actions.UNSELECT_TARGET_SUCCESS:
       return state.set('targetSelected', fromJS({}));
     case actions.REMOVE_TARGET_SUCCESS:
-      return state.set('targetList', state.get('targetList')).remove(index);
+      return state.set('targetList', state.get('targetList').remove(index));
     default:
       return state;
   }

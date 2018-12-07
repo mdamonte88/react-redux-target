@@ -16,12 +16,13 @@ export default class MenuLeft extends PureComponent {
     topicList: array,
     section: string,
     handleCreateTarget: func.isRequired,
+    handleDeleteTarget: func.isRequired,
     history: object.isRequired
   };
 
   render() {
     const enableReinitialize = true;
-    const { isDeletingTarget, topicList, section, title, handleCreateTarget, history } = this.props;
+    const { isDeletingTarget, topicList, section, title, handleCreateTarget, handleDeleteTarget, history } = this.props;
     const { location } = history;
     const pathname = location && location.pathname;
     const { aboutTarget, newTarget } = sections;
@@ -39,7 +40,7 @@ export default class MenuLeft extends PureComponent {
             {section === newTarget ?
               (
                 <CreateTargetForm
-                  onSubmit={handleCreateTarget}
+                  onSubmit={isDeletingTarget ? handleDeleteTarget : handleCreateTarget}
                   topics={topicList}
                   isDeletingTarget={isDeletingTarget}
                   enableReinitialize={enableReinitialize}

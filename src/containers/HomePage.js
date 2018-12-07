@@ -78,7 +78,9 @@ class HomePage extends PureComponent {
     const target = data.toJS();
     const { targetList } = this.props;
     const index = targetList.findIndex(item => ((item.target.id === parseInt(target.id, 10))));
-    this.props.deleteTarget(target, index);
+    if (index >= 0) {
+      this.props.deleteTarget(target, index);
+    }
   }
 
   render() {
@@ -88,7 +90,7 @@ class HomePage extends PureComponent {
     const isAboutPage = location.pathname === routes.about;
     const showMenu = !isAboutPage && !isCreatingNewTarget;
     const { aboutTarget, newTarget, welcome } = sections;
-    let section = isCreatingNewTarget ? newTarget : welcome;
+    let section = (isCreatingNewTarget || isDeletingTarget) ? newTarget : welcome;
     section = isAboutPage ? aboutTarget : section;
 
     return (
@@ -98,6 +100,7 @@ class HomePage extends PureComponent {
           topicList={topicList}
           title="target.title.createTarget"
           handleCreateTarget={this.handleCreateTarget}
+          handleDeleteTarget={this.handleDeleteTarget}
           section={section}
           history={history}
           isDeletingTarget={isDeletingTarget}
@@ -127,7 +130,7 @@ const mapDispatch = dispatch => ({
   loadTopics: () => dispatch(loadTopics()),
   addTarget: target => dispatch(addTarget(target)),
   selectTarget: target => dispatch(selectTarget(target)),
-  deleteTarget: target => dispatch(removeTarget(target))
+  deleteTarget: (target, index) => dispatch(removeTarget(target, index))
 });
 
 export default connect(mapState, mapDispatch)(HomePage);

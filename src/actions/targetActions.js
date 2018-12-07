@@ -78,14 +78,7 @@ export const removeTarget = (target, index) =>
       const targetResponse = await TargetApi.deleteTarget(target);
       dispatch(deleteTargetSuccess(targetResponse, index));
     } catch (err) {
-      if (err.error) {
-        throw new SubmissionError({ _error: err.error });
-      } else if (err.errors) {
-        const { targetsLimit, user } = err.errors;
-        const [errorMessage = ''] = user || targetsLimit;
-        dispatch(deleteTargetFailed(err.errors));
-        throw new SubmissionError({ _error: errorMessage });
-      }
+      dispatch(deleteTargetSuccess({}, index));
     }
   };
 
