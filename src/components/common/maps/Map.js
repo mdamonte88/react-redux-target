@@ -51,7 +51,8 @@ class SimpleMap extends PureComponent {
         key={id}
         lat={lat}
         lng={lng}
-        optionsStyle={this.getMarkersOptions(target)}
+        style={this.getMarkersOptions(target)}
+        className="marker-point"
       />);
   }
 
@@ -61,7 +62,6 @@ class SimpleMap extends PureComponent {
     const options = {
       width: w,
       height: h,
-      class: 'marker-point'
     };
     this.topics.map((topic) => {
       if (topic.topic.id === topicId) {

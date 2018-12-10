@@ -4,17 +4,19 @@ import PropTypes from 'prop-types';
 export default class CircleMarket extends PureComponent {
   static propTypes = {
     text: PropTypes.string,
-    optionsStyle: PropTypes.object
+    style: PropTypes.object,
+    className: PropTypes.string,
   };
 
   render() {
     const {
-      optionsStyle,
+      className,
+      style,
       text
     } = this.props;
 
     return (
-      <div style={optionsStyle} className={optionsStyle.class}>
+      <div style={style} className={className}>
         {text}
       </div>
     );
