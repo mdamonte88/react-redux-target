@@ -66,7 +66,6 @@ class SimpleMap extends PureComponent {
     this.topics.map((topic) => {
       if (topic.topic.id === topicId) {
         options.backgroundImage = `url(${topic.topic.icon})`;
-        options.backgroundSize = w || h;
       }
     });
 
