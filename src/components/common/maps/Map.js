@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import GoogleMapReact from 'google-map-react';
+import { meters2ScreenPixels } from 'google-map-react/utils';
 import PropTypes from 'prop-types';
 import CircleMarket from './markers/Circle';
 
@@ -54,13 +55,18 @@ class SimpleMap extends PureComponent {
       />);
   }
 
-  getMarkersOptions(target) {
-    const options = { width: '44px', height: '52px', class: 'markerPoint' };
+  getMarkersOptions({ lat, lng, radius, topicId }) {
+    const { w, h } = meters2ScreenPixels(radius, { lat, lng }, this.state.currentZoom);
+
+    const options = {
+      width: w,
+      height: h,
+      class: 'marker-point'
+    };
     this.topics.map((topic) => {
-      if (topic.topic.id === target.topicId) {
+      if (topic.topic.id === topicId) {
         options.backgroundImage = `url(${topic.topic.icon})`;
-        options.backgroundRepeat = 'no-repeat';
-        options.backgroundSize = '50px';
+        options.backgroundSize = w || h;
       }
     });
 

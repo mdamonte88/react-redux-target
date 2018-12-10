@@ -351,6 +351,19 @@
   }
 
   /*
+    #Markers
+  */
+
+  .marker-point {
+    background-color: rgba(239, 197, 55, 0.7);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+
+  /*
     #Buttons
   */
   button {
@@ -374,6 +387,11 @@
 
   button.sign-in-button {
     margin-top: 22px;
+  }
+
+  button.delete-button {
+    background-color: #D0021B;
+    margin-right: 10px;
   }
 }
 

@@ -105,9 +105,11 @@ export class CreateTargetForm extends PureComponent {
         </div>
         {error && <strong>{error}</strong>}
         <div className="wrapper-button">
-          <button className="sign-in-button" type="submit" style={isDeletingTarget ? {} : { display: 'none' }} >
+          {isDeletingTarget &&
+          <button className="delete-button" type="submit" >
             <FormattedMessage id="target.form.deleteTarget" />
           </button>
+          }
           <button className="create-target__button" type="submit">
             <FormattedMessage id="target.form.saveTarget" />
           </button>
