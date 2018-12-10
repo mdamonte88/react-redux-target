@@ -32,6 +32,7 @@ export class CreateTargetForm extends PureComponent {
     handleSubmit: func.isRequired,
     intl: intlShape.isRequired,
     submitting: bool.isRequired,
+    submitSucceeded: bool.isRequired,
     error: string,
   }
 
@@ -58,7 +59,7 @@ export class CreateTargetForm extends PureComponent {
 
   render() {
     const { topics } = this.state;
-    const { handleSubmit, error, submitting, intl, isDeletingTarget } = this.props;
+    const { handleSubmit, error, submitting, submitSucceeded, intl, isDeletingTarget } = this.props;
     const target = this.props.initialValues.toJS();
     const topicIdSelected = target ? String(target.topicId) : '';
 
@@ -104,7 +105,7 @@ export class CreateTargetForm extends PureComponent {
         </div>
         {error && <strong>{error}</strong>}
         <div className="wrapper-button">
-          <button className="sign-in-button" type="submit" style={isDeletingTarget ? {} : {display: 'none'}} >
+          <button className="sign-in-button" type="submit" style={isDeletingTarget ? {} : { display: 'none' }} >
             <FormattedMessage id="target.form.deleteTarget" />
           </button>
           <button className="create-target__button" type="submit">
@@ -112,10 +113,12 @@ export class CreateTargetForm extends PureComponent {
           </button>
         </div>
 
+        {submitting && <Loading />}
+        {submitSucceeded && <div className="icon saved-icon--small" />}
+
         <div>
           <img id="smiles-icon" className="icon smile-icon--small" alt="smiles" src={smileIcon} />
         </div>
-        {submitting && <Loading />}
       </form>
     );
   }
@@ -123,7 +126,12 @@ export class CreateTargetForm extends PureComponent {
 
 CreateTargetForm = reduxForm({
   form: 'target',
-  validate: validations(createTarget, { fullMessages: false })
+  validate: validations(createTarget, { fullMessages: false }),
+  onSubmitSuccess: (result, dispatch, props) => {
+    setTimeout(() => {
+      props.reset();
+    }, 2000);
+  }
 })(injectIntl(CreateTargetForm));
 
 const mapState = state => ({
