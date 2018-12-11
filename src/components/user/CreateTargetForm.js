@@ -60,7 +60,7 @@ export class CreateTargetForm extends PureComponent {
   render() {
     const { topics } = this.state;
     const { handleSubmit, error, submitting, submitSucceeded, intl, isDeletingTarget, initialValues } = this.props;
-    const topicIdSelected = initialValues && initialValues.topicId ? initialValues.topicId.toString() : topicIdSelected;
+    const topicIdSelected = initialValues && initialValues.topicId ? initialValues.topicId.toString() : '';
 
     return (
       <form onSubmit={handleSubmit}>

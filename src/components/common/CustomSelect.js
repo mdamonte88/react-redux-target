@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { array, number, object, string } from 'prop-types';
+import { array, object, string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { parseInputErrors } from 'utils/helpers';
 
@@ -22,7 +22,7 @@ export default class CustomSelect extends PureComponent {
   componentDidUpdate() {
     const { options = [], initialOption } = this.props;
     const { selectedOption } = this.state;
-    this.setState({ options, selectedOption: initialOption ? initialOption : selectedOption });
+    this.setState({ options, selectedOption: (initialOption || selectedOption) });
   }
 
   optionItem({ id, label, icon }) {

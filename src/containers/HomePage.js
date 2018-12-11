@@ -88,7 +88,7 @@ class HomePage extends PureComponent {
 
   showOrHideTargetSelected = (key) => {
     const oldSelectedElements = document.getElementsByClassName('marker-point__selected');
-    const selectedElement = key ? document.getElementById(`target-${key}`) : selectedElement;
+    const selectedElement = key ? document.getElementById(`target-${key}`) : '';
 
     // Manipulation Dom
     if (oldSelectedElements.length > 0) {
