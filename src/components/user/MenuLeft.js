@@ -38,17 +38,15 @@ export default class MenuLeft extends PureComponent {
           </div>
           <div className="content create-target">
             {section === newTarget ?
-              (
-                <CreateTargetForm
-                  onSubmit={isDeletingTarget ? handleDeleteTarget : handleCreateTarget}
-                  topics={topicList}
-                  isDeletingTarget={isDeletingTarget}
-                  enableReinitialize={enableReinitialize}
-                />
-              ) :
-              (
-                <AboutTarget />
-              )}
+              <CreateTargetForm
+                onSubmit={isDeletingTarget ? handleDeleteTarget : handleCreateTarget}
+                topics={topicList}
+                isDeletingTarget={isDeletingTarget}
+                enableReinitialize={enableReinitialize}
+              />
+              :
+              <AboutTarget />
+            }
           </div>
         </div>
       ) :

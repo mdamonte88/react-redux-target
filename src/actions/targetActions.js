@@ -18,12 +18,12 @@ export const addTargetFailed = errors => ({
   type: actions.ADD_TARGET_FAILED, errors
 });
 
-export const selectTargetSuccess = target => ({
-  type: actions.SELECT_TARGET_SUCCESS, target
+export const selectedTarget = target => ({
+  type: actions.SELECT_TARGET, target
 });
 
-export const unSelectTargetSuccess = target => ({
-  type: actions.UNSELECT_TARGET_SUCCESS, target
+export const unSelectedTarget = target => ({
+  type: actions.UNSELECT_TARGET, target
 });
 
 export const deleteTargetSuccess = (target, index) => ({
@@ -61,15 +61,9 @@ export const addTarget = target =>
     }
   };
 
-export const selectTarget = target =>
+export const selectedTarget = target =>
   (dispatch) => {
-    target.id ? 
-      (
-        dispatch(selectTargetSuccess(target))
-      ) :
-      (
-        dispatch(unSelectTargetSuccess(target))
-      );
+    dispatch(target.id ? selectedTarget(target) : unSelectedTarget(target));
   };
 
 export const removeTarget = (target, index) =>

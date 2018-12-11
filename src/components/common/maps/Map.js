@@ -104,8 +104,6 @@ class SimpleMap extends PureComponent {
           onClick={onClick}
           onBoundsChange={this._onBoundsChange}
           onChildClick={onChildClick}
-          onChildMouseEnter={this._onChildMouseEnter}
-          onChildMouseLeave={this._onChildMouseLeave}
         >
           {this.getTargets(markers, topics)}
         </GoogleMapReact>

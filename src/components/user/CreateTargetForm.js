@@ -59,9 +59,8 @@ export class CreateTargetForm extends PureComponent {
 
   render() {
     const { topics } = this.state;
-    const { handleSubmit, error, submitting, submitSucceeded, intl, isDeletingTarget } = this.props;
-    const target = this.props.initialValues.toJS();
-    const topicIdSelected = target ? String(target.topicId) : '';
+    const { handleSubmit, error, submitting, submitSucceeded, intl, isDeletingTarget, initialValues } = this.props;
+    const topicIdSelected = initialValues && initialValues.topicId ? initialValues.topicId.toString() : topicIdSelected;
 
     return (
       <form onSubmit={handleSubmit}>
@@ -99,16 +98,16 @@ export class CreateTargetForm extends PureComponent {
             options={topics}
             type="select"
             placeholder={intl.formatMessage(messages.placeHolderTopics)}
-            selectedOption={topicIdSelected}
+            initialOption={topicIdSelected}
             disabled={isDeletingTarget}
           />
         </div>
         {error && <strong>{error}</strong>}
         <div className="wrapper-button">
           {isDeletingTarget &&
-          <button className="delete-button" type="submit" >
-            <FormattedMessage id="target.form.deleteTarget" />
-          </button>
+            <button className="delete-button" type="submit" >
+              <FormattedMessage id="target.form.deleteTarget" />
+            </button>
           }
           <button className="create-target__button" type="submit">
             <FormattedMessage id="target.form.saveTarget" />

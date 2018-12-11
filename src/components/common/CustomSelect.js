@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { string, object, array } from 'prop-types';
+import { array, number, object, string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { parseInputErrors } from 'utils/helpers';
 
@@ -9,7 +9,6 @@ export default class CustomSelect extends PureComponent {
     label: string,
     type: string.isRequired,
     placeholder: string,
-    selectedOption: string,
     initialOption: string,
     meta: object,
     options: array
@@ -21,13 +20,14 @@ export default class CustomSelect extends PureComponent {
   };
 
   componentDidUpdate() {
-    const { options = [] } = this.props;
-    this.setState({ options });
+    const { options = [], initialOption } = this.props;
+    const { selectedOption } = this.state;
+    this.setState({ options, selectedOption: initialOption ? initialOption : selectedOption });
   }
 
   optionItem({ id, label, icon }) {
     const { selectedOption } = this.state;
-    const styleClass = (id == selectedOption) ? 'marked-option' : 'custom-option';
+    const styleClass = (id === selectedOption) ? 'marked-option' : 'custom-option';
     const styles = {};
 
     if (icon) {
@@ -61,6 +61,7 @@ export default class CustomSelect extends PureComponent {
     } = this.props;
 
     const { options, selectedOption } = this.state;
+    const valueSelected = [selectedOption];
 
     return (
       <div>
@@ -70,7 +71,7 @@ export default class CustomSelect extends PureComponent {
           <select
             className="custom-select" {...input} {...{ type }}
             onChange={this.handleChange}
-            value={[selectedOption]}
+            value={valueSelected}
             multiple
           >
             <option key="-1" value="-1" className="place-holder"> {placeholder} </option>
