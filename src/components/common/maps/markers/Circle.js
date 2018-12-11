@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class CircleMarket extends PureComponent {
   static propTypes = {
+    id: PropTypes.number,
     text: PropTypes.string,
     style: PropTypes.object,
     className: PropTypes.string,
@@ -11,12 +12,13 @@ export default class CircleMarket extends PureComponent {
   render() {
     const {
       className,
+      id,
       style,
       text
     } = this.props;
 
     return (
-      <div style={style} className={className}>
+      <div id={`target-${id}`} style={style} className={className}>
         {text}
       </div>
     );

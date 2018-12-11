@@ -47,16 +47,24 @@ class HomePage extends PureComponent {
       lng
     };
     this.props.selectTarget({});
-    this.setState({ targetPosition, isCreatingNewTarget: true, isDeletingTarget: false});
+    this.setState({ targetPosition, isCreatingNewTarget: true, isDeletingTarget: false });
   }
 
   /* Parameters { childProps } */
   onClickTarget = (key) => {
     const { targetList } = this.props;
     const targetToRem = targetList.find(item => ((item.target.id === parseInt(key, 10))));
+    const oldSelectedElements = document.getElementsByClassName('marker-point__selected');
+    const selectedElement = document.getElementById(`target-${key}`);
 
     this.props.selectTarget(targetToRem ? targetToRem.target : {});
     this.setState({ isDeletingTarget: true, isCreatingNewTarget: false });
+
+    // Manipulation Dom
+    if (oldSelectedElements.length > 0) {
+      oldSelectedElements[0].className = 'marker-point';
+    }
+    selectedElement.className = 'marker-point__selected';
   }
 
   handleCreateTarget = (data) => {

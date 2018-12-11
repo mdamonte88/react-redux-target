@@ -49,6 +49,7 @@ class SimpleMap extends PureComponent {
     return markers.map(({ target: { id, lat, lng } = {}, target }) =>
       <CircleMarket
         key={id}
+        id={id}
         lat={lat}
         lng={lng}
         style={this.getMarkersOptions(target)}

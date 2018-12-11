@@ -364,6 +364,16 @@
     transform: translate(-50%, -50%);
   }
 
+  .marker-point__selected {
+    background-color: rgba(127, 215, 245, 0.7);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+
   /*
     #Buttons
   */
