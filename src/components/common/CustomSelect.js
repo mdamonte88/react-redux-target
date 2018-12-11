@@ -20,9 +20,8 @@ export default class CustomSelect extends PureComponent {
   };
 
   componentDidUpdate() {
-    const { options = [], initialOption } = this.props;
-    const { selectedOption } = this.state;
-    this.setState({ options, selectedOption: (initialOption || selectedOption) });
+    const { options = [] } = this.props;
+    this.setState({ options });
   }
 
   optionItem({ id, label, icon }) {
@@ -61,7 +60,8 @@ export default class CustomSelect extends PureComponent {
     } = this.props;
 
     const { options, selectedOption } = this.state;
-    const valueSelected = [selectedOption];
+    const { initialOption } = this.props;
+    const valueSelected = [selectedOption || initialOption];
 
     return (
       <div>
