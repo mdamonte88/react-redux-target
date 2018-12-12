@@ -17,8 +17,8 @@ class HomePage extends PureComponent {
     loadTargets: func,
     loadTopics: func,
     addTarget: func.isRequired,
-    selectTarget: func,
-    deleteTarget: func,
+    selectTarget: func.isRequired,
+    deleteTarget: func.isRequired,
     history: object.isRequired
   };
 
@@ -46,20 +46,17 @@ class HomePage extends PureComponent {
       lat,
       lng
     };
-    this.props.selectTarget({});
+    this.props.selectTarget();
     this.setState({ targetPosition, isCreatingNewTarget: true, isDeletingTarget: false });
-    this.showOrHideTargetSelected();
   }
-  
+
   /* Parameters { childProps } */
   onClickTarget = (key) => {
     const { targetList } = this.props;
     const targetToRem = targetList.find(item => ((item.target.id === parseInt(key, 10))));
 
-    this.props.selectTarget(targetToRem ? targetToRem.target : {});
+    this.props.selectTarget(targetToRem.target);
     this.setState({ isDeletingTarget: true, isCreatingNewTarget: false });
-
-    this.showOrHideTargetSelected(key);
   }
 
   handleCreateTarget = (data) => {
@@ -83,20 +80,6 @@ class HomePage extends PureComponent {
     const index = targetList.findIndex(item => ((item.target.id === parseInt(target.id, 10))));
     if (index >= 0) {
       this.props.deleteTarget(target, index);
-    }
-  }
-
-  showOrHideTargetSelected = (key) => {
-    const oldSelectedElements = document.getElementsByClassName('marker-point__selected');
-    const selectedElement = key ? document.getElementById(`target-${key}`) : '';
-
-    // Manipulation Dom
-    if (oldSelectedElements.length > 0) {
-      oldSelectedElements[0].className = 'marker-point';
-    }
-
-    if (selectedElement) {
-      selectedElement.className = 'marker-point__selected';
     }
   }
 

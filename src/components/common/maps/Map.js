@@ -52,21 +52,21 @@ class SimpleMap extends PureComponent {
         id={id}
         lat={lat}
         lng={lng}
-        style={this.getMarkersOptions(target)}
+        style={this.getMarkersStyles(target)}
         className="marker-point"
       />);
   }
 
-  getMarkersOptions({ lat, lng, radius, topicId }) {
+  getMarkersStyles({ lat, lng, radius, topicId }) {
     const { w, h } = meters2ScreenPixels(radius, { lat, lng }, this.state.currentZoom);
 
     const options = {
       width: w,
       height: h,
     };
-    this.topics.map((topic) => {
-      if (topic.topic.id === topicId) {
-        options.backgroundImage = `url(${topic.topic.icon})`;
+    this.topics.map(({ topic }) => {
+      if (topic.id === topicId) {
+        options.backgroundImage = `url(${topic.icon})`;
       }
     });
 

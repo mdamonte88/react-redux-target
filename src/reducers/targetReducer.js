@@ -20,9 +20,9 @@ export default function targetReducer(
     case actions.ADD_TARGET_FAILED:
       return state.set('target', fromJS({}));
     case actions.SELECT_TARGET:
-      return state.set('targetSelected', fromJS(target));
+      return state.set('target', fromJS(target));
     case actions.UNSELECT_TARGET:
-      return state.set('targetSelected', fromJS({}));
+      return state.set('target', fromJS({}));
     case actions.REMOVE_TARGET_SUCCESS:
       return state.set('targetList', state.get('targetList').remove(index));
     default:

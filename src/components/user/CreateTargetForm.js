@@ -138,7 +138,7 @@ CreateTargetForm = reduxForm({
 
 const mapState = state => ({
   topicsList: state.getIn(['topic', 'topicList']).toJS(),
-  initialValues: state.getIn(['target', 'targetSelected']).toJS()
+  initialValues: state.getIn(['target', 'target']).toJS()
 });
 
 const mapDispatch = () => ({});
