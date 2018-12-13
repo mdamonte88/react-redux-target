@@ -63,7 +63,7 @@ export const addTarget = target =>
 
 export const selectTarget = target =>
   (dispatch) => {
-    dispatch(target && target.id ? selectedTarget(target) : unSelectedTarget(target));
+    dispatch((target && target.id ? selectedTarget : unSelectedTarget)(target));
   };
 
 export const removeTarget = (target, index) =>

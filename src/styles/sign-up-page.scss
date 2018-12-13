@@ -1,5 +1,16 @@
 @import 'settings';
 
+$redButton: #D0021B;
+
+/*
+  #Icon
+*/
+ $close-icon: url('./../assets/close/close.png');
+ $bullet-icon: url('./../assets/icons/oval-2-copy@3x.png');
+ $phone-icon: url('./../assets/phone/i-6@3x.png');
+ $apple-icon: url('./../assets/appstore/appstore-button@3x.png');
+ $save-icon: url('./../assets/icons/saved.png');
+
 /*
   The site has several pages with content splited in two slides:
   1) Left slide with forms in Login, Register and Home pages
@@ -227,7 +238,7 @@
     }
 
     .close-icon {
-      background-image: url('./../assets/close/close.png');
+      background-image: $close-icon;
       background-repeat: no-repeat;
       float: right;
       height: 24px;
@@ -268,7 +279,7 @@
   */
 
   p.bulletPoint {
-    background-image: url('./../assets/icons/oval-2-copy@3x.png');
+    background-image: $bullet-icon;
     background-position-y: 7px;
     background-repeat: no-repeat;
     background-size: 11px;
@@ -294,7 +305,7 @@
   }
 
   .phone {
-    background-image: url('./../assets/phone/i-6@3x.png');
+    background-image: $phone-icon;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -316,7 +327,7 @@
   }
 
   .apple-store {
-    background-image: url('./../assets/appstore/appstore-button@3x.png');
+    background-image: $apple-icon;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -343,7 +354,7 @@
   }
 
   .saved-icon--small {
-    background-image: url('./../assets/icons/saved.png');
+    background-image: $save-icon;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -355,7 +366,7 @@
   */
 
   .marker-point {
-    background-color: rgba(239, 197, 55, 0.7);
+    background-color: rgba(239, 197, 55, .7);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -365,7 +376,7 @@
   }
 
   .marker-point__selected {
-    background-color: rgba(127, 215, 245, 0.7);
+    background-color: rgba(127, 215, 245, .7);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -401,7 +412,7 @@
   }
 
   button.delete-button {
-    background-color: #D0021B;
+    background-color: $redButton;
     margin-right: 10px;
   }
 }
