@@ -6,7 +6,7 @@ import SimpleMap from 'components/common/maps/Map';
 import MenuLeft from 'components/user/MenuLeft';
 import routes from 'constants/routesPaths';
 import { SECTION_TYPES as sections } from '../constants/constants';
-import { loadTargets, addTarget, selectTarget, removeTarget } from '../actions/targetActions';
+import { loadTargets, newTarget, addTarget, selectTarget, removeTarget } from '../actions/targetActions';
 import { loadTopics } from '../actions/topicActions';
 import './../styles/responsive-styles.scss';
 
@@ -16,6 +16,7 @@ class HomePage extends PureComponent {
     topicList: array,
     loadTargets: func,
     loadTopics: func,
+    newTarget: func.isRequired,
     addTarget: func.isRequired,
     selectTarget: func.isRequired,
     deleteTarget: func.isRequired,
@@ -46,17 +47,30 @@ class HomePage extends PureComponent {
       lat,
       lng
     };
-    this.props.selectTarget();
+
+    this.createFutureTargetOnMap(targetPosition);
     this.setState({ targetPosition, isCreatingNewTarget: true, isDeletingTarget: false });
   }
 
   /* Parameters { childProps } */
   onClickTarget = (key) => {
-    const { targetList } = this.props;
-    const targetToRem = targetList.find(item => ((item.target.id === parseInt(key, 10))));
+    if (parseInt(key, 10) === -1) {
+      return;
+    }
 
+    const targetToRem = this.findTarget(key);
     this.props.selectTarget(targetToRem.target);
     this.setState({ isDeletingTarget: true, isCreatingNewTarget: false });
+  }
+
+  findTarget = (key) => {
+    const { targetList } = this.props;
+    return targetList.find(item => ((item.target.id === parseInt(key, 10))));
+  }
+
+  createFutureTargetOnMap = ({ lat, lng }) => {
+    const futureTarget = { target: { id: -1, title: 'new-target', lat, lng, radius: 100 } };
+    this.props.newTarget(futureTarget);
   }
 
   handleCreateTarget = (data) => {
@@ -128,6 +142,7 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   loadTargets: () => dispatch(loadTargets()),
   loadTopics: () => dispatch(loadTopics()),
+  newTarget: target => dispatch(newTarget(target)),
   addTarget: target => dispatch(addTarget(target)),
   selectTarget: target => dispatch(selectTarget(target)),
   deleteTarget: (target, index) => dispatch(removeTarget(target, index))

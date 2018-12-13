@@ -10,6 +10,10 @@ export const loadTargetsFailed = errors => ({
   type: actions.LOAD_TARGETS_FAILED, errors
 });
 
+export const addOrUpdateFutureTarget = target => ({
+  type: actions.ADD_OR_UPDATE_FUTURE_TARGET, target
+});
+
 export const addTargetSuccess = target => ({
   type: actions.ADD_TARGET_SUCCESS, target
 });
@@ -22,8 +26,8 @@ export const selectedTarget = target => ({
   type: actions.SELECT_TARGET, target
 });
 
-export const unSelectedTarget = target => ({
-  type: actions.UNSELECT_TARGET, target
+export const unSelectedTarget = () => ({
+  type: actions.UNSELECT_TARGET
 });
 
 export const deleteTargetSuccess = (target, index) => ({
@@ -44,6 +48,7 @@ export const addTarget = target =>
   async (dispatch) => {
     try {
       const targetResponse = await TargetApi.createTarget(target);
+      dispatch(deleteTargetSuccess({}, -1));
       dispatch(addTargetSuccess(targetResponse));
     } catch (err) {
       if (err.error) {
@@ -60,6 +65,12 @@ export const addTarget = target =>
 export const selectTarget = target =>
   (dispatch) => {
     dispatch((target && target.id ? selectedTarget : unSelectedTarget)(target));
+  };
+
+export const newTarget = target =>
+  (dispatch) => {
+    dispatch(unSelectedTarget(target));
+    dispatch(addOrUpdateFutureTarget(target));
   };
 
 export const removeTarget = (target, index) =>

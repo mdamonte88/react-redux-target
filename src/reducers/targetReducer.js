@@ -15,6 +15,12 @@ export default function targetReducer(
       return state.setIn(['targetList'], fromJS(targets));
     case actions.LOAD_TARGETS_FAILED:
       return state.setIn(['targetList'], fromJS([]));
+    case actions.ADD_OR_UPDATE_FUTURE_TARGET: {
+      const lastTarget = state.getIn(['targetList', -1]);
+      const futureTarget = lastTarget ? lastTarget.toJS() : {};
+      return (futureTarget.target.id === -1) ? state.setIn(['targetList', -1], fromJS(target)) :
+        state.set('targetList', state.get('targetList').push(fromJS(target)));
+    }
     case actions.ADD_TARGET_SUCCESS:
       return state.set('targetList', state.get('targetList').push(fromJS(target)));
     case actions.ADD_TARGET_FAILED:
