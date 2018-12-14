@@ -14,6 +14,10 @@ export const addOrUpdateFutureTarget = target => ({
   type: actions.ADD_OR_UPDATE_FUTURE_TARGET, target
 });
 
+export const deleteFutureTarget = () => ({
+  type: actions.REMOVE_FUTURE_TARGET
+});
+
 export const addTargetSuccess = target => ({
   type: actions.ADD_TARGET_SUCCESS, target
 });
@@ -48,7 +52,7 @@ export const addTarget = target =>
   async (dispatch) => {
     try {
       const targetResponse = await TargetApi.createTarget(target);
-      dispatch(deleteTargetSuccess({}, -1));
+      dispatch(deleteFutureTarget());
       dispatch(addTargetSuccess(targetResponse));
     } catch (err) {
       if (err.error) {
@@ -65,9 +69,13 @@ export const addTarget = target =>
 export const selectTarget = target =>
   (dispatch) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     dispatch((target && target.id ? selectedTarget : unSelectedTarget)(target));
 =======
     dispatch(deleteTargetSuccess({}, -1));
+=======
+    dispatch(deleteFutureTarget());
+>>>>>>> Added action to delete the future target clicked on the map
     dispatch(target && target.id ? selectedTarget(target) : unSelectedTarget(target));
 >>>>>>> delete the future target when I selected any target on the map
   };
