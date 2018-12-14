@@ -30,10 +30,6 @@ export const deleteTargetSuccess = (target, index) => ({
   type: actions.REMOVE_TARGET_SUCCESS, target, index
 });
 
-export const deleteTargetFailed = errors => ({
-  type: actions.REMOVE_TARGET_FAILED, errors
-});
-
 export const loadTargets = () =>
   async (dispatch) => {
     try {
@@ -72,7 +68,7 @@ export const removeTarget = (target, index) =>
       const targetResponse = await TargetApi.deleteTarget(target);
       dispatch(deleteTargetSuccess(targetResponse, index));
     } catch (err) {
-      dispatch(deleteTargetSuccess({}, index));
+      throw new SubmissionError({ _error: err });
     }
   };
 

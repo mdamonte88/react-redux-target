@@ -51,13 +51,17 @@ const getResponseBody = (response) => {
   return response.json();
 };
 
+const getResponseBodyEmpty = () => (
+  Promise.resolve()
+);
+
 class Api {
-  performRequest(uri, apiUrl, requestData = {}) {
+  performRequest(uri, apiUrl, requestData = {}, isDeleteRequest = false) {
     const url = `${apiUrl}${uri}`;
     return new Promise((resolve, reject) => {
       fetch(url, requestData)
         .then(handleErrors)
-        .then(getResponseBody)
+        .then(!isDeleteRequest ? getResponseBody : getResponseBodyEmpty)
         .then(response => resolve(humps.camelizeKeys(response)))
         .catch(error => reject(humps.camelizeKeys(error)));
     });
@@ -131,7 +135,7 @@ class Api {
       body: JSON.stringify(decamelizeData)
     };
     return this.addTokenHeader(requestData)
-      .then(data => this.performRequest(uri, apiUrl, data));
+      .then(data => this.performRequest(uri, apiUrl, data, true));
   }
 
   /*
