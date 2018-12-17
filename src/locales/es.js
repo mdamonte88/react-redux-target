@@ -51,11 +51,12 @@ export default {
   'target.form.placeHolderTitle': 'Elegir un título para tu target',
   'target.form.placeHolderTopics': '¿De que quieres hablar?',
   'target.form.saveTarget': 'GUARDAR TARGET',
+  'target.form.deleteTarget': 'BORRAR TARGET',
 
   // Common Buttons
   'logout.button': 'Desloguearse',
   'save.button': 'Guardar',
-
+  
   // errors
   'name.presence': 'Debe ingresar un nombre para continuar',
   'email.presence': 'Debe ingresar un email para continuar',

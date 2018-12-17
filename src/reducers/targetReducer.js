@@ -8,7 +8,7 @@ const initialState = fromJS({
 
 export default function targetReducer(
   state = initialState,
-  { type, targets, target }
+  { type, targets, target = {}, index }
 ) {
   switch (type) {
     case actions.LOAD_TARGETS_SUCCESS:
@@ -18,7 +18,13 @@ export default function targetReducer(
     case actions.ADD_TARGET_SUCCESS:
       return state.set('targetList', state.get('targetList').push(fromJS(target)));
     case actions.ADD_TARGET_FAILED:
-      return state.set(['target'], fromJS({}));
+      return state.set('target', fromJS({}));
+    case actions.SELECT_TARGET:
+      return state.set('target', fromJS(target));
+    case actions.UNSELECT_TARGET:
+      return state.set('target', fromJS({}));
+    case actions.REMOVE_TARGET_SUCCESS:
+      return state.set('targetList', state.get('targetList').remove(index));
     default:
       return state;
   }

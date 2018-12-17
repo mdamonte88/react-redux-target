@@ -1,5 +1,16 @@
 @import 'settings';
 
+$red-button: #D0021B;
+
+/*
+  #Icon
+*/
+ $close-icon: url('./../assets/close/close.png');
+ $bullet-icon: url('./../assets/icons/oval-2-copy@3x.png');
+ $phone-icon: url('./../assets/phone/i-6@3x.png');
+ $apple-icon: url('./../assets/appstore/appstore-button@3x.png');
+ $save-icon: url('./../assets/icons/saved.png');
+
 /*
   The site has several pages with content splited in two slides:
   1) Left slide with forms in Login, Register and Home pages
@@ -227,7 +238,7 @@
     }
 
     .close-icon {
-      background-image: url('./../assets/close/close.png');
+      background-image: $close-icon;
       background-repeat: no-repeat;
       float: right;
       height: 24px;
@@ -268,7 +279,7 @@
   */
 
   p.bulletPoint {
-    background-image: url('./../assets/icons/oval-2-copy@3x.png');
+    background-image: $bullet-icon;
     background-position-y: 7px;
     background-repeat: no-repeat;
     background-size: 11px;
@@ -294,7 +305,7 @@
   }
 
   .phone {
-    background-image: url('./../assets/phone/i-6@3x.png');
+    background-image: $phone-icon;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -316,7 +327,7 @@
   }
 
   .apple-store {
-    background-image: url('./../assets/appstore/appstore-button@3x.png');
+    background-image: $apple-icon;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -340,6 +351,38 @@
     height: 79px;
     margin: 0 auto 15px auto;
     width: 133px;
+  }
+
+  .saved-icon--small {
+    background-image: $save-icon;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: auto;
+  }
+
+  /*
+    #Markers
+  */
+
+  .marker-point {
+    background-color: rgba(239, 197, 55, .7);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+
+  .marker-point__selected {
+    background-color: rgba(127, 215, 245, .7);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
   }
 
   /*
@@ -366,6 +409,11 @@
 
   button.sign-in-button {
     margin-top: 22px;
+  }
+
+  button.delete-button {
+    background-color: $red-button;
+    margin-right: 10px;
   }
 }
 

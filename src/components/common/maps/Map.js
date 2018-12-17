@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import GoogleMapReact from 'google-map-react';
+import { meters2ScreenPixels } from 'google-map-react/utils';
 import PropTypes from 'prop-types';
 import CircleMarket from './markers/Circle';
 
@@ -20,7 +21,8 @@ class SimpleMap extends PureComponent {
     zoom: PropTypes.number,
     markers: PropTypes.array,
     topics: PropTypes.array,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    onChildClick: PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -47,19 +49,24 @@ class SimpleMap extends PureComponent {
     return markers.map(({ target: { id, lat, lng } = {}, target }) =>
       <CircleMarket
         key={id}
+        id={id}
         lat={lat}
         lng={lng}
-        optionsStyle={this.getMarkersOptions(target)}
+        style={this.getMarkersStyles(target)}
+        className="marker-point"
       />);
   }
 
-  getMarkersOptions(target) {
-    const options = { width: '44px', height: '52px', class: 'markerPoint' };
-    this.topics.map((topic) => {
-      if (topic.topic.id === target.topicId) {
-        options.backgroundImage = `url(${topic.topic.icon})`;
-        options.backgroundRepeat = 'no-repeat';
-        options.backgroundSize = '50px';
+  getMarkersStyles({ lat, lng, radius, topicId }) {
+    const { w, h } = meters2ScreenPixels(radius, { lat, lng }, this.state.currentZoom);
+
+    const options = {
+      width: w,
+      height: h,
+    };
+    this.topics.map(({ topic }) => {
+      if (topic.id === topicId) {
+        options.backgroundImage = `url(${topic.icon})`;
       }
     });
 
@@ -81,7 +88,8 @@ class SimpleMap extends PureComponent {
       zoom,
       markers,
       topics,
-      onClick
+      onClick,
+      onChildClick
     } = this.props;
 
     this.topics = this.props.topics;
@@ -95,6 +103,7 @@ class SimpleMap extends PureComponent {
           defaultZoom={zoom}
           onClick={onClick}
           onBoundsChange={this._onBoundsChange}
+          onChildClick={onChildClick}
         >
           {this.getTargets(markers, topics)}
         </GoogleMapReact>

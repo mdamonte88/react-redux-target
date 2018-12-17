@@ -18,6 +18,18 @@ export const addTargetFailed = errors => ({
   type: actions.ADD_TARGET_FAILED, errors
 });
 
+export const selectedTarget = target => ({
+  type: actions.SELECT_TARGET, target
+});
+
+export const unSelectedTarget = target => ({
+  type: actions.UNSELECT_TARGET, target
+});
+
+export const deleteTargetSuccess = (target, index) => ({
+  type: actions.REMOVE_TARGET_SUCCESS, target, index
+});
+
 export const loadTargets = () =>
   async (dispatch) => {
     try {
@@ -42,6 +54,21 @@ export const addTarget = target =>
         dispatch(addTargetFailed(err.errors));
         throw new SubmissionError({ _error: errorMessage });
       }
+    }
+  };
+
+export const selectTarget = target =>
+  (dispatch) => {
+    dispatch((target && target.id ? selectedTarget : unSelectedTarget)(target));
+  };
+
+export const removeTarget = (target, index) =>
+  async (dispatch) => {
+    try {
+      const targetResponse = await TargetApi.deleteTarget(target);
+      dispatch(deleteTargetSuccess(targetResponse, index));
+    } catch (err) {
+      throw new SubmissionError({ _error: err });
     }
   };
 
