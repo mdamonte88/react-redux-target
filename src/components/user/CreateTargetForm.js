@@ -114,10 +114,8 @@ export class CreateTargetForm extends PureComponent {
             <FormattedMessage id="target.form.saveTarget" />
           </button>
         </div>
-
         {submitting && <Loading />}
         {submitSucceeded && <div className="icon saved-icon--small" />}
-
         <div>
           <img id="smiles-icon" className="icon smile-icon--small" alt="smiles" src={smileIcon} />
         </div>

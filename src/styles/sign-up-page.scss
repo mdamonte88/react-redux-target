@@ -1,6 +1,6 @@
 @import 'settings';
 
-$redButton: #D0021B;
+$red-button: #D0021B;
 
 /*
   #Icon
@@ -412,7 +412,7 @@ $redButton: #D0021B;
   }
 
   button.delete-button {
-    background-color: $redButton;
+    background-color: $red-button;
     margin-right: 10px;
   }
 }

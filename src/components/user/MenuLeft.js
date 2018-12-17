@@ -21,7 +21,6 @@ export default class MenuLeft extends PureComponent {
   };
 
   render() {
-    const enableReinitialize = true;
     const { isDeletingTarget, topicList, section, title, handleCreateTarget, handleDeleteTarget, history } = this.props;
     const { location } = history;
     const pathname = location && location.pathname;
@@ -42,7 +41,7 @@ export default class MenuLeft extends PureComponent {
                 onSubmit={isDeletingTarget ? handleDeleteTarget : handleCreateTarget}
                 topics={topicList}
                 isDeletingTarget={isDeletingTarget}
-                enableReinitialize={enableReinitialize}
+                enableReinitialize
               />
               :
               <AboutTarget />
