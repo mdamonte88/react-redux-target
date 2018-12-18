@@ -1,10 +1,12 @@
 @import 'settings';
 
+/*
+  #Colors
+*/
 $monza: #d0021b;
 $wild-sand: #f4f4f4;
-$yellow-rgba: rgba(239, 197, 55, .7);
-$blue-rgba: rgba(127, 215, 245, .7);
-$white-rgba: rgba(255, 255, 255, 0.7);
+$saffron: #EFC537;
+$malibu: #7FD7F5;
 
 /*
   #Icon
@@ -287,7 +289,7 @@ $white-rgba: rgba(255, 255, 255, 0.7);
     background-position-y: 7px;
     background-repeat: no-repeat;
     background-size: 11px;
-    color: var(--black);
+    color: $black;
     font-family: $body-font-family;
     font-size: 14px;
     font-stretch: normal;
@@ -370,7 +372,7 @@ $white-rgba: rgba(255, 255, 255, 0.7);
   */
 
   .marker-point {
-    background-color: $yellow-rgba;
+    background-color: rgba($saffron, .7);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -380,7 +382,7 @@ $white-rgba: rgba(255, 255, 255, 0.7);
   }
 
   .marker-point__selected {
-    background-color: $blue-rgba;
+    background-color: rgba($malibu, .7);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -390,8 +392,8 @@ $white-rgba: rgba(255, 255, 255, 0.7);
   }
 
   .marker-point__new {
-    background-color: $white-rgba;
-    border: 1px solid $yellow-rgba;
+    background-color: rgba($white, 0.7);
+    border: 1px solid rgba($saffron, .7);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -417,7 +419,7 @@ $white-rgba: rgba(255, 255, 255, 0.7);
   */
   button {
     background-color: $black;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .3);
+    box-shadow: 0 2px 4px 0 rgba($black, .3);
     color: $white;
     font-size: 11px;
     font-stretch: normal;
