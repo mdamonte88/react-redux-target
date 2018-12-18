@@ -68,16 +68,8 @@ export const addTarget = target =>
 
 export const selectTarget = target =>
   (dispatch) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
     dispatch((target && target.id ? selectedTarget : unSelectedTarget)(target));
-=======
-    dispatch(deleteTargetSuccess({}, -1));
-=======
     dispatch(deleteFutureTarget());
->>>>>>> Added action to delete the future target clicked on the map
-    dispatch(target && target.id ? selectedTarget(target) : unSelectedTarget(target));
->>>>>>> delete the future target when I selected any target on the map
   };
 
 export const newTarget = target =>
