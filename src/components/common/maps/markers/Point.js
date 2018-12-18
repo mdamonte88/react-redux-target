@@ -7,10 +7,8 @@ export default class PointMarket extends PureComponent {
   };
 
   render() {
-    const {
-      style,
-    } = this.props;
-
+    const { style } = this.props;
+   
     return (
       <div id="target-new" style={style} className="marker-point__new" >
         <div className="point" />

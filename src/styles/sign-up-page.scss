@@ -1,6 +1,10 @@
 @import 'settings';
 
-$red-button: #D0021B;
+$monza: #d0021b;
+$wild-sand: #f4f4f4;
+$yellow-rgba: rgba(239, 197, 55, .7);
+$blue-rgba: rgba(127, 215, 245, .7);
+$white-rgba: rgba(255, 255, 255, 0.7);
 
 /*
   #Icon
@@ -107,7 +111,7 @@ $red-button: #D0021B;
     }
 
     option.marked-option {
-      background-color: #f4f4f4;
+      background-color: $wild-sand;
       background-position: 10px;
       background-repeat: no-repeat;
       background-size: 20px;
@@ -141,7 +145,7 @@ $red-button: #D0021B;
 
   .subTitle {
     span {
-      color: var(--black-two);
+      color: $black;
       font-family: $body-font-family;
       font-size: 18px;
       font-stretch: normal;
@@ -156,7 +160,7 @@ $red-button: #D0021B;
     text-align: start;
 
     span {
-      color: var(--black);
+      color: $black;
       font-family: $body-font-family;
       font-size: 14px;
       font-stretch: normal;
@@ -226,7 +230,7 @@ $red-button: #D0021B;
 
   .header-content {
     background-color: $primary-color;
-    color: white;
+    color: $white;
     height: 59px;
     padding-top: 17px;
     text-align: center;
@@ -366,7 +370,7 @@ $red-button: #D0021B;
   */
 
   .marker-point {
-    background-color: rgba(239, 197, 55, .7);
+    background-color: $yellow-rgba;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -376,7 +380,7 @@ $red-button: #D0021B;
   }
 
   .marker-point__selected {
-    background-color: rgba(127, 215, 245, .7);
+    background-color: $blue-rgba;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -386,8 +390,8 @@ $red-button: #D0021B;
   }
 
   .marker-point__new {
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(239, 197, 55, 0.7);
+    background-color: $white-rgba;
+    border: 1px solid $yellow-rgba;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
@@ -435,7 +439,7 @@ $red-button: #D0021B;
   }
 
   button.delete-button {
-    background-color: $red-button;
+    background-color: $monza;
     margin-right: .6rem;
   }
 }
