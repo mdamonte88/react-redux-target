@@ -1,18 +1,14 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class PointMarker extends PureComponent {
-  static propTypes = {
-    style: PropTypes.object
-  };
+const PointMarker = ({ style }) => (
+  <div id="target-new" style={style} className="marker-point__new" >
+    <div className="point" />
+  </div>
+);
 
-  render() {
-    const { style } = this.props;
-   
-    return (
-      <div id="target-new" style={style} className="marker-point__new" >
-        <div className="point" />
-      </div>
-    );
-  }
-}
+PointMarker.propTypes = {
+  style: PropTypes.object
+};
+
+export default PointMarker;
