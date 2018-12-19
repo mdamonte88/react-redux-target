@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-class CircleMarket extends PureComponent {
+class CircleMarker extends PureComponent {
   static propTypes = {
     id: PropTypes.number,
     text: PropTypes.string,
@@ -34,4 +34,4 @@ const mapState = state => ({
 
 const mapDispatch = () => ({});
 
-export default connect(mapState, mapDispatch)(CircleMarket);
+export default connect(mapState, mapDispatch)(CircleMarker);

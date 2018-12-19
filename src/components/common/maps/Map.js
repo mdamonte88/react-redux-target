@@ -44,7 +44,7 @@ class SimpleMap extends PureComponent {
 
   /*
     Get the Targets from the user.
-    In the case that there aren´t markets It will show a few by default
+    In the case that there aren´t markers It will show a few by default
   */
   getTargets(markers) {
     return markers.map(({ target: { id, lat, lng } = {}, target }) =>

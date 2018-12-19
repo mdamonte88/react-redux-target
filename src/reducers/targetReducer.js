@@ -16,12 +16,12 @@ export default function targetReducer(
     case actions.LOAD_TARGETS_FAILED:
       return state.setIn(['targetList'], fromJS([]));
     case actions.ADD_OR_UPDATE_FUTURE_TARGET: {
-      const hasFutureTarget = state.get('targetList').find((elem) => { return elem.toJS().target.id === -1; });
+      const hasFutureTarget = state.get('targetList').find(elem => elem.toJS().target.id === -1);
       return hasFutureTarget ? state.setIn(['targetList', -1], fromJS(target)) :
         state.set('targetList', state.get('targetList').push(fromJS(target)));
     }
     case actions.REMOVE_FUTURE_TARGET: {
-      const hasFutureTarget = state.get('targetList').find((elem) => { return elem.toJS().target.id === -1; });
+      const hasFutureTarget = state.get('targetList').find(elem => elem.toJS().target.id === -1);
       return hasFutureTarget ? state.set('targetList', state.getIn(['targetList']).remove(-1)) :
         state;
     }

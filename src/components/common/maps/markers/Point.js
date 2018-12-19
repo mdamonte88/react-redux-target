@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-export default class PointMarket extends PureComponent {
+export default class PointMarker extends PureComponent {
   static propTypes = {
     style: PropTypes.object
   };
