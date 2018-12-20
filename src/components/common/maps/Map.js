@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { meters2ScreenPixels } from 'google-map-react/utils';
 import PropTypes from 'prop-types';
-import CircleMarket from './markers/Circle';
+import PointMarker from './markers/Point';
+import CircleMarker from './markers/Circle';
 
 const keys = [
   {
@@ -43,18 +44,24 @@ class SimpleMap extends PureComponent {
 
   /*
     Get the Targets from the user.
-    In the case that there aren´t markets It will show a few by default
+    In the case that there aren´t markers It will show a few by default
   */
   getTargets(markers) {
     return markers.map(({ target: { id, lat, lng } = {}, target }) =>
-      <CircleMarket
-        key={id}
-        id={id}
-        lat={lat}
-        lng={lng}
-        style={this.getMarkersStyles(target)}
-        className="marker-point"
-      />);
+      (id === -1 ?
+        <PointMarker
+          key={id}
+          id={id}
+          lat={lat}
+          lng={lng}
+        /> :
+        <CircleMarker
+          key={id}
+          id={id}
+          lat={lat}
+          lng={lng}
+          style={this.getMarkersStyles(target)}
+        />));
   }
 
   getMarkersStyles({ lat, lng, radius, topicId }) {
