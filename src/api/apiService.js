@@ -15,22 +15,28 @@ const saveSessionHeaders = (headers) => {
   }
 };
 
-const handleErrors = response =>
+const handleErrors = (response, requestMethod) =>
   new Promise((resolve, reject) => {
+    const { status, ok, headers, statusText } = response;
     if (!response) {
       reject(new Error({ message: 'No response returned from fetch' }));
       return;
     }
 
-    saveSessionHeaders(response.headers);
-    if (response.ok) {
-      resolve(response);
+    saveSessionHeaders(headers);
+    if (ok && (status === 200 || status === 204)) {
+      if (requestMethod === 'delete') {
+        resolve();
+        return;
+      }
+
+      resolve(response.json());
       return;
     }
 
     sessionService.loadSession()
       .then(() => {
-        if (response.status === 401) {
+        if (status === 401) {
           sessionService.deleteSession();
           window.location = routes.login;
         }
@@ -38,30 +44,18 @@ const handleErrors = response =>
 
     response.json()
       .then((json) => {
-        const error = json || { message: response.statusText };
+        const error = json || { message: statusText };
         reject(error);
       }).catch(() => reject(new Error({ message: 'Response not JSON' })));
   });
 
-const getResponseBody = (response) => {
-  const bodyIsEmpty = response.status === 204;
-  if (bodyIsEmpty) {
-    return Promise.resolve();
-  }
-  return response.json();
-};
-
-const getResponseBodyEmpty = () => (
-  Promise.resolve()
-);
-
 class Api {
-  performRequest(uri, apiUrl, requestData = {}, isDeleteRequest = false) {
+  performRequest(uri, apiUrl, requestData = {}) {
     const url = `${apiUrl}${uri}`;
+
     return new Promise((resolve, reject) => {
       fetch(url, requestData)
-        .then(handleErrors)
-        .then(!isDeleteRequest ? getResponseBody : getResponseBodyEmpty)
+        .then(response => handleErrors(response, requestData.method))
         .then(response => resolve(humps.camelizeKeys(response)))
         .catch(error => reject(humps.camelizeKeys(error)));
     });
@@ -135,7 +129,7 @@ class Api {
       body: JSON.stringify(decamelizeData)
     };
     return this.addTokenHeader(requestData)
-      .then(data => this.performRequest(uri, apiUrl, data, true));
+      .then(data => this.performRequest(uri, apiUrl, data));
   }
 
   /*

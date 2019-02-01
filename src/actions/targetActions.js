@@ -34,8 +34,8 @@ export const unSelectedTarget = () => ({
   type: actions.UNSELECT_TARGET
 });
 
-export const deleteTargetSuccess = (target, index) => ({
-  type: actions.REMOVE_TARGET_SUCCESS, target, index
+export const deleteTargetSuccess = index => ({
+  type: actions.REMOVE_TARGET_SUCCESS, index
 });
 
 export const loadTargets = () =>
@@ -81,8 +81,8 @@ export const newTarget = target =>
 export const removeTarget = (target, index) =>
   async (dispatch) => {
     try {
-      const targetResponse = await TargetApi.deleteTarget(target);
-      dispatch(deleteTargetSuccess(targetResponse, index));
+      await TargetApi.deleteTarget(target);
+      dispatch(deleteTargetSuccess(index));
     } catch (err) {
       throw new SubmissionError({ _error: err });
     }
